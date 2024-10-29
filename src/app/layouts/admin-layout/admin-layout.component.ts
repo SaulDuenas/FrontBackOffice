@@ -1,29 +1,49 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
-import 'rxjs/add/operator/filter';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import PerfectScrollbar from 'perfect-scrollbar';
-import * as $ from "jquery";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+  ElementRef,
+} from "@angular/core";
+import {
+  Location,
+  LocationStrategy,
+  PathLocationStrategy,
+  PopStateEvent,
+} from "@angular/common";
+import "rxjs/add/operator/filter";
+import { NavbarComponent } from "../../components/navbar/navbar.component";
+import { Router, NavigationEnd, NavigationStart } from "@angular/router";
+import { Subscription } from "rxjs/Subscription";
+import PerfectScrollbar from "perfect-scrollbar";
+import * as jwt_decode from "jwt-decode";
 
 @Component({
-  selector: 'app-admin-layout',
-  templateUrl: './admin-layout.component.html',
-  styleUrls: ['./admin-layout.component.scss']
+  selector: "app-admin-layout",
+  templateUrl: "./admin-layout.component.html",
+  styleUrls: ["./admin-layout.component.scss"],
 })
 export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
 
-  constructor( public location: Location, private router: Router) {}
+  constructor(
+    public location: Location,
+    private router: Router,
+    private elementRef: ElementRef
+  ) {}
+
+    ngAfterViewInit() {
+      this.runOnRouteChange();
+     this.elementRef.nativeElement.ownerDocument.body.style.background =
+      " -webkit-gradient(linear, left top, left bottom, from(#F4F4F4 ), to(#F4F4F4)) fixed"; 
+    //this.elementRef.nativeElement.ownerDocument.body.style.backgroundImage=" url('../../assets/img/smart_fondo.png')";
+  }
 
   ngOnInit() {
-
-/*
-
-      const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+    this.leerToken()
+    /* const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
           // if we are on windows OS we activate the perfectScrollbar function
@@ -129,25 +149,21 @@ export class AdminLayoutComponent implements OnInit {
           if($sidebar_responsive.length != 0){
               $sidebar_responsive.css('background-image','url("' + new_image + '")');
           }
-      });
-      */
+      }); */
   }
-
-
-  ngAfterViewInit() {
-      this.runOnRouteChange();
-  }
-
-
-  isMaps(path){
-      var titlee = this.location.prepareExternalUrl(this.location.path());
-      titlee = titlee.slice( 1 );
-      if(path == titlee){
-          return false;
-      }
-      else {
-          return true;
-      }
+  userToken;
+  isProspect;
+    leerToken() {
+    if (localStorage.getItem("token")) {
+      this.userToken = localStorage.getItem("token");
+      var decoded = jwt_decode(this.userToken);
+      this.isProspect = decoded["isProspect"];
+      console.log(this.isProspect)
+      
+    } else {
+      this.userToken = "";
+    }
+    return this.userToken;
   }
 
   runOnRouteChange(): void {
@@ -164,5 +180,4 @@ export class AdminLayoutComponent implements OnInit {
       }
       return bool;
   }
-
 }

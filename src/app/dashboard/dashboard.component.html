@@ -1,415 +1,382 @@
 <div class="main-content">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                  <div class="card-header card-header-warning card-header-icon">
-                      <div class="card-icon">
-                          <i class="material-icons">content_copy</i>
-                      </div>
-                      <p class="card-category">Used Space</p>
-                      <h3 class="card-title">49/50
-                          <small>GB</small>
-                      </h3>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons text-danger">warning</i>
-                          <a href="javascript:void(0)">Get More Space...</a>
-                      </div>
-                  </div>
-              </div>
+  <div class="container-fluid" *ngIf="!ocultar">
+    <!-- Banner -->
+    <div class="card" style="border-radius: 10px 10px 10px 10px;  height: auto +10px;" *ngIf="!vOcultarBanner">
+
+      <mat-carousel style="border-radius: 10px 10px 10px 10px !important" timings="250ms ease-in" [autoplay]="true"
+        interval="5000" color="#5F5F5F" maxWidth="auto" proportion="16" slides="5" [loop]="true" [hideArrows]="false"
+        [hideIndicators]="true" [useKeyboard]="true" [useMouseWheel]="false" orientation="ltr">
+        <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; let i = index" [image]="slide.image"
+          overlayColor="#00000040" [hideOverlay]="true" style="border-radius: 10px 10px 10px 10px !important">
+          <div style="width: 100%; height: 100%; display: flex; flex-direction: column; ">
+
+            <div class="pull-right mt-2 mr-3">
+              <button type="button" class="close " aria-label="Close" (click)="ocultarBanner()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                  <div class="card-header card-header-success card-header-icon">
-                      <div class="card-icon">
-                          <i class="material-icons">store</i>
-                      </div>
-                      <p class="card-category">Revenue</p>
-                      <h3 class="card-title">$34,245</h3>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">date_range</i> Last 24 Hours
-                      </div>
-                  </div>
-              </div>
+        </mat-carousel-slide>
+      </mat-carousel>
+
+    </div>
+    <!-- Smart Account -->
+    <div class="row" style="margin-top:-5px !important">
+      <div class="col-12 col-xl-8">
+        <div class="card" style="border-radius: 10px 10px 10px 10px; height: 450px;">
+
+          <div class="d-flex justify-content-between">
+            <div class="titulo-grafica card-title mt-4 ml-5">{{ 'Dashboard.Account.Title' | translate }}</div>
+            <div class="mt-3 mr-5"><a [routerLink]="['/cuenta']" class="titulo-detalles">{{ 'Dashboard.Account.More' | translate }} →</a></div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                  <div class="card-header card-header-danger card-header-icon">
-                      <div class="card-icon">
-                          <i class="material-icons">info_outline</i>
-                      </div>
-                      <p class="card-category">Fixed Issues</p>
-                      <h3 class="card-title">75</h3>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">local_offer</i> Tracked from Github
-                      </div>
-                  </div>
-              </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="radio-toolbar mt-3">
+              <!-- <input type="radio" id="radioSemana" name="radioTime" value="S" checked>
+                <label for="radioSemana">semana</label> -->
+
+              <input type="radio" id="radioMes" name="radioTime" value="mensual" checked (change)="onItemChange($event.target.value)">
+              <label for="radioMes">{{ 'Dashboard.Account.Month' | translate }}</label>
+
+              <input type="radio" id="radioAno" name="radioTime" value="anual" (change)="onItemChange($event.target.value)">
+              <label for="radioAno">{{ 'Dashboard.Account.Year' | translate }}</label>
+            </div>
+
+            <div class="mt-3 mr-5 labels-grafica">
+              <span class="circulo-saldo-inicial mr-1"></span>
+              {{ 'Dashboard.Account.OBalance' | translate }}
+             <!--  <span class="ml-5 mr-1 circulo-saldo-final"></span>
+              {{ 'Dashboard.Account.TotalBalance' | translate }} -->
+            </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                  <div class="card-header card-header-info card-header-icon">
-                      <div class="card-icon">
-                          <i class="fa fa-twitter"></i>
-                      </div>
-                      <p class="card-category">Followers</p>
-                      <h3 class="card-title">+245</h3>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">update</i> Just Updated
-                      </div>
-                  </div>
-              </div>
+
+
+
+          <div *ngIf="isDataAvailable" class="card-body">
+            <div class="chart-wrapper ml-4 mr-4" style=" width: auto; height: 90%">
+              <canvas baseChart class="chart" [datasets]="lineChartData" [labels]="lineChartLabels"
+                [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                [chartType]="lineChartType" [plugins]="lineChartPlugins">
+              </canvas>
+            </div>
           </div>
+        </div>
       </div>
-      <div class="row">
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-success">
-                      <div class="ct-chart" id="dailySalesChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Daily Sales</h4>
-                      <p class="card-category">
-                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">access_time</i> updated 4 minutes ago
-                      </div>
-                  </div>
-              </div>
+
+      <div class="col-12 col-xl-4">
+        <div class="card" style="border-radius: 10px 10px 10px 10px;  height: 450px;">
+          <div class="ml-2">
+            <div class="titulo-grafica card-title ml-3 mt-4 mb-3 text-center">
+              {{ 'Dashboard.Level.Title' | translate }}
+            </div>
+            <div class="texto-EM">
+              {{ 'Dashboard.Level.Msg01' | translate }}
+            </div>
           </div>
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-warning">
-                      <div class="ct-chart" id="websiteViewsChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Email Subscriptions</h4>
-                      <p class="card-category">Last Campaign Performance</p>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">access_time</i> campaign sent 2 days ago
-                      </div>
-                  </div>
+          <div class="card-body mt-4">
+
+            <div *ngIf="!mostrarGrafica">
+              <div  style="display: flex;justify-content: center;align-items: center;">
+                <img [src]="imagenNivel" alt="" style="height: 200px;">
               </div>
+              <div class="mt-3" style="display: flex;justify-content: center;align-items: center;">
+                <span class="text-nivel ml-2 footer-grafica">{{descNivel | uppercase }}</span>
+              </div>              
+            </div>
+
+
+            <div style="width: auto; height: 90%;"  *ngIf="mostrarGrafica">
+              <canvas baseChart [data]="doughnutChartData" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)" [plugins]="doughnutChartPlugins" [options]="doughnutChartOptions"
+                [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [legend]="doughnutChartLegend"
+                [colors]="doughnutChartChartColors">
+              </canvas>
+            </div>
           </div>
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-danger">
-                      <div class="ct-chart" id="completedTasksChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Completed Tasks</h4>
-                      <p class="card-category">Last Campaign Performance</p>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">access_time</i> campaign sent 2 days ago
-                      </div>
-                  </div>
-              </div>
+          <div class="card-footer justify-content-center mb-5" *ngIf="mostrarGrafica">
+            <div class="footer-grafica ">
+              {{ 'Dashboard.Level.Footer01' | translate }} {{numSemanasXCalif}} {{ 'Dashboard.Level.Footer02' | translate }} 
+            {{numAfiliadosXCalif}} {{ 'Dashboard.Level.Footer03' | translate }}
+              
+             <!--  {{ 'Dashboard.Level.Msg02' | translate }}yukyukuyky -->
+            </div>
           </div>
+        </div>
       </div>
-      <div class="row">
-          <div class="col-lg-6 col-md-12">
-              <div class="card">
-                  <div class="card-header card-header-tabs card-header-primary">
-                      <div class="nav-tabs-navigation">
-                          <div class="nav-tabs-wrapper">
-                              <span class="nav-tabs-title">Tasks:</span>
-                              <ul class="nav nav-tabs" data-tabs="tabs">
-                                  <li class="nav-item">
-                                      <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
-                                          <i class="material-icons">bug_report</i> Bugs
-                                          <div class="ripple-container"></div>
-                                      </a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a mat-button class="nav-link" href="#messages" data-toggle="tab">
-                                          <i class="material-icons">code</i> Website
-                                          <div class="ripple-container"></div>
-                                      </a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a mat-button class="nav-link" href="#settings" data-toggle="tab">
-                                          <i class="material-icons">cloud</i> Server
-                                          <div class="ripple-container"></div>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="card-body">
-                      <div class="tab-content">
-                          <div class="tab-pane active" id="profile">
-                              <table class="table">
-                                  <tbody>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="" checked>
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="">
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="">
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                          </td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="" checked>
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Create 4 Invisible User Experiences you Never Knew About</td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                          </div>
-                          <div class="tab-pane" id="messages">
-                              <table class="table">
-                                  <tbody>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="" checked>
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                          </td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="">
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                          </div>
-                          <div class="tab-pane" id="settings">
-                              <table class="table">
-                                  <tbody>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="">
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="" checked>
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                          </td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <div class="form-check">
-                                                  <label class="form-check-label">
-                                                      <input class="form-check-input" type="checkbox" value="" checked>
-                                                      <span class="form-check-sign">
-                                                          <span class="check"></span>
-                                                      </span>
-                                                  </label>
-                                              </div>
-                                          </td>
-                                          <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                          <td class="td-actions text-right">
-                                              <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">edit</i>
-                                              </button>
-                                              <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                                                  <i class="material-icons">close</i>
-                                              </button>
-                                          </td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+    </div>
+
+    <!-- Resumen general -->
+    <div class="row" style="margin-top:-35px">
+      <!-- Comunidad -->
+      <div class="col-12 col-xl-4">
+
+        <div class="card" style="border-radius: 10px 10px 10px 10px;  height: 370px;">
+
+          <div class="d-flex justify-content-between">
+            <div class="ml-3 titulo-grafica card-title mt-4 mb-3">{{ 'Dashboard.Community.Title' | translate }}</div>
+            <div class="mt-3 mr-3"><a [routerLink]="['/organization']" class="titulo-detalles">{{ 'Dashboard.Community.More' | translate }} →</a></div>
           </div>
-          <div class="col-lg-6 col-md-12">
-              <div class="card">
-                  <div class="card-header card-header-warning">
-                      <h4 class="card-title">Employees Stats</h4>
-                      <p class="card-category">New employees on 15th September, 2016</p>
-                  </div>
-                  <div class="card-body table-responsive">
-                      <table class="table table-hover">
-                          <thead class="text-warning">
-                              <th>ID</th>
-                              <th>Name</th>
-                              <th>Salary</th>
-                              <th>Country</th>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>Dakota Rice</td>
-                                  <td>$36,738</td>
-                                  <td>Niger</td>
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>Minerva Hooper</td>
-                                  <td>$23,789</td>
-                                  <td>Curaçao</td>
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>Sage Rodriguez</td>
-                                  <td>$56,142</td>
-                                  <td>Netherlands</td>
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>Philip Chaney</td>
-                                  <td>$38,735</td>
-                                  <td>Korea, South</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
+
+          <div class="ml-3">
+            <select class="select-css" (change)="onChangeSocios($event.target.value)" >
+              <option value="mensual">{{ 'Dashboard.Bonus.Month' | translate }}</option>
+              <option value="anual">{{ 'Dashboard.Bonus.Year' | translate }}</option>
+            </select>
           </div>
+
+          <div class="d-flex mt-2">
+            <div class="ml-3 p-2 comunidad-total">{{cantidadSociosGenerados}}</div>
+            <div class="p-2 afiliados-nuevos">{{ 'Dashboard.Community.New' | translate }}</div>
+            <div class="ml-auto p-2">
+              <div class="mr-3 porcentaje-red">{{porcentajeComunidad | number : '1.2-2'}}%</div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="chart-wrapper mt-3" style=" width: auto; height: 160px">
+              <canvas baseChart [datasets]="rendChartData" [labels]="rendChartLabels" [options]="rendChartOptions"
+                [colors]="rendChartColors" [legend]="rendChartLegend" [chartType]="rendChartType"
+                [plugins]="rendChartPlugins">
+              </canvas>
+            </div>
+          </div>
+
+        </div>
       </div>
+      <!-- Bonos -->
+      <div class="col-12 col-xl-4">
+
+        <div class="card" style="border-radius: 10px 10px 10px 10px;  height: 370px;">
+
+          <div class="d-flex justify-content-between">
+            <div class="ml-3 titulo-grafica card-title mt-4 mb-3">{{ 'Dashboard.Bonus.Title' | translate }}</div>
+            <div class="mt-3 mr-3"><a [routerLink]="['/bonos']" class="titulo-detalles">{{ 'Dashboard.Bonus.More' | translate }} →</a></div>
+          </div>
+
+          <div class="ml-3">
+            <select class="select-css" (change)="onChange($event.target.value)">
+              <option value="mensual">{{ 'Dashboard.Bonus.Month' | translate }}</option>
+              <option value="anual">{{ 'Dashboard.Bonus.Year' | translate }}</option>
+            </select>
+          </div>
+
+          <div class="d-flex mt-2">
+            <div class="ml-3 p-2 comunidad-total">{{montoBononsTotalesGenerados}} USD</div>
+            <div class="ml-auto p-2">
+              <div class="mr-3 porcentaje-green">{{porcentajeBonos | number : '1.2-2'}}%</div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="chart-wrapper mt-3" style=" width: auto; height: 160px">
+              <canvas baseChart [datasets]="bonoChartData" [labels]="bonoChartLabels" [options]="bonoChartOptions"
+                [colors]="bonoChartColors" [legend]="bonoChartLegend" [chartType]="bonoChartType"
+                [plugins]="bonoChartPlugins">
+              </canvas>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- Ingreso mensual -->
+      <div class="col-12 col-xl-4">
+
+        <div class="card" style="border-radius: 10px 10px 10px 10px;  height: 370px;">
+          <div>
+            <div class="row titulo-grafica card-title mt-4 mb-3 justify-content-center">
+              {{ 'Dashboard.Income.Title' | translate }}
+            </div>
+            <div class="row EMSenior justify-content-center">
+              {{descNivel | uppercase }} →
+            </div>
+            <div class="row texto-description justify-content-center">
+              {{ 'Dashboard.Income.Msg01' | translate }} {{recibe | number : '1.2-2'}} {{ 'Dashboard.Income.Msg02' | translate }}
+            </div>
+          </div>
+          <div class="card-body ">
+            <div class="row justify-content-center" style=" width: auto; height: auto;">
+              <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue" [options]="options">
+              </rg-gauge-chart>
+
+            </div>
+            <div class="row EMSenior justify-content-center" style="margin-top:-30px" *ngIf="ocultaSaldoIngresoMensual">
+              {{saldo | number : '1.2-2'}} USD
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Legal -->
+    <div class="card" style="border-radius: 10px 10px 10px 10px;" style="margin-top:-5px">
+
+
+      <div class="titulo-grafica card-title float-left mt-4 ml-3">
+        {{ 'Dashboard.Info.Title' | translate }}
+      </div>
+
+      <div class="container-fluid">
+
+        <div class="row">
+
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="d-flex justify-content-between card-legal-sbc">
+
+              <div class="align-self-center">
+                <span class="text-legal">{{ 'Dashboard.Info.Terms' | translate }}</span>
+              </div>
+
+              <div class="align-self-center">
+                <a [href]=" 'Dashboard.Document.Terms' | translate ">
+                  <span class="material-icons float-right icon">get_app</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="d-flex justify-content-between card-legal-sbc">
+
+              <div class="align-self-center">
+                <span class="text-legal">{{ 'Dashboard.Info.Contract' | translate }}</span>
+              </div>
+
+              <div class="align-self-center">
+                <a href="javascript:void(0);">
+                  <span class="material-icons float-right icon">get_app</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row mb-3">
+
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="d-flex justify-content-between card-legal-sbc">
+
+              <div class="align-self-center">
+                <span class="text-legal">{{ 'Dashboard.Info.Privacy' | translate }}</span>
+              </div>
+
+              <div class="align-self-center">
+                <a [href]=" 'Dashboard.Document.Privacy' | translate ">
+                  <span class="material-icons float-right icon">get_app</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="d-flex justify-content-between card-legal-sbc">
+
+              <div class="align-self-center">
+                <span class="text-legal">{{ 'Dashboard.Info.Registration' | translate }}</span>
+              </div>
+
+              <div class="align-self-center">
+                <a href="javascript:void(0);">
+                  <span class="material-icons float-right icon">get_app</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
   </div>
+
+  <div class="container-fluid" *ngIf="ocultar">
+    <!-- Inicia contratoInicial -->
+    <div id="contratoInicial" class="col-md-12">
+      <div class="row mt-0">
+        <!-- row mt-0 -->
+        <div class="col-md-12">
+          <!-- Col md 12 -->
+          <div class="card">
+            <!-- Card -->
+
+            <div class="card-body">
+              <!-- Card Body -->
+
+              <div class="row justify-content-center align-items-center mt-3">
+                <span style="font-weight: 600; font-size: 30px; color: #0093d6">{{ 'Regis.Thanks' | translate }} </span>
+              </div>
+              <div class="row justify-content-center align-items-center mt-4">
+                <span style="font-size: 18px; color: #333333">
+                  {{ 'Regis.MsgSteps' | translate }} </span>
+              </div>
+
+              <!-- inicio de row -->
+              <div class="row justify-content-center align-items-center mt-5">
+                <span style="font-weight: 600; font-size: 34px; color: #11458e">{{ 'Regis.Step01' | translate }} </span>
+              </div>
+              <div class="row justify-content-center align-items-center mt-2">
+                <span style="font-weight: 600; font-size: 14px; color: #1961ac">
+                  {{ 'Regis.MgsStep01' | translate }} </span>
+              </div>
+              <div class="row justify-content-center align-items-center mt-2">
+                <button mat-raised-button class="btn btn-info" routerLink="../profile">
+                  {{ 'Regis.GOPROFILE' | translate }}
+
+                </button>
+              </div>
+              <!-- fin de row -->
+
+              <!-- inicio de row -->
+              <div class="row justify-content-center align-items-center mt-5">
+                <span style="font-weight: 600; font-size: 34px; color: #11458e">
+                  {{ 'Regis.Step02' | translate }} </span>
+              </div>
+              <div class="row justify-content-center align-items-center mt-2">
+                <span style="font-weight: 600; font-size: 14px; color: #1961ac">{{ 'Regis.MgsStep02' | translate }}
+                </span>
+              </div>
+              <div class="row justify-content-center align-items-center mt-2">
+                <button mat-raised-button class="btn btn-success" routerLink="../newmembership">
+                  {{ 'Regis.Acquire' | translate }}
+
+                </button>
+              </div>
+              <!-- fin de row -->
+
+              <!-- inicio de row -->
+              <div class="row justify-content-center align-items-center mt-5">
+                <span style="font-weight: 600; font-size: 34px; color: #11458e">{{ 'Regis.Step03' | translate }}
+                </span>
+              </div>
+              <div class="row justify-content-center align-items-center mt-2">
+                <span style="font-weight: 600; font-size: 14px; color: #1961ac">
+                  {{ 'Regis.MgsStep03' | translate }}
+                </span>
+              </div>
+              <div class="row justify-content-center align-items-center mt-2">
+                <button mat-raised-button class="btn btn-warning">
+                  {{ 'Regis.NotifyPay' | translate }}
+                </button>
+              </div>
+              <!-- fin de row -->
+            </div>
+            <!-- Fin Card Body -->
+          </div>
+          <!-- Fin Card -->
+        </div>
+        <!-- Fin Col md 12 -->
+      </div>
+      <!-- Fin row mt-0 -->
+    </div>
+    <!-- Termina contratoInicial -->
+  </div>
+</div>
+
+<div>
+  <app-modal-start *ngIf="showIt" [oldname]="name" (close)="closeModal($event)"></app-modal-start>
 </div>

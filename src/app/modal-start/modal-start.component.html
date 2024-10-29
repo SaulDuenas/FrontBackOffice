@@ -1,0 +1,156 @@
+<div class="modalStart">
+  <div class="closeButton">
+    <img
+      src="../../assets/img/kit/close.png"
+      (click)="ok()"
+      alt=""
+      style="cursor: pointer"
+    />
+  </div>
+
+  <div class="container-fluid">
+    <div id="contratoInicial">
+      <div
+        class="row justify-content-center mt-4"
+        style="color: #11458e; font-size: 24px; font-weight: 600"
+        align="center"
+      >
+        ¡Bienvenido a tu Smart Office!
+      </div>
+
+      <div
+        class="row justify-content-center mt-1"
+        style="color: #11458e; font-size: 24px; font-weight: 600"
+        align="center"
+      >
+        <img
+          class="img-fluid"
+          src="../../assets/img/kit/conocemas_sbc.png"
+          alt=""
+        />
+      </div>
+
+      <div class="mt-5 mb-5" style="height: auto">
+        <div class="">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="cuadrado1" routerLink="../kit/1">
+                <a href="javascript:void(0)" routerLink="../kit/1">
+                  <img
+                    class="mt-1"
+                    src="../../assets/img/kit/folosofia_bco.png"
+                    alt=""
+                /></a>
+
+                <p class="row labeltext justify-content-center">
+                  Conoce nuestra <br />
+                  Filosofía
+                </p>
+                <p>
+                  <a
+                    class="btn btn-success btn-round"
+                    style="
+                      background-color: #fff;
+                      color: #1961ac;
+                      font-weight: 600;
+                    "
+                    href="javascript:void(0)"
+                    routerLink="../kit/1"
+                    >Empieza aquí</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="cuadrado2" routerLink="../kit/2">
+                <a href="javascript:void(0)" routerLink="../kit/2"
+                  ><img src="../../assets/img/kit/PA_bco.png" alt=""
+                /></a>
+
+                <p class="row labeltext justify-content-center">
+                  Cómo ganar con los <br />Planes Adicionales
+                </p>
+                <p>
+                  <a
+                    class="btn btn-success btn-round"
+                    style="
+                      background-color: #fff;
+                      color: #1961ac;
+                      font-weight: 600;
+                    "
+                    href="javascript:void(0)"
+                    routerLink="../kit/2"
+                    >Empieza aquí</a
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="cuadrado3" routerLink="../kit/3">
+                <a href="javascript:void(0)" routerLink="../kit/3"
+                  ><img src="../../assets/img/kit/programa_bco.png" alt=""
+                /></a>
+
+                <p class="row labeltextBlank justify-content-center">
+                  Cómo ganar con el <br />Programa de Afiliados
+                </p>
+                <p>
+                  <a
+                    class="btn btn-success btn-round"
+                    style="
+                      background-color: #fff;
+                      color: #1961ac;
+                      font-weight: 600;
+                    "
+                    href="javascript:void(0)"
+                    routerLink="../kit/3"
+                    >Empieza aquí</a
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="cuadrado4" routerLink="../kit/4">
+                <a href="javascript:void(0)" routerLink="../kit/4"
+                  ><img src="../../assets/img/kit/atencion_bco.png" alt=""
+                /></a>
+
+                <p class="row labeltextBlank justify-content-center mt-3">
+                  Ayuda del Corporativo
+                </p>
+                <p class="mt-4">
+                  <a
+                    class="btn btn-success btn-round"
+                    style="
+                      background-color: #fff;
+                      color: #1961ac;
+                      font-weight: 600;
+                    "
+                    href="javascript:void(0)"
+                    routerLink="../kit/4"
+                    >Empieza aquí</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <mat-checkbox
+          color="primary"
+          class="example-margin"
+          [(ngModel)]="showIt"
+          name="showIt"
+        >
+          <span style="color: #11458e; font-weight: 600"
+            >No volver a mostrar este mensaje.</span
+          >
+        </mat-checkbox>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="overlay" (click)="ok()"></div>

@@ -1,33 +1,48 @@
-<footer class="footer ">
-    <div class="container-fluid">
-        <nav class="pull-left">
-            <ul>
-                <li>
-                    <a href="javascript: void(0)">
-                      Link
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0)">
-                        Link
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0)">
-                        Link
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0)">
-                        Url Link
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="copyright pull-right">
-            &copy;
-            {{test | date: 'yyyy'}}, 
-            <a href="javascript: void(0)" target="_blank">Smart Bussines</a> 
-        </div>
+<footer class="footer">
+  <div class="container-fluid d-flex flex-column flex-xl-row justify-content-between">
+    <!-- Menu -->
+    <div>
+
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/watch?v=r5ywnnCqflY&feature=youtu.be" target="_blank" class="left-menu"> {{ 'Footer.about' | translate }} </a>
+        </li>
+        <li>
+          <a href="https://blog.smartbusinesscorp.com.mx/" target="_blank" class="left-menu"> {{ 'Footer.blog' | translate }} </a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1AJZDhDNVUxxflpYz9mRShWnl9dzhUhgS/view?usp=sharing" target="_blank" class="left-menu"> FAQ's </a>
+        </li>
+        <li>
+          <a href="https://smartfundlimited.com/privacy-notice/smartbusiness" target="_blank" class="left-menu"> {{ 'Footer.Licences' | translate }} </a>
+        </li>
+      </ul>
+
     </div>
+    <!-- Redes sociales -->
+    <div class="d-flex align-items-center justify-content-center">
+      <a href="https://www.facebook.com/smartbusinesscorpoficial" target="_blank" class="social-icon">
+        <img src="/assets/img/social-icons/Facebook.svg" alt="" width="24px">
+      </a> 
+      <a href="https://www.youtube.com/channel/UCxD9xuMQjfwFeG3xCABWI2Q" target="_blank" class="social-icon">
+        <img src="/assets/img/social-icons/Youtube.svg" alt="" width="24px">
+      </a> 
+      <a href="https://www.instagram.com/smartbusinesscorp/" target="_blank" class="social-icon">
+        <img src="/assets/img/social-icons/Instagram.svg" alt="" width="24px">
+      </a> 
+      <a href="https://twitter.com/SBC_Mexico" target="_blank" class="social-icon">
+        <img src="/assets/img/social-icons/Twitter.svg" alt="" width="24px">
+      </a> 
+      <a href="https://www.linkedin.com/company/22288468" target="_blank" class="social-icon">
+        <img src="/assets/img/social-icons/Linkedin.svg" alt="" width="24px">
+      </a> 
+    </div>
+    <!-- Copy -->
+    <div class="copyright">
+      <span class="left-menu"> &copy;{{ test | date: "yyyy" }},</span> 
+      <a href="javascript:void(0)" target="_blank"  class="left-menu">{{ 'Footer.smart' | translate }}</a>
+    </div>
+
+  </div>
+
 </footer>

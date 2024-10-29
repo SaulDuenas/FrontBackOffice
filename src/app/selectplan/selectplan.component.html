@@ -1,0 +1,773 @@
+<div class="main-content">
+  <div class="container-fluid" *ngIf="showMainPanel">
+    <!-- Encabezado de seccion -->
+    <div class="mt-4 mb-4">
+      <div class="card m-0 p-3">
+          <div class="title d-flex">
+              <i class="material-icons" style="font-size: 35px">add_task</i>
+              <span [innerHTML]="'AcquirePlan.Title' | translate" class="ml-1"></span>
+          </div>
+          <div class="subTitle mt-2">
+              <span [innerHTML]="'AcquirePlan.Msg01' | translate" class=""></span>
+          </div>
+          <div class="mt-4">
+            <p class="textHead">{{ 'AcquirePlan.point01' | translate }}</p>
+            <p class="textHead">{{ 'AcquirePlan.point02' | translate }}</p>
+            <p class="textHead">{{ 'AcquirePlan.point03' | translate }}</p>
+            <p class="textHead">{{ 'AcquirePlan.point04' | translate }}</p>
+          </div>
+      </div>
+    </div>
+    <!-- Contenido -->
+    <div class="mb-4">
+      <div class="card m-0 p-4">
+        <div class="row">
+          <!-- Plan 500 -->
+          <div class="col-12 col-lg-6 col-xl-4 mb-4">
+            <div
+              class="card m-0"
+              style="background-color: #1ab7d1; height: auto;"
+            >
+              <div 
+                class="card-body" 
+                style="
+                  padding-right: 0px;
+                  padding-left: 0px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div class="row">
+                  <div class="col-md-12 mt-3">
+                    <div
+                      class="row justify-content-center"
+                      style="
+                        font-size: 45px;
+                        color: #fff;
+                        font-weight: 600;
+                        letter-spacing: 5px;
+                      "
+                    >
+                    {{ 'AcquirePlan.Plan' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="background-color: #ffffff; height: auto; margin-top: 15px; border-radius: 6px;"
+                >
+                  <div class="card-body">
+                    <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div
+                          class="row justify-content-center"
+                          style="
+                            font-size: 65px;
+                            color: #1ab7d1;
+                            font-weight: 800;
+                          "
+                        >
+                          <em style="margin-bottom: 16px;">500 </em>
+                          <em
+                            style="margin-left: 20px; font-size: 35px; margin-top: 10px;"
+                            class="usd"
+                          >
+                            USD</em
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-2 justify-content-center">
+                      <div class="col-md-11">
+                        <div
+                          class="row justify-content-center"
+                          style="font-size: 18px; color: #1ab7d1"
+                        >
+                          {{ 'AcquirePlan.MsgRate' | translate }}
+                          <span style="margin-left: 5px; font-weight: 600"
+                            >2.5%</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                        <div class="row justify-content-center">
+                          <button
+                            href="#"
+                            class="btn btn-round"
+                            style="
+                              background-color: #11458e; 
+                              color: #fff; 
+                              font-size: 16px; 
+                              font-weight: bold; 
+                              height: 45px;
+                              padding-top: 0px;
+                              padding-bottom: 0px;
+                              padding-left: 8px;
+                              padding-right: 8px;
+                            "
+                            (click)="showBTCPanel(500,2.5,211)"
+                          >
+                            <div 
+                              class="btc" 
+                              style="
+                                border-radius: 50%; 
+                                height: 28px; 
+                                width: 28px; 
+                                background-color: #fff; 
+                                display: inline-block; 
+                                vertical-align: middle; 
+                                line-height: 24px;
+                                margin-right: 2px;
+                              "
+                            >
+                              <img
+                                class="img-fluid"
+                                style="height: 20px; width: 20px;"
+                                src="../../assets/img/bitcoin_marino.png"
+                                alt=""
+                              />
+                            </div>
+                            {{ 'AcquirePlan.Acquire' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+          <!-- Plan 1000 -->
+          <div class="col-12 col-lg-6 col-xl-4 mb-4">
+            <div
+              class="card m-0"
+              style="background-color: #4ab6e8; height: auto"
+            >
+              <div 
+                class="card-body"
+                style="
+                  padding-right: 0px;
+                  padding-left: 0px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div class="row">
+                  <div class="col-md-12 mt-3">
+                    <div
+                      class="row justify-content-center"
+                      style="
+                        font-size: 45px;
+                        color: #fff;
+                        font-weight: 600;
+                        letter-spacing: 5px;
+                      "
+                    >
+                    {{ 'AcquirePlan.Plan' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="background-color: #ffffff; height: auto; margin-top: 15px; border-radius: 6px;"
+                >
+                  <div class="card-body">
+                    <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div
+                          class="row justify-content-center"
+                          style="
+                            font-size: 65px;
+                            color: #4ab6e8;
+                            font-weight: 800;
+                          "
+                        >
+                          <em style="margin-bottom: 16px;">1,000</em>
+                          <em
+                            style="margin-left: 20px; font-size: 35px; margin-top: 10px;"
+                            class="usd"
+                          >
+                            USD</em
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-2 justify-content-center">
+                      <div class="col-md-11">
+                        <div
+                          class="row justify-content-center"
+                          style="font-size: 18px; color: #4ab6e8"
+                        >
+                        {{ 'AcquirePlan.MsgRate' | translate }}
+                          <span style="margin-left: 5px; font-weight: 600"
+                            >3%</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                        <div class="row justify-content-center">
+                          <button
+                            href="#"
+                            class="btn btn-round"
+                            style="
+                              background-color: #11458e; 
+                              color: #fff;
+                              font-size: 16px; 
+                              font-weight: bold; 
+                              height: 45px; 
+                              padding-top: 0px;
+                              padding-bottom: 0px;
+                              padding-left: 8px;
+                              padding-right: 8px;
+                            "
+                            (click)="showBTCPanel(1000,3,212)"
+                          >
+                            <div 
+                              class="btc" 
+                              style="
+                                border-radius: 50%; 
+                                height: 28px; 
+                                width: 28px; 
+                                background-color: #fff; 
+                                display: inline-block; 
+                                vertical-align: middle; 
+                                line-height: 24px;
+                                margin-right: 2px;
+                              "
+                            >
+                              <img
+                                class="img-fluid"
+                                style="height: 20px; width: 20px;"
+                                src="../../assets/img/bitcoin_marino.png"
+                                alt=""
+                              />
+                            </div>
+                            {{ 'AcquirePlan.Acquire' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Plan 2000 -->
+          <div class="col-12 col-lg-6 col-xl-4 mb-4">
+            <div
+              class="card m-0"
+              style="background-color: #1a99d5; height: auto"
+            >
+              <div 
+                class="card-body"
+                style="
+                  padding-right: 0px;
+                  padding-left: 0px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div class="row">
+                  <div class="col-md-12 mt-3">
+                    <div
+                      class="row justify-content-center"
+                      style="
+                        font-size: 45px;
+                        color: #fff;
+                        font-weight: 600;
+                        letter-spacing: 5px;
+                      "
+                    >
+                      {{ 'AcquirePlan.Plan' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="background-color: #ffffff; height: auto; margin-top: 15px; border-radius: 6px;"
+                >
+                  <div class="card-body">
+                    <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div
+                          class="row justify-content-center"
+                          style="
+                            font-size: 65px;
+                            color: #1a99d5;
+                            font-weight: 800;
+                          "
+                        >
+                          <em style="margin-bottom: 16px;">2,000 </em>
+                          <em 
+                            style="margin-left: 20px; font-size: 35px; margin-top: 10px;" 
+                            class="usd"
+                          >
+                            USD
+                          </em>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-2 justify-content-center">
+                      <div class="col-md-11">
+                        <div
+                          class="row justify-content-center"
+                          style="font-size: 18px; color: #1a99d5"
+                        >
+                          {{ 'AcquirePlan.MsgRate' | translate }}
+                          <span style="margin-left: 5px; font-weight: 600"
+                            >4%</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                        <div class="row justify-content-center">
+                          <button
+                            href="#"
+                            class="btn btn-round"
+                            style="
+                              background-color: #11458e; 
+                              color: #fff;
+                              font-size: 16px; 
+                              font-weight: bold; 
+                              height: 45px;  
+                              padding-top: 0px;
+                              padding-bottom: 0px;
+                              padding-left: 8px;
+                              padding-right: 8px;
+                            "
+                            (click)="showBTCPanel(2000,4,213)"
+                          >
+                            <div 
+                              class="btc" 
+                              style="
+                                border-radius: 50%; 
+                                height: 28px; 
+                                width: 28px; 
+                                background-color: #fff; 
+                                display: inline-block; 
+                                vertical-align: middle; 
+                                line-height: 24px;
+                                margin-right: 2px;
+                              "
+                            >
+                              <img
+                                class="img-fluid"
+                                style="height: 20px; width: 20px;"
+                                src="../../assets/img/bitcoin_marino.png"
+                                alt=""
+                              />
+                            </div>
+                            {{ 'AcquirePlan.Acquire' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Plan 5000 -->
+          <div class="col-12 col-lg-6 col-xl-4 mb-4 mb-xl-0">
+            <div
+              class="card m-0"
+              style="background-color: #14559d; height: auto"
+            >
+              <div 
+                class="card-body"
+                style="
+                  padding-right: 0px;
+                  padding-left: 0px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div class="row">
+                  <div class="col-md-12 mt-3">
+                    <div
+                      class="row justify-content-center"
+                      style="
+                        font-size: 45px;
+                        color: #fff;
+                        font-weight: 600;
+                        letter-spacing: 5px;
+                      "
+                    >
+                    {{ 'AcquirePlan.Plan' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="background-color: #ffffff; height: auto; margin-top: 15px; border-radius: 6px;"
+                >
+                  <div class="card-body">
+                    <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div
+                          class="row justify-content-center"
+                          style="
+                            font-size: 65px;
+                            color: #14559d;
+                            font-weight: 800;
+                          "
+                        >
+                          <em style="margin-bottom: 16px;">5,000 </em>
+                          <em
+                            style="margin-left: 20px; font-size: 35px; margin-top: 10px;"
+                            class="usd"
+                          >
+                            USD</em
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-2 justify-content-center">
+                      <div class="col-md-11">
+                        <div
+                          class="row justify-content-center"
+                          style="font-size: 18px; color: #14559d"
+                        >
+                        {{ 'AcquirePlan.MsgRate' | translate }}
+
+                          <span style="margin-left: 5px; font-weight: 600"
+                            >5%</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                        <div class="row justify-content-center">
+                          <button
+                            href="#"
+                            class="btn btn-round"
+                            style="
+                              background-color: #11458e; 
+                              color: #fff;
+                              font-size: 16px; 
+                              font-weight: bold; 
+                              height: 45px;
+                              padding-top: 0px;
+                              padding-bottom: 0px;
+                              padding-left: 8px;
+                              padding-right: 8px;
+                            "
+                            (click)="showBTCPanel(5000,5,215)"
+                          >
+                            <div 
+                              class="btc" 
+                              style="
+                                border-radius: 50%; 
+                                height: 28px; 
+                                width: 28px; 
+                                background-color: #fff; 
+                                display: inline-block; 
+                                vertical-align: middle; 
+                                line-height: 24px;
+                                margin-right: 2px;
+                              "
+                            >
+                              <img
+                                class="img-fluid"
+                                style="height: 20px; width: 20px;"
+                                src="../../assets/img/bitcoin_marino.png"
+                                alt=""
+                              />
+                            </div>
+                            {{ 'AcquirePlan.Acquire' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Plan 10000 -->
+          <div class="col-12 col-lg-6 col-xl-4 mb-4 mb-lg-0">
+            <div
+              class="card m-0"
+              style="background-color: #233776; height: auto"
+            >
+              <div 
+                class="card-body"
+                style="
+                  padding-right: 0px;
+                  padding-left: 0px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div class="row">
+                  <div class="col-md-12 mt-3">
+                    <div
+                      class="row justify-content-center"
+                      style="
+                        font-size: 45px;
+                        color: #fff;
+                        font-weight: 600;
+                        letter-spacing: 5px;
+                      "
+                    >
+                    {{ 'AcquirePlan.Plan' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="background-color: #ffffff; height: auto; margin-top: 15px; border-radius: 6px;"
+                >
+                  <div class="card-body">
+                    <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div
+                          class="row justify-content-center"
+                          style="
+                            font-size: 65px;
+                            color: #233776;
+                            font-weight: 800;
+                          "
+                        >
+                          <em style="margin-bottom: 16px;">10,000 </em>
+                          <em
+                            style="margin-left: 20px; font-size: 35px; margin-top: 10px;"
+                            class="usd"
+                          >
+                            USD</em
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-2 justify-content-center">
+                      <div class="col-md-11">
+                        <div
+                          class="row justify-content-center"
+                          style="font-size: 18px; color: #233776"
+                        >
+                          {{ 'AcquirePlan.MsgRate' | translate }}
+                          <span style="margin-left: 5px; font-weight: 600"
+                            >6%</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                        <div class="row justify-content-center">
+                          <button
+                            href="#"
+                            class="btn btn-round"
+                            style="
+                              background-color: #11458e; 
+                              color: #fff;
+                              font-size: 16px; 
+                              font-weight: bold; 
+                              height: 45px;
+                              padding-top: 0px;
+                              padding-bottom: 0px;
+                              padding-left: 8px;
+                              padding-right: 8px;
+                            "
+                            (click)="showBTCPanel(10000,6,216)"
+                          >
+                            <div 
+                              class="btc" 
+                              style="
+                                border-radius: 50%; 
+                                height: 28px; 
+                                width: 28px; 
+                                background-color: #fff; 
+                                display: inline-block; 
+                                vertical-align: middle; 
+                                line-height: 24px;
+                                margin-right: 2px;
+                              "
+                            >
+                              <img
+                                class="img-fluid"
+                                style="height: 20px; width: 20px;"
+                                src="../../assets/img/bitcoin_marino.png"
+                                alt=""
+                              />
+                            </div>
+                            {{ 'AcquirePlan.Acquire' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Plan +10000 -->
+          <div class="col-12 col-lg-6 col-xl-4">
+            <div
+              class="card m-0"
+              style="background-color: #b4a268; height: auto"
+            >
+              <div 
+                class="card-body"
+                style="
+                  padding-right: 0px;
+                  padding-left: 0px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div class="row">
+                  <div class="col-md-12 mt-3">
+                    <div
+                      class="row justify-content-center"
+                      style="
+                        font-size: 45px;
+                        color: #fff;
+                        font-weight: 600;
+                        letter-spacing: 5px;
+                      "
+                    >
+                    {{ 'AcquirePlan.Plan' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="background-color: #ffffff; height: auto; margin-top: 15px; border-radius: 6px;"
+                >
+                  <div class="card-body">
+                    <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div
+                          class="row justify-content-center"
+                          style="
+                            font-size: 65px;
+                            color: #b4a268;
+                            font-weight: 800;
+                          "
+                        >
+                          <em
+                            style="
+                              font-size: 40px;
+                              font-weight: 800;
+                            "
+                            >+</em
+                          >
+                          <em style="margin-bottom: 16px;">10,000 </em>
+                          <em 
+                            style="margin-left: 20px; font-size: 35px; margin-top: 10px;" 
+                            class="usd"
+                          >
+                            USD
+                          </em>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-2 justify-content-center">
+                      <div class="col-md-11">
+                        <div
+                          class="row justify-content-center"
+                          style="font-size: 18px; color: #b4a268;"
+                        >
+                          {{ 'AcquirePlan.MsgRate' | translate }}
+                          <span style="margin-left: 5px; font-weight: 600"
+                            >6%</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                        <div class="row justify-content-center">
+                          <button
+                            href="#"
+                            (click)="contratarMas10000(6,217)"
+                            class="btn btn-round"
+                            style="
+                              background-color: #11458e; 
+                              color: #fff;
+                              font-size: 16px; 
+                              font-weight: bold; 
+                              height: 45px;
+                              padding-top: 0px;
+                              padding-bottom: 0px;
+                              padding-left: 8px;
+                              padding-right: 8px;
+                            "
+                          >
+                            <div 
+                              class="btc" 
+                              style="
+                                border-radius: 50%; 
+                                height: 28px; 
+                                width: 28px; 
+                                background-color: #fff; 
+                                display: inline-block; 
+                                vertical-align: middle; 
+                                line-height: 24px;
+                                margin-right: 2px;
+                              "
+                            >
+                              <img
+                                class="img-fluid"
+                                style="height: 20px; width: 20px;"
+                                src="../../assets/img/bitcoin_marino.png"
+                                alt=""
+                              />
+                            </div>
+                            {{ 'AcquirePlan.Acquire' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instrucciones de pago -->
+  <div id="pagoEnBTC" *ngIf="showBTC">
+    <div class="container-fluid">
+      <div class="mt-4 mb-4">
+        <div class="card m-0 p-4">
+          <h4 class="instructions-title">
+            {{ 'AcquirePlan.Instructions.Title' | translate }}
+          </h4>
+          <hr class="mt-2" style="border: 1px solid #0093D6; background-color: #0093D6;" />
+          <div class="pl-md-5 pr-md-5">
+            <p class="instructions-subtitle">{{ 'AcquirePlan.Instructions.Subtitle1' | translate }}
+              <br>{{ 'AcquirePlan.Instructions.Subtitle2' | translate }}
+            </p>
+            <ol>
+              <li>
+                {{ 'AcquirePlan.Instructions.Step1' | translate }}&nbsp; <a href="#" class="highlight-link">{{ 'AcquirePlan.Instructions.Link' | translate }}</a>
+              </li>
+              <li>
+                {{ 'AcquirePlan.Instructions.Step2' | translate }}
+              </li>
+              <li>
+                {{ 'AcquirePlan.Instructions.Step3' | translate }} <span class="highlight">{{ 'AcquirePlan.Instructions.Highlight' | translate }}</span>
+              </li>
+              <li>
+                {{ 'AcquirePlan.Instructions.Step4' | translate }}</li>
+              <li>
+                {{ 'AcquirePlan.Instructions.Step5' | translate }}
+              </li>
+            </ol>
+          </div>
+          <div class="d-flex flex-column flex-md-row justify-content-between pl-5 pr-5">
+            <button (click)="showMainPanelFunc()" type="button" class="btn btn-netx button btn-left">
+              <i class=" mr-2 fa fa-long-arrow-left"></i>
+              <span>{{ 'AcquirePlan.Instructions.Back' | translate }}</span>
+            </button>
+
+            <button (click)="showMainPanelFunc()" type="button" class="btn btn-netx button btn-right">
+              <span>{{ 'AcquirePlan.Instructions.Pay' | translate }}</span>
+              <i class="ml-2 fa fa-long-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

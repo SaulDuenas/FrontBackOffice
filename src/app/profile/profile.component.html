@@ -1,0 +1,557 @@
+<div class="main-content">
+  <div class="container-fluid" style="padding: 0px 32px;">
+
+    <!-- Encabezado de seccion -->
+    <div class="mt-4 mb-4">
+      <div class="card m-0 p-3">
+          <div class="title d-flex">
+              <i class="material-icons" style="font-size: 35px">recent_actors</i>
+              <span class="ml-2">
+                {{'Profile.Title' | translate}}
+              </span>
+          </div>
+          <div class="subTitle mt-2">
+              <span class="">
+                {{'Profile.Msg01' | translate}}
+              </span>
+          </div>
+      </div>
+    </div>
+
+    <!-- Contenido perfil y beneficiarios -->
+    <div class="card p-4">
+
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">{{'Profile.TabProfile.Title' | translate}}</a>
+          <a class="nav-item nav-link" id="nav-beneficiaries-tab" data-toggle="tab" href="#nav-beneficiaries" role="tab" aria-controls="nav-beneficiaries" aria-selected="false">{{'Profile.TabBeneficiaries.Title' | translate}}</a>
+        </div>
+      </nav>
+
+      <div class="tab-content" id="nav-tabContent">
+        <!-- Profile Tab -->
+        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="message pb-2">{{'Profile.TabProfile.Msg01' | translate}}</div>
+          <div class="container">
+            <div class="row mt-4">
+              <!-- Subir foto -->
+              <div class="col-12 col-xl-3">
+                <div class="photo">
+                  <div class="fileinput fileinput-new mt-3" data-provides="fileinput">
+                    <div class="fileinput-new img-thumbnail" style="width: 150px; height: 150px">
+                      <img style="border-radius: 5px !important" data-src="holder.js/100%x100%"
+                        [src]="image" alt="..." />
+                    </div>
+                    <!--"./assets/img/image_placeholder.jpg"-->
+                    <div class="fileinput-preview fileinput-exists img-thumbnail"
+                      style="max-width: 200px; max-height: 150px"></div>
+                    <div>
+                      <span class="btn btn-white btn-file button">
+                        <span class="fileinput-new">{{'Profile.TabProfile.ButtonUploadPhoto' | translate}}</span>
+                        <span class="fileinput-exists">
+                          {{'Profile.TabProfile.ButtonEditPhoto' | translate}}
+                        </span>
+                        <input type="file" (change)="handleImage($event.target.files)"
+                          accept=".jpeg,.png,.jpg" />
+                      </span>
+
+                      <!--  <a href="#" class="btn btn-white fileinput-exists"
+                        data-dismiss="fileinput">{{ 'MyProfile.RemoveButton' | translate }}</a> -->
+                    </div>
+                  </div>
+
+
+                  <!-- <img src="../../assets/img/profile_photo.png" alt="Profile photo">
+                  <span class="btn btn-file button">
+                    <span class="fileinput-new">{{'Profile.TabProfile.ButtonEditPhoto' | translate}}</span>
+                    <input type="file" (change)="handleImage($event.target.files)" accept=".jpeg,.png,.jpg" />
+                  </span> -->
+                </div>
+              </div>
+              <div class="col-12 col-xl-9">
+                <form [formGroup]="personalDataForm" (ngSubmit)="setPersonalData(personalDataForm.value)">
+                  <!-- Datos personales -->
+                  <div class="form-row">
+                    <div class="form-section col-12">
+                      {{'Profile.TabProfile.FormPersonal.Title' | translate}}
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPersonal.Name' | translate }}" 
+                          formControlName="name" id="name" type="text" required readonly />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPersonal.Surname1' | translate }}" 
+                          formControlName="surname1" id="surname1" type="text" required readonly />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPersonal.Surname2' | translate }}" 
+                          formControlName="surname2" id="surname2" type="text" readonly/>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <mat-select placeholder="{{ 'Profile.TabProfile.FormPersonal.Country' | translate }}" 
+                          formControlName="country">
+                            <mat-option *ngFor="let pais of arrayPaises" [(value)]="pais.PaisCodigo">
+                                {{ pais.PaisNombre }}
+                            </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <mat-form-field class="example-full-width">
+                        <mat-select placeholder="{{ 'Profile.TabProfile.FormPersonal.Code' | translate }}" 
+                          formControlName="code">
+                          <mat-option *ngFor="let c of countryCodes" [(value)]="c.code">
+                            {{ c.pais }} +{{ c.code }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPersonal.Phone' | translate }}" 
+                          formControlName="phone" id="phone" type="text" readonly/>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPersonal.Email' | translate }}" 
+                          formControlName="email" id="email" type="email" required readonly/>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPersonal.Birthdate' | translate }}" type="date"
+                          formControlName="birthdate" id="birthdate" required readonly/>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <mat-select placeholder="{{ 'Profile.TabProfile.FormPersonal.Gender.Label' | translate }}" 
+                          formControlName="gender">
+                            <mat-option *ngFor="let gender of arrayGender" [(value)]="gender.id">
+                              {{ gender.id | translate}}
+                            </mat-option>
+                        </mat-select>
+                      </mat-form-field> 
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPersonal.RFC' | translate }}" 
+                          formControlName="rfc" id="rfc" type="text" required readonly/>
+                      </mat-form-field>
+                    </div>
+                    <!-- <div class="btn-container col-12">
+                      <button type="submit" class="btn btn-save">{{'Profile.TabProfile.ButtonSave' | translate}}</button>
+                    </div> -->
+                  </div>
+                </form>
+                <!-- Dirección -->
+                <form [formGroup]="addressForm" (ngSubmit)="setAddress(addressForm.value)">
+                  <div class="form-row mt-5">
+                    <div class="form-section col-12">
+                      {{'Profile.TabProfile.FormAddress.Title' | translate}}
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormAddress.City' | translate }}" 
+                          formControlName="city" id="city" type="text" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormAddress.Street' | translate }}" 
+                          formControlName="street" id="street" type="text" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-1">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormAddress.Ext' | translate }}" 
+                          formControlName="ext" id="ext" type="text" />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-1">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormAddress.Int' | translate }}" 
+                          formControlName="int" id="int" type="text" />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormAddress.CP' | translate }}" 
+                          formControlName="cp" id="cp" type="text" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormAddress.Neighborhood' | translate }}" 
+                          formControlName="neighborhood" id="neighborhood" type="text" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormAddress.State' | translate }}" 
+                          formControlName="state" id="state" type="text" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="btn-container col-12">
+                      <button type="submit" class="btn btn-save" [disabled]="!addressForm.valid">
+                        {{'Profile.TabProfile.ButtonSave' | translate}}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <form [formGroup]="passwordForm" (ngSubmit)="setPassword(passwordForm.value)">
+                  <div class="form-row">
+                    <div class="form-section col-12">
+                      {{'Profile.TabProfile.FormPassword.Title' | translate}}
+                    </div>
+                    <div class="form-message col-12">
+                      {{'Profile.TabProfile.FormPassword.Msg01' | translate}}
+                    </div>
+                    <div class="form-group col-md-12">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPassword.Password' | translate }}" 
+                          formControlName="password" id="password" type="password" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="password-subtitle col-12">
+                      {{'Profile.TabProfile.FormPassword.Subtitle' | translate}}
+                    </div>
+                    <div class="form-group col-md-12">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPassword.New' | translate }}" 
+                          formControlName="newPassword" id="newPassword" type="password" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormPassword.Confirm' | translate }}" 
+                          formControlName="confirmPassword" id="confirmPassword" type="password" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="btn-container col-12">
+                      <button type="submit" class="btn btn-save" [disabled]="!passwordForm.valid">
+                        {{'Profile.TabProfile.ButtonSave' | translate}}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <!-- Wallet -->
+                <form [formGroup]="walletForm" (ngSubmit)="setWallet(walletForm.value)">
+                  <div class="form-row">
+                    <div class="form-section col-12">
+                      {{'Profile.TabProfile.FormWallet.Title' | translate}}
+                    </div>
+                    <div class="form-message col-12">
+                      {{'Profile.TabProfile.FormWallet.Msg01' | translate}}
+                    </div>
+                    <div class="form-group col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{ 'Profile.TabProfile.FormWallet.Wallet' | translate }}" 
+                          formControlName="wallet" id="wallet" type="text" required />
+                      </mat-form-field>
+                    </div>
+                    <div class="btn-container col-12">
+                      <button type="submit" class="btn btn-save" [disabled]="!walletForm.valid">
+                        {{'Profile.TabProfile.ButtonSave' | translate}}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Beneficiaries Tab -->
+        <div class="tab-pane fade" id="nav-beneficiaries" role="tabpanel" aria-labelledby="nav-beneficiaries-tab">
+          <p class="subtitle pb-2">
+            {{'Profile.TabBeneficiaries.Subtitle' | translate}}
+          </p>
+          <p class="message pb-2">
+            {{'Profile.TabBeneficiaries.Msg01' | translate}}
+          </p>
+          <!-- Boton registro de beneficiario -->
+          <div class="btn-container">
+            <button type="submit" class="btn btn-add" [disabled]="enableAddButton" (click)="showRegisterBenefFunc()">
+              {{'Profile.TabBeneficiaries.ButtonAdd' | translate}}
+            </button>
+          </div>
+          <div class="row" *ngIf="showDesignatedBenef">
+            <div class="col-12">
+              <h3 class="section-title">
+                {{'Profile.TabBeneficiaries.Designated.Title' | translate}}
+              </h3>
+              <div class="section-line"></div>
+            </div>
+            <div class="panel padding-panel-large col-12" style="padding-bottom: 16px;"> 
+              <div class="container-fluid">
+                <div class="row"> 
+                  <div class="table-responsive" >
+                    <table   class="table table-striped table-sm table-borderless">
+                      <thead>
+                        <tr>
+                          <th>{{'Profile.TabBeneficiaries.Designated.Names' | translate}}</th>
+                          <th>{{'Profile.TabBeneficiaries.Designated.Surnames' | translate}}</th>
+                          <th>%</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+            
+                      <tbody>
+                        <tr *ngFor="let benef of arrayBeneficiaries">
+                          <td class="">{{benef.nombre}} {{benef.snombre}}</td>
+                          <td class="">{{benef.apaterno}} {{benef.amaterno}}</td>
+                          <td class="">{{benef.porcentaje}}</td>
+                          <td class="">
+                            <!-- Editar beneficiario -->
+                            <a style="
+                                font-size: 25px; 
+                                color: #5F5F5F; 
+                                font-size: 22px;
+                                margin: 0px 14px;
+                              " 
+                              href="javascript:void(0)" 
+                              (click)="editBeneficiary(benef)"
+                              matTooltip="{{'Profile.TabBeneficiaries.Designated.TipEdit' | translate}}"
+                              matTooltipClass="msgDesc"
+                            ><i class="material-icons">create</i></a>
+                            <!-- Borrar beneficiario -->
+                            <a style="
+                                font-size: 25px; 
+                                color: #5F5F5F; 
+                                font-size: 22px;
+                                margin: 0px 14px;
+                              " 
+                              href="javascript:void(0)" 
+                              (click)="deleteBeneficiary(benef)"
+                              class="ml-2"
+                              matTooltip="{{'Profile.TabBeneficiaries.Designated.TipDelete' | translate}}"  
+                              matTooltipClass="msgDesc"
+                            ><i class="material-icons">delete</i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- Formulario editar beneficiario -->
+                    <div *ngIf="showEditForm">
+                      <form autocomplete="off" [formGroup]="editBeneficiaryForm" (ngSubmit)="updateBeneficiary(editBeneficiaryForm.value)">
+                        <div class="form-row mx-0">
+                          <div class="form-group col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Name' | translate }}" 
+                                formControlName="name" type="text" required />
+                            </mat-form-field>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Surname1' | translate }}" 
+                                formControlName="surname1" type="text" required />
+                            </mat-form-field>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Surname2' | translate }}" 
+                                formControlName="surname2" type="text" />
+                            </mat-form-field>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Birthdate' | translate }}" type="date"
+                                formControlName="birthdate" required />
+                          </mat-form-field>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Email' | translate }}" 
+                                formControlName="email" type="email" required />
+                            </mat-form-field>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.HomePhone' | translate }}" 
+                                formControlName="homePhone" type="text" />
+                            </mat-form-field>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.MobilePhone' | translate }}" 
+                                formControlName="mobilePhone" type="text" />
+                            </mat-form-field>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Percentage' | translate }}" 
+                                formControlName="percentage" id="percentage" type="number" required />
+                            </mat-form-field>
+                          </div>
+                          <div class="btn-container col-12">
+                            <button type="submit" class="btn btn-save" [disabled]="!editBeneficiaryForm.valid">
+                              {{'Profile.TabBeneficiaries.Register.ButtonSave' | translate}}
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="percentage col-12">
+                    <p>{{'Profile.TabBeneficiaries.Designated.TotalPercentage' | translate}} <span>{{ totalPercentage }}%</span></p>
+                  </div>
+                </div>
+            
+              </div>
+            </div> 
+          </div>
+          <!-- Registrar beneficiario -->
+          <div class="row" *ngIf="showRegisterBenef">
+            <div class="col-12">
+              <h3 class="section-title">
+                {{'Profile.TabBeneficiaries.Register.Title' | translate}}
+              </h3>
+              <div class="section-line"></div>
+            </div>
+            <div class="col-12 mb-4">
+              <form autocomplete="off" [formGroup]="addBeneficiaryForm" (ngSubmit)="addBeneficiary(addBeneficiaryForm.value)" ngNativeValidate>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Name' | translate }}" 
+                        formControlName="name" id="name" type="text" required />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Surname1' | translate }}" 
+                        formControlName="surname1" id="surname1" type="text" required />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Surname2' | translate }}" 
+                        formControlName="surname2" id="surname2" type="text" />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Birthdate' | translate }}" type="date"
+                        formControlName="birthdate" id="birthdate" required />
+                  </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Email' | translate }}" 
+                        formControlName="email" id="email" type="email" required />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.HomePhone' | translate }}" 
+                        formControlName="homePhone" id="homePhone" type="text" />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.MobilePhone' | translate }}" 
+                        formControlName="mobilePhone" id="mobilePhone" type="text" />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="{{ 'Profile.TabBeneficiaries.Register.Percentage' | translate }}" 
+                        formControlName="percentage" id="percentage" type="number" required />
+                    </mat-form-field>
+                  </div>
+                  <div class="btn-container col-12">
+                    <button type="submit" class="btn btn-save" [disabled]="!addBeneficiaryForm.valid">
+                      {{'Profile.TabBeneficiaries.Register.ButtonSave' | translate}}
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Administrador universal de la comunidad -->
+            <div class="col-12">
+              <h3 class="section-title">
+                {{'Profile.TabBeneficiaries.AUC.Title' | translate}}
+              </h3>
+              <div class="section-line"></div>
+            </div>
+            <div class="col-12 mb-4">
+              <p class="message">
+                {{'Profile.TabBeneficiaries.AUC.Msg01' | translate}}
+              </p>
+              <p class="message">
+                {{'Profile.TabBeneficiaries.AUC.Msg02' | translate}}
+                <a href="https://blog.smartbusinesscorp.com.mx/2021/01/08/conoce-las-nuevas-funciones-de-tu-smart-office/" target="_blank">
+                  <span class="highlight">
+                    {{'Profile.TabBeneficiaries.AUC.Highlight01' | translate}}
+                  </span>
+                </a>
+              </p>
+            </div>
+            <!-- AUC actual -->
+            <div class="col-12" *ngIf="AUC">
+              <p class="subtitle">
+                {{'Profile.TabBeneficiaries.AUC.Subtitle01' | translate}}
+              </p>
+              <div class="row">
+                <div class="table-responsive mb-2 col-12 col-md-6" >
+                  <table class="table table-striped-blue table-sm table-borderless">
+                    <thead>
+                      <tr>
+                        <th>{{'Profile.TabBeneficiaries.AUC.Names' | translate}}</th>
+                        <th>{{'Profile.TabBeneficiaries.AUC.Surnames' | translate}}</th>
+                      </tr>
+                    </thead>
+          
+                    <tbody>
+                      <tr>
+                        <td class="">{{AUC.nombre}} {{AUC.snombre}}</td>
+                        <td class="">{{AUC.apaterno}} {{AUC.amaterno}}</td>
+                      </tr>
+          
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <form class="col-12" [formGroup]="designateAUCForm" (ngSubmit)="setAUC(designateAUCForm.value)">
+              <div class="form-row">
+                <div class="col-12">
+                  <p class="subtitle">
+                    {{'Profile.TabBeneficiaries.AUC.Subtitle02' | translate}}
+                  </p>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="mt-2 mb-2" >
+                    <select class="select-designate" formControlName="managerId" style="width: 100%;">
+                      <option hidden selected value="">
+                        {{'Profile.TabBeneficiaries.AUC.ButtonDesignate' | translate}}
+                      </option>
+                      <option *ngFor="let benef of arrayBeneficiaries" value="{{benef.id}}">
+                        {{benef.nombre}} {{benef.snombre}} {{benef.apaterno}} {{benef.amaterno}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="btn-container col-12">
+                  <button type="submit" class="btn btn-save" [disabled]="!designateAUCForm.valid">
+                    {{'Profile.TabProfile.ButtonSave' | translate}}
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

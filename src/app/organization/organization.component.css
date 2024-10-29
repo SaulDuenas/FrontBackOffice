@@ -492,8 +492,8 @@ thead tr th {
 }
 
 .table-responsive { 
-  height:auto;
-  max-height: 300px;
+  height:300px;
+  max-height: 500px;
   overflow:scroll;
 }
 
@@ -620,4 +620,24 @@ thead tr th {
 }
 
 
+::ng-deep .poName {
+  font-style: normal; 
+  font-weight: bold; 
+  font-size: 15px; 
+  line-height: 18px; 
+  letter-spacing: 0.01em; 
+  color: #0093D6;
+
+}
+
+::ng-deep .poId {
+  color: #4D4646; 
+  font-weight: bold; 
+  font-size: 12px;
+}
+
+::ng-deep .poInf {
+  margin:0px; 
+  line-height: 15px;
+}
 

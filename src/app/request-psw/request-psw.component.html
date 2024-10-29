@@ -1,0 +1,107 @@
+<div class="wrapper fadeInDown" *ngIf="expiroLink == false">
+  <div id="formContent">
+    <div style="text-align: center">
+      <ul class="nav nav-tabs barra_horizontal_ul">
+        <li class="nav-item barra_horizontal_li">
+          <h2 class="active" data-toggle="tab" href="#login">
+            Cambia tu contraseña
+          </h2>
+        </li>
+      </ul>
+    </div>
+
+    <br />
+    <div class="tab-content">
+      <div id="login" class="pane tab-pane active">
+        <div class="fadeIn">
+          <img
+            class="mb-4"
+            src="assets/img/sbc_interno1.png"
+            alt=""
+            width="240"
+            height="72"
+          />
+        </div>
+        <h2 class="fadeIn" style="color: #11458e">
+          Hola <em>{{ nombreCiente }}</em> , <br />
+          ahora vamos a cambiar tu contraseña
+        </h2>
+        <div class="form-lostPsw">
+          <input
+            type="text"
+            id="reqPswEmail"
+            class="fadeIn"
+            placeholder="Correo Electrónico"
+            name="reqPswEmail"
+            [(ngModel)]="reqPswEmail"
+            required
+            autofocus
+          />
+          <hr />
+          <div class="form-lostPsw">
+            <input
+              type="text"
+              id="reqPsw"
+              class="fadeIn"
+              placeholder="Escribe tu nueva contraseña"
+              name="reqPsw"
+              [(ngModel)]="reqPsw"
+              required
+              autofocus
+            />
+
+            <input
+              type="text"
+              id="reqPswRepit"
+              class="fadeIn"
+              placeholder="Repite tu contraseña"
+              name="reqPswRepit"
+              [(ngModel)]="reqPswRepit"
+              required
+              autofocus
+            />
+
+            <div>
+              <button
+                class="btn btn-primary btn-lg fadeIn mt-3"
+                style="background-color: #11458e; border-radius: 35px"
+                (click)="cambiarContrasena()"
+              >
+                Cambiar Contraseña
+              </button>
+            </div>
+          </div>
+
+          <div id="formFooter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper fadeInDown" *ngIf="expiroLink == true">
+  <div id="formContent">
+    <br />
+    <div class="tab-content">
+      <div id="login" class="pane tab-pane active">
+        <div class="fadeIn">
+          <img
+            class="mb-4"
+            src="assets/img/sbc_interno1.png"
+            alt=""
+            width="240"
+            height="72"
+          />
+        </div>
+
+        <div class="form-lostPsw">
+          <hr />
+          <h2 class="fadeIn" style="color: #11458e">
+            Éste link expiro, vuelve a solicitar tu cambio de contraseña
+          </h2>
+          <div id="formFooter"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

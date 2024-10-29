@@ -1,0 +1,338 @@
+/* Nuevos ajustes */
+.title {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: #11458E;
+}
+
+.subTitle {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: #4D4646;
+  margin-left: 2rem;
+}
+
+.subTitleB {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: #11458E;
+}
+
+.textHead {
+  font-family: Lato;
+  color: #6F6F6F;
+  font-size: 22px;
+  margin-left: 2rem;
+}
+
+.textSBC {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #5F5F5F;
+}
+.heightB {
+  height: auto;
+}
+.border-r-sbc {
+  border: none;
+}
+
+.nav-tabs .nav-item .nav-link.active,
+.nav-tabs .nav-item .nav-link:hover {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  
+  background-color: #34BDEC !important;
+  border-radius: 10px 10px 0px 0px;
+  color: #ffffff !important;
+  height: 68px;
+}
+
+.nav-tabs .nav-item .nav-link {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  border-radius: 10px 10px 0px 0px;
+  background: rgba(196, 196, 196, 0.2);
+  color: #c4c4c4 !important;
+  height: 68px;
+}
+
+.nav-tabs .nav-item .nav-link img{
+  filter: grayscale(1);
+}
+
+.nav-tabs .nav-item .nav-link.active img {
+  filter: grayscale(0);
+}
+
+.nav-tabs .nav-item .nav-link:hover img {
+  filter: grayscale(0);
+}
+
+/* Actuales */
+/* .nav-tabs .nav-item .nav-link.active,
+.nav-tabs .nav-item .nav-link:hover {
+ 
+  background-color: #34BDEC !important;
+  border-radius: 10px 10px 0px 0px;
+  
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 18px !important;;
+  line-height: 22px !important;
+  
+  align-items: center;
+  letter-spacing: -0.015em;
+  text-transform: none;
+
+  color: #FFFFFF !important;
+}
+  
+
+.nav-tabs .nav-item .nav-link {
+  width: 244px;
+  height: 70px;
+  background: rgba(196, 196, 196, 0.2);
+  border-radius: 10px 10px 0px 0px;
+  margin: 0px 4px;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+
+  align-items: center;
+  letter-spacing: -0.015em;
+  
+  text-transform: none;
+  color: #C4C4C4 !important;
+} */
+
+.panel {
+  background: #ffffff;
+  width: 100%;
+  min-height: auto;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: left;
+}
+
+
+.panel-image{
+  width: min-content;
+  background: #FFFFFF;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.padding-panel-large {
+  padding-left: 22px;
+  padding-right: 40px;
+}
+
+.title-panel {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+ 
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: #11458E;
+}
+
+.subTitle {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+ 
+  color: #4D4646;
+  margin-bottom: 0px;
+}
+
+
+.text-description{
+  font-size: 20px;
+line-height: 30px;
+align-items: center;
+letter-spacing: -0.015em;
+color: #4D4646;
+}
+
+
+.text-footer-image{
+  font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 17px;
+/* or 106% */
+
+display: flex;
+align-items: center;
+letter-spacing: -0.015em;
+
+color: #5F5F5F;
+}
+
+.link-video {
+
+  background: #34BDEC;
+  border-radius: 25px;
+  padding: 5px 20px;
+
+}
+
+.link-infografia {
+
+  background: #5FC868;
+  border-radius: 25px;
+  padding: 5px 20px;
+
+}
+
+
+.link-pdf{
+
+  background: #11458E;
+  border-radius: 25px;
+  padding: 5px 20px;
+
+}
+
+.link-text,
+.link-text:hover{
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+
+  color: #FFFFFF;
+}
+
+caja-material {
+  border: 1px solid #000000;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  padding: 10px;
+}
+
+.cuadrado1 {
+  height: 180px;
+  background: #27bcee;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.cuadrado2 {
+  height: 180px;
+  background: #1ab752;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.cuadrado3 {
+  height: 180px;
+  background: #1961ac;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.cuadrado4 {
+  height: 180px;
+  background: #11458e;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.labeltext {
+  color: #11458e;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.labeltextBlank {
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.textoCabecera {
+  color: #11458e;
+  margin-top: 50px;
+  margin-left: 25px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.selected {
+  /*border: 1px solid #0093d6;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);*/
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75);
+}
+.msgDesc {
+  background: #11458e;
+  color: #fff !important;
+  font-size: 14px;
+}
+
+.padre {
+  margin-left: 15px;
+  position: relative; /* Se usa para que no se salga la imagen de la caja, ya que la imagen tiene position absolute */
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
+.padre img {
+  position: absolute; /* se usa en caso de este div, donde tiene la altura y el ancho definido, sin esto top, right y left no funcionarían */
+  width: 100px;
+  top: 25%; /* sirve en caso de un div como este, donde tiene una altura definida, en caso de que la altura no este definida esta edición no se pone ; */
+  right: 0; /* se debe usar para que margin 0 auto funcione */
+  left: 0; /* se debe usar para que margin 0 auto funcione */
+  margin: 0 auto; /* Esto lo centra */
+}

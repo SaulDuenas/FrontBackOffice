@@ -1,0 +1,218 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <!-- Encabezado de sección -->
+    <div class="mt-4 mb-4">
+      <div class="card m-0 p-3">
+          <div class="title d-flex">
+              <i class="material-icons" style="font-size: 35px">business_center</i>
+              <span class="ml-1">
+                {{'KnowCBS.title_p01' | translate}} 
+                <img src="../../assets/img/kit/conocemas_sbc_min.png" alt="" style="width: 17%; height: auto; margin-top: -22px;"/> 
+                {{'KnowCBS.title_p02' | translate}}
+              </span>
+          </div>
+          <div class="subTitle mt-2">
+              <span class="">
+                {{'KnowCBS.Message01' | translate}}
+              </span>
+          </div>
+      </div>
+    </div>
+    <!-- Contenido -->
+    <div class="mb-4">
+
+      <ul class="nav nav-tabs m-0 p-0" id="myTab" role="tablist">
+        <!-- tab 1 -->
+        <li class="nav-item pl-1 pr-1" style="width: 25%;">
+
+          <a class="nav-link active d-flex align-items-center justify-content-center" id="home-tab" data-toggle="tab" href="#philosophy" role="tab" aria-controls="philosophy" aria-selected="true">
+            <img src="../../assets/img/kit/icono1_color.svg" alt="" style="width: 30px; height: 30px;" />
+            <p class="d-none d-xl-block" style="margin-bottom: 0px; margin-left: 15px;" [innerHTML]="'KnowCBS.Philosophy' | translate"></p>            
+         </a>
+
+        </li>
+        <!-- tab 2 -->
+        <li class="nav-item pl-1 pr-1" style="width: 25%;">
+
+          <a class="nav-link d-flex align-items-center justify-content-center" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="display: flex;">
+            <img  src="../../assets/img/kit/icono2_color.svg"
+                  alt=""
+                  style="width: 40px;
+                         height: 40px;"   
+            />
+            <p class="d-none d-xl-block" style="margin-bottom: 0px; margin-left: 15px;" [innerHTML]="'KnowCBS.HowAdditionalPlans' | translate"></p>
+         
+          </a>
+
+        </li>
+        <!-- tab 3 -->
+        <li class="nav-item pl-1 pr-1" style="width: 25%;">
+
+          <a class="nav-link d-flex align-items-center justify-content-center" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false" style="display: flex;">
+            <img  src="../../assets/img/kit/icono3_color.svg"
+                  alt=""
+                  style="width: 40px;
+                        height: 40px;"   
+            />
+            <p class="d-none d-xl-block" style="margin-bottom: 0px; margin-left: 15px;" [innerHTML]=" 'KnowCBS.HowtoWin' | translate "></p>
+        
+          </a>
+
+        </li>
+        <!-- tab 4 -->
+        <li class="nav-item pl-1 pr-1" style="width: 25%;">
+
+          <a class="nav-link d-flex align-items-center justify-content-center" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false" style="display: flex;">
+            <img  src="../../assets/img/kit/icono4_color.svg"
+                  alt=""
+                  style="width: 40px;
+                        height: 40px;"   
+            />
+            <p class="d-none d-xl-block" style="margin-bottom: 0px; margin-left: 15px;" [innerHTML]=" 'KnowCBS.NeedHelp' | translate "></p>
+        
+          </a>  
+
+        </li>
+
+      </ul>
+      <!-- Panel de informacion -->
+      <div class="panel pl-3 pr-3" style="padding-top: 28px; padding-bottom: 16px;">
+   
+        <div class="tab-content" id="myTabContent">
+            <!-- Conoce nuestra filosofia -->
+            <div class="tab-pane active" id="philosophy" role="tabpanel" aria-labelledby="philosophy-tab">
+              <p class="text-description" [innerHTML]="'KnowCBS.AboutOurPhilosophy' | translate">  </p>
+              <hr style="border: 2px solid #34BDEC;">
+  
+              <div class="row">
+               
+                  <div  class="col-12 col-md-6 col-xl-3 mb-4" *ngFor="let info of OurPhilosophyViewData">
+                    <div class="shadow-sm rounded-bottom">
+                      <img  src="{{ info.ImgPath }}" alt="" style="width: 100%;"/>                    
+                      <div class="p-3">
+                        <a class="{{ info.UrlType }}" href="{{ info.Url }}" target="_blank">{{ info.TituloUrl }}</a>  
+                      </div>                    
+                      <div class="pl-3 pr-3 pb-3">  
+                        <span class="text-footer-image">{{ info.ToolTip }}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="false" class="col-12 col-md-6 col-xl-3 mb-4">
+                    <div class="shadow-sm rounded-bottom">
+                      <img  src="../../assets/img/Thumbs/conoce_sbc/videos/1 Video-corporativo.png" alt="" style="width: 100%;"/>                    
+                      <div class="p-3">
+                        <a class="link-video link-text" href="#">Video</a>  
+                      </div>                    
+                      <div class="pl-3 pr-3 pb-3">  
+                        <span class="text-footer-image">{{ 'KnowCBS.StarJourney' | translate }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div *ngIf="false" class="col-12 col-md-6 col-xl-3 mb-4">
+                    <div class="shadow-sm rounded-bottom">
+                      <img  src="../../assets/img/Thumbs/conoce_sbc/videos/3 Comunidad-SBC.png" alt="" style="width: 100%;"/>                    
+                      <div class="p-3">
+                        <a class="link-video link-text" href="#">{{ 'KnowCBS.Video' | translate }}</a>  
+                      </div>                    
+                      <div class="pl-3 pr-3 pb-3">  
+                        <span class="text-footer-image">{{ 'KnowCBS.FinantialPeace' | translate }}</span>
+                      </div>
+                    </div>
+                  </div> 
+  
+                  <div *ngIf="false" class="col-12 col-md-6 col-xl-3 mb-4">
+                    <div class="shadow-sm rounded-bottom">
+                      <img  src="../../assets/img/Thumbs/conoce_sbc/otros/1 Infografía-de-SBC.png" alt="" style="width: 100%;"/>                    
+                      <div class="p-3">
+                        <a class="link-infografia link-text" href="#">Infografía</a>  
+                      </div>                    
+                      <div class="pl-3 pr-3 pb-3">  
+                        <span class="text-footer-image">Cumplimos 10 años de logros y metas cumplidas ¡Conócenos!</span>
+                      </div>
+                    </div>
+                  </div> 
+  
+                  <div *ngIf="false" class="col-12 col-md-6 col-xl-3 mb-4">
+                    <div class="shadow-sm rounded-bottom">
+                      <img  src="../../assets/img/Thumbs/conoce_sbc/otros/3 Directorio-Corporativo.png" alt="" style="width: 100%;"/>                    
+                      <div class="p-3">
+                        <a class="link-pdf link-text" href="#">PDF</a>  
+                      </div>                    
+                      <div class="pl-3 pr-3 pb-3">  
+                        <span class="text-footer-image">Te presentamos a los pilares estratégicos detrás de SBC.</span>
+                      </div>
+                    </div>
+                  </div> 
+              
+              </div>
+  
+            </div>
+            <!-- Como ganar con los planes adicionales -->
+            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">   
+              <p class="text-description" [innerHTML]="'KnowCBS.AboutEarnings' | translate">  </p>
+              <hr style="border: 2px solid #34BDEC;">
+              <div class="row">
+
+                <div  class="col-12 col-md-6 col-xl-3 mb-4" *ngFor="let info of AdditionalPlansViewData">
+                  <div class="shadow-sm rounded-bottom">
+                    <img  src="{{ info.ImgPath }}" alt="" style="width: 100%;"/>                    
+                    <div class="p-3">
+                      <a class="{{ info.UrlType }}" href="{{ info.Url }}" target="_blank">{{ info.TituloUrl }}</a>  
+                    </div>                    
+                    <div class="pl-3 pr-3 pb-3">  
+                      <span class="text-footer-image">{{ info.ToolTip }}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- Como ganar con el programa de afiliados -->
+            <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+              <p class="text-description"  [innerHTML]="'KnowCBS.MessageHowtoWin' | translate"></p>
+              <hr style="border: 2px solid #34BDEC;">
+              <div class="row">
+                  
+                <div  class="col-12 col-md-6 col-xl-3 mb-4" *ngFor="let info of AffiliatesProgViewData">
+                  <div class="shadow-sm rounded-bottom">
+                    <img  src="{{ info.ImgPath }}" alt="" style="width: 100%;"/>                    
+                    <div class="p-3">
+                      <a class="{{ info.UrlType }}" href="{{ info.Url }}" target="_blank">{{ info.TituloUrl }}</a>  
+                    </div>                    
+                    <div class="pl-3 pr-3 pb-3">  
+                      <span class="text-footer-image">{{ info.ToolTip }}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- Ayuda del corporativo -->
+            <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+              <p class="text-description" [innerHTML]="'KnowCBS.NeedHelpDescription' | translate"> </p>
+              <hr style="border: 2px solid #34BDEC;">
+              <div  class="row">
+                <div  class="col-12 col-md-6 col-xl-3 mb-4" *ngFor="let info of CorporateHelpViewData">
+                  <div class="shadow-sm rounded-bottom">
+                    <img  src="{{ info.ImgPath }}" alt="" style="width: 100%;"/>                    
+                    <div class="p-3">
+                      <a class="{{ info.UrlType }}" href="{{ info.Url }}" target="_blank">{{ info.TituloUrl }}</a>  
+                    </div>                    
+                    <div class="pl-3 pr-3 pb-3">  
+                      <span class="text-footer-image">{{ info.ToolTip }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+      </div>
+
+    </div>
+   
+  </div>
+</div>
+<app-loader></app-loader>

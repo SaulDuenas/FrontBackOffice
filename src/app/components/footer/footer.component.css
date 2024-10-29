@@ -1,0 +1,16 @@
+.left-menu {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 30px;
+  /* or 200% */
+  letter-spacing: -0.015em;
+
+  color: #11458e;
+}
+.social-icon {
+  padding: 8px;
+  width: 24px;
+  margin: 0 8px;
+}

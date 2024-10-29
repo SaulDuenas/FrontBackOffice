@@ -1,0 +1,104 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <!-- Encabezado de seccion -->
+      <div class="mt-4 mb-4">
+          <div class="card m-0 p-3">
+              <div class="title d-flex">
+                  <i class="material-icons" style="font-size: 35px">mediation</i>
+                  <span [innerHTML]="'Ecosystem.Title' | translate" class="ml-1"></span>
+              </div>
+              <div class="subTitle mt-4">
+                  <span [innerHTML]="'Ecosystem.Message' | translate" class=""></span>
+              </div>
+          </div>
+      </div>
+      <!-- Contenido ecosistema emprendedor -->
+      <div class="mt-4 mb-4">
+          <div class="card m-0 p-4">
+              <!-- Fila 01 -->
+              <div class="card-deck">
+                  <div class="card mt-0">
+                      <img src="../../assets/img/ecosistema/lean_academy.svg" class="img-fluid p-3 heightIcons" alt="">
+                      <div class="card-body">
+                          <p class="card-text textSBC">
+                              {{ 'Ecosystem.Academy' | translate }}
+                          </p>
+                      </div>
+                      <div class="card-footer">
+                          <div class="mx-auto">
+                              <a href="https://www.smartbusinessuniversity.com.mx/?a=MjAyMS0wMS0wNw==:MjcwOTQ0" target="_blank" class="btn rounded-pill btnSBC">{{ 'Ecosystem.More' | translate }}</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card mt-0">
+                      <img src="../../assets/img/ecosistema/account.svg" class="img-fluid p-3 heightIcons" alt="">
+                      <div class="card-body">
+                          <p class="card-text textSBC">
+                            {{ 'Ecosystem.Account' | translate }}
+                          </p>
+                      </div>
+                      <div class="card-footer">
+                          <div class="mx-auto">
+                              <a [routerLink]="['/cuenta']" class="btn rounded-pill btnSBC">{{ 'Ecosystem.GoToAccount' | translate }}</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card mt-0">
+                      <img src="./../assets/img/ecosistema/live.svg" class="img-fluid p-3 heightIcons" alt="">
+                      <div class="card-body">
+                          <p class="card-text textSBC">
+                            {{ 'Ecosystem.Live' | translate }}
+                          </p>
+                      </div>
+                      <div class="card-footer">
+                          <div class="mx-auto">
+                              <a href="https://www.youtube.com/channel/UCTZXL4rWSG41NDwxDi3qDjw" target="_blank" class="btn rounded-pill btnSBC">{{ 'Ecosystem.SeeMore' | translate }}</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Fila 02 -->
+              <div class="card-deck mt-4">
+                  <div class="card mt-0">
+                      <img src="../../assets/img/ecosistema/network.svg" class="img-fluid p-3 heightIcons" alt="">
+                      <div class="card-body">
+                          <p class="card-text textSBC">
+                            {{ 'Ecosystem.Network' | translate }}
+                          </p>                            
+                      </div>
+                      <div class="card-footer">
+                          <div class="mx-auto">
+                              <a href="https://chat.whatsapp.com/KoTWsIoHjxSH9Za6pjyjJN" target="_blank" class="btn rounded-pill btnSBC">{{ 'Ecosystem.Begin' | translate }}</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card mt-0">
+                      <img src="../../assets/img/ecosistema/innovator.svg" class="img-fluid p-3 heightIcons" alt="">
+                      <div class="card-body">
+                          <p class="card-text subTitleB text-center">{{ 'Ecosystem.Next' | translate }}</p>
+                          <p class="card-text textSBC">
+                            {{ 'Ecosystem.Innovator' | translate }}
+                          </p>
+                          <!-- <div class="text-center">
+                              <a href="" class="btn rounded-pill btnSBC">Saber más</a>
+                          </div> -->
+                      </div>
+                  </div>
+                  <div class="card mt-0">
+                      <img src="../../assets/img/ecosistema/catalogo.png" class="img-fluid p-3" alt="">
+                      <div class="card-body">
+                          <p class="card-text textSBC">
+                            {{ 'Ecosystem.Catalog' | translate }}
+                          </p>                            
+                      </div>
+                      <div class="card-footer">
+                          <div class="mx-auto">
+                              <a href="https://www.catalogodenegocios.mx/#/app/page/cuenta" target="_blank" class="btn rounded-pill btnSBC">{{ 'Ecosystem.SeeMore' | translate }}</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>        
+  </div>
+</div>

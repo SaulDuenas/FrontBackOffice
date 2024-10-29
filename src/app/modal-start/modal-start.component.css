@@ -1,0 +1,121 @@
+.modalStart {
+  /* detach from rest of the document */
+  display: block !important;
+  position: fixed;
+  min-height: 120px;
+  width: 70%;
+  /* center */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  /* ensure in front of rest of page -- increase as needed */
+  z-index: 1001;
+
+  /* visual illusion of being in front -- alter to taste */
+  box-shadow: rgba(0, 0, 0, 0.4) 10px 10px 4px;
+
+  /* visual illusion of being a solid object -- alter to taste */
+  background-color: #fff;
+
+  /* visual preference of don't crowd the contents -- alter to taste */
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 360px) {
+  .modalStart {
+    top: 90%;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 570px) {
+  .modalStart {
+    top: 70%;
+  }
+}
+@media screen and (min-width: 571px) and (max-width: 700px) {
+  .modalStart {
+    top: 90%;
+  }
+}
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+  .modalStart {
+    top: 70%;
+  }
+}
+
+.closeButton {
+  border-radius: 15px;
+  line-height: 20px;
+  width: 20px;
+  font-size: 8pt;
+  font-family: tahoma;
+  margin-top: 1px;
+  margin-right: 10px;
+  position: absolute;
+  top: 5;
+  right: 0;
+}
+
+.overlay {
+  /* detach from document */
+  position: fixed;
+  overflow: auto;
+  /* ensure in front of rest of page except modal */
+  z-index: 1000;
+
+  /* fill screen to catch mice */
+  top: 0;
+  left: 0;
+  width: 9999px;
+  height: 9999px;
+
+  /* dim screen 20% -- alter to taste */
+  opacity: 0.5;
+  background-color: black;
+}
+
+.cuadrado1 {
+  height: 210px;
+  background: #27bcee;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cuadrado2 {
+  height: 210px;
+  background: #1ab752;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cuadrado3 {
+  height: 210px;
+  background: #1961ac;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cuadrado4 {
+  height: 210px;
+  background: #11458e;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.labeltext {
+  color: #11458e;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.labeltextBlank {
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+}

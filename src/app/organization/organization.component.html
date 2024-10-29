@@ -8,11 +8,12 @@
           <div class="row">
                 
             <ul style="list-style: none; padding-left: 0px;">
-              <li>
-                <p class="title-panel" style=" font-size: 30px; margin-bottom: 0px;">
-                  
-                  <img src="../../assets/img/comunidad/users.svg" width="40px" height="40px" alt="users" style ="fill: #11458E; padding-right: 12px; padding-bottom: 8px;">
-                  Mi Comunidad
+              <li style="display: flex; align-items: center;">
+                <i class="material-icons" style="font-size: 35px; color: #11458E;">groups</i>
+                <p class="title-panel ml-2" style="font-size: 30px; margin-bottom: 0px;">
+                  <!-- <i class="material-icons" style="font-size: 35px; margin: auto">groups</i> -->
+                  <!-- <img src="../../assets/img/comunidad/users.svg" width="40px" height="40px" alt="users" style ="fill: #11458E; padding-right: 12px; padding-bottom: 8px;"> -->
+                  {{ 'Community.Title' | translate }}
                 </p>
               </li>
     
@@ -30,7 +31,7 @@
                   margin-bottom: 0px;
                 "
               >
-              Verifica tus datos y consérvalos actualizados.</p
+                {{ 'Community.Description' | translate }}</p
               >
               </li>
             </ul>
@@ -67,7 +68,7 @@
                   
                     <p class="title-panel" style=" font-size: 25px;">
     
-                      Prospectos
+                      {{ 'Community.Prospects' | translate }}
                     </p>
                     <div style="display: flex;" >
                       <div  style="width: 100%; text-align: left;">
@@ -89,7 +90,7 @@
                 <div class = "panel-gray  padding-panel-mini">
                   <p class="title-panel" style=" font-size: 25px;">
     
-                    Invitados
+                    {{ 'Community.Guest' | translate }}
                   </p>
     
                   <div style="display: flex;" >
@@ -112,7 +113,7 @@
                 <div class = "panel-gray  padding-panel-mini">
                     <p class="title-panel" style=" font-size: 25px;">
     
-                      Afiliados Directos
+                    {{ 'Community.DirectAssociates' | translate }}
                     </p>
     
                   <div style="display: flex;" >
@@ -135,7 +136,7 @@
     
                 <div class = "panel-gray  padding-panel-mini">
                     <p class="title-panel" style=" font-size: 25px;">
-                      Socios
+                        {{ 'Community.Partners' | translate }}
                     </p>
     
                   <div style="display: flex;" >
@@ -165,7 +166,7 @@
             <!-- Buscar -->
             <div class="col-12 col-xl-5">
               <p class="title-panel" style=" font-size: 30px; margin-bottom: 0px;">
-                Mi Comunidad
+                {{ 'Community.Title' | translate }}
               </p>
     
     
@@ -174,6 +175,7 @@
               
                   <button class="btn-icon-blue"  type="button"> 
                         <span class="icon" ><i class="fa fa-search" style="font-size: 20px;" ></i></span>
+                        <!-- <span class="icon" ><i class="material-icons" style="font-size: 35px">groups</i></span> -->
                   </button>
               </div>
     
@@ -184,50 +186,50 @@
                 <!-- Icono afiliado directo -->
                 <div class="col-12 col-md-4 text-for-label pb-2">
                   <img src="../../assets/img/comunidad/afiliado_directo.png" alt="afiliado directo" >
-                  <span style="margin: 0px 5px;">Afiliado directo</span> 
+                  <span style="margin: 0px 5px;">{{ 'Community.DirectAssociate' | translate }}</span> 
                   
                   <img src="../../assets/img/comunidad/info.png"
-                      matTooltip="Son las personas que tú afiliaste directamente."
+                      matTooltip="{{ 'Community.DirectAssociateTip' | translate }}"
                       matTooltipClass="msgDesc">
                   
                 </div>
                 <!-- Icono asignado -->
                 <div  class="col-12 col-md-4 text-for-label pb-2">
                   <img src="../../assets/img/comunidad/asignado.png" alt="asignado" >
-                  <span style="margin: 0px 5px;">Asignado</span>  
+                  <span style="margin: 0px 5px;">{{ 'Community.Assigned' | translate }}</span>  
                   
                   <img src="../../assets/img/comunidad/info.png" 
-                      matTooltip="Son los socios que te asignan en el sistema por la regla 5-1." 
+                      matTooltip="{{ 'Community.AssignedTip' | translate }}" 
                       matTooltipClass="msgDesc">
                 
                 </div>
                 <!-- Icono me promueve -->
                 <div  class="col-12 col-md-4 text-for-label pb-2">
                   <img src="../../assets/img/comunidad/me_promueve.png" alt="Me promueve" >
-                  <span style="margin: 0px 5px;">Me promueve</span>
+                  <span style="margin: 0px 5px;">{{ 'Community.Promotes' | translate }}</span>
                 
                     <img src="../../assets/img/comunidad/info.png" 
-                        matTooltip="Son las personas que afiliaron otros socios de tu comunidad y que te generan bonos por asignación y por multiplicación."  
+                        matTooltip="{{ 'Community.PromotesTip' | translate }}"  
                         matTooltipClass="msgDesc">
                   
                 </div>
                 <!-- Icono ejecutivo master -->
                 <div  class="col-12 col-md-4 text-for-label pb-2">
                   <img src="../../assets/img/comunidad/ejecutivo_master.png"  >
-                  <span style="margin: 0px 5px;">Ejecutivo Master</span>
+                  <span style="margin: 0px 5px;">{{ 'Community.Level' | translate }}</span>
                   
                     <img src="../../assets/img/comunidad/info.png" 
-                          matTooltip="Son los socios que obtuvieron esta calificación al crecer su comunidad en las primeras 18 semanas." 
+                          matTooltip="{{ 'Community.LevelTip' | translate }}" 
                           matTooltipClass="msgDesc">
                 
                 </div>
                 <!-- Icono con inversion -->
                 <div  class="col-12 col-md-4 text-for-label pb-2">
                   <img src="../../assets/img/comunidad/con_inversion.png" alt="Con inversión" >
-                  <span style="margin: 0px 5px;">Con inversión</span>
+                  <span style="margin: 0px 5px;">{{ 'Community.Investment' | translate }}</span>
                 
                     <img src="../../assets/img/comunidad/info.png" 
-                    matTooltip="Son los socios que tienen uno o más Planes Adicionales." 
+                    matTooltip="{{ 'Community.InvestmentTip' | translate }}" 
                     matTooltipClass="msgDesc">
               
                 </div>                        
@@ -254,7 +256,7 @@
 
           <div class="col-12 col-md-6">
             <h4 class="title-panel" style=" font-size: 30px;">
-              Detalle Socios
+              {{ 'Community.Associates' | translate }}
             </h4>         
           </div>
 
@@ -279,14 +281,13 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Nombres(s)</th>
-                  <th>Apellido(s)</th>
-                  <th>Correo Electrónico</th>
-                  <th>Teléfono</th>
+                  <th>{{ 'Community.Names' | translate }}</th>
+                  <th>{{ 'Community.Email' | translate }}</th>
+                  <th>{{ 'Community.Phone' | translate }}</th>
                   <th>
                     <div class="dropdown show">
                       <a class="dropdown-toggle" style="color: #5F5F5F;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Fecha de registro
+                        {{ 'Community.RegistrationDate' | translate }}
                       </a>
                     
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-top: 15px;">
@@ -294,11 +295,11 @@
                         <a class="dropdown-item" style="padding-top: 1px;
                                                         padding-bottom: 1px;
                                                         padding-right: 1px;"
-                                                 (click)="SortedDateSelectChangeHandler('asc')">Ascendiente</a>
+                                                 (click)="SortedDateSelectChangeHandler('ASC')">{{ 'Community.Asc' | translate }}</a>
                         <a class="dropdown-item" style="padding-top: 1px;
                                                         padding-bottom: 1px;
                                                         padding-right: 1px;"
-                                                  (click)="SortedDateSelectChangeHandler('desc')">Descendiente</a>
+                                                  (click)="SortedDateSelectChangeHandler('DESC')">{{ 'Community.Desc' | translate }}</a>
                       
                       </li>
                         
@@ -310,7 +311,7 @@
                   <th>
                     <div class="dropdown show">
                       <a class="dropdown-toggle" style="color: #5F5F5F;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tipo de socio
+                        {{ 'Community.Type' | translate }}
                       </a>
                     
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-top: 36px; display: inline-table;">
@@ -318,27 +319,27 @@
                         <a class="dropdown-item" style="padding-top: 1px;
                                                         padding-bottom: 1px;
                                                         padding-right: 1px;"
-                                                        (click)="PatnerSelectChangeHandler('all')">{{PatnerType['all']}}</a>
+                                                        (click)="PatnerSelectChangeHandler(PatnerType[0]['value'])">{{PatnerType[0]['label']}}</a>
                         <a class="dropdown-item" style="padding-top: 1px;
                                                         padding-bottom: 1px;
                                                         padding-right: 1px;"
-                                                        (click)="PatnerSelectChangeHandler('direct')">{{PatnerType['direct']}}</a>
+                                                        (click)="PatnerSelectChangeHandler(PatnerType[1]['value'])">{{PatnerType[1]['label']}}</a>
                         <a class="dropdown-item" style="padding-top: 1px;
                                                         padding-bottom: 1px;
                                                         padding-right: 1px;"
-                                                        (click)="PatnerSelectChangeHandler('promotes')">{{PatnerType['promotes']}}</a>
+                                                        (click)="PatnerSelectChangeHandler(PatnerType[2]['value'])">{{PatnerType[2]['label']}}</a>
     
                         <a class="dropdown-item" style="padding-top: 1px;
                                                         padding-bottom: 1px;
                                                         padding-right: 1px;"
-                                                        (click)="PatnerSelectChangeHandler('assigned')">{{PatnerType['assigned']}}</a>
+                                                        (click)="PatnerSelectChangeHandler(PatnerType[3]['value'])">{{PatnerType[3]['label']}}</a>
                         
                         <hr style="width:90%; margin: 5px 10px; text-align:center;background-color: #0093D6;">
     
                         <a class="dropdown-item" style="padding-top: 1px;
                                                         padding-bottom: 1px;
                                                         padding-right: 1px;"
-                                                        (click)="PatnerSelectChangeHandler('investment')">{{PatnerType['investment']}}</a>
+                                                        (click)="PatnerSelectChangeHandler(PatnerType[5]['value'])">{{PatnerType[5]['label']}}</a>
                       
                       </li>
                         
@@ -352,13 +353,12 @@
               <tbody>
 
                 <tr *ngFor="let parther of PartnerListView | filter:searchText">
-                  <td>{{ parther.id }}</td>
+                  <td>{{ parther.to }}</td>
                   <td>{{ parther.name }}</td>
-                  <td>{{ parther.lastname }}</td>
                   <td>{{ parther.email }}</td>
                   <td>{{ parther.phone }}</td>
-                  <td>{{ parther.date }}</td>
-                  <td>{{ parther.partnertype }}</td>
+                  <td  [innerHtml]="getStrDate(parther)"> </td>
+                  <td [innerHtml]="getTypePartnerLabel(parther)">  </td>
                 </tr>
 
               </tbody>
@@ -376,10 +376,10 @@
           <div class="col-md-12">
           
             <h4 class="title-panel" style=" font-size: 30px; margin-bottom: 0px; width: auto;">
-              Prospectos
+              {{ 'Community.Prospects' | translate }}
               
                 <img src="../../assets/img/comunidad/info_a.png"
-                matTooltip="Son tus invitados que ya se registraron pero aún no han realizado el pago de sus Membresía Smart."  
+                matTooltip="{{ 'Community.ProspectsTip' | translate }}"  
                 matTooltipClass="msgDesc" >
             
             </h4>
@@ -392,11 +392,11 @@
             <table   class="table table-striped table-sm table-borderless">
               <thead>
                 <tr>
-                  <th>Nombres(s)</th>
-                  <th>Apellido(s)</th>
-                  <th>Correo Electrónico</th>
-                  <th>Teléfono</th>
-                  <th>Fecha de registro</th>
+                  <th>{{ 'Community.Names' | translate }}</th>
+                  <th>{{ 'Community.Surnames' | translate }}</th>
+                  <th>{{ 'Community.Email' | translate }}</th>
+                  <th>{{ 'Community.Phone' | translate }}</th>
+                  <th>{{ 'Community.RegistrationDate' | translate }}</th>
                   <th></th>
                 </tr>
               </thead>
@@ -414,7 +414,7 @@
                       color: #5F5F5F; 
                       font-size: 22px;
                       margin: 0px 14px;" href="javascript:void(0)" (click)="email()"
-                      matTooltip="Enviar recordatorio"  
+                      matTooltip="{{ 'Community.SendReminder' | translate }}"  
                       matTooltipClass="msgDesc"
                     ><i class="fa fa-envelope"></i></a>
     
@@ -444,10 +444,10 @@
           <div class="col-md-12">
           
             <h4 class="title-panel" style=" font-size: 30px; margin-bottom: 0px; width: auto;">
-              Invitados
+              {{ 'Community.Guest' | translate }}
               
                 <img src="../../assets/img/comunidad/info_a.png"
-                    matTooltip="Son quienes has invitado a tu comunidad pero todavía no se han registrado con tu link de afiliado."
+                    matTooltip="{{ 'Community.GuestTip' | translate }}"
                     matTooltipClass="msgDesc"
                 >
             
@@ -461,10 +461,10 @@
             <table class="table table-striped table-sm table-borderless table-fixed">
               <thead>
                 <tr>
-                  <th>Nombres(s)</th>
-                  <th>Correo Electrónico</th>
-                  <th>Teléfono</th>
-                  <th>Fecha de registro</th>
+                  <th>{{ 'Community.Names' | translate }}</th>
+                  <th>{{ 'Community.Email' | translate }}</th>
+                  <th>{{ 'Community.Phone' | translate }}</th>
+                  <th>{{ 'Community.RegistrationDate' | translate }}</th>
                   <th></th>
                 </tr>
               </thead>
@@ -481,7 +481,7 @@
                       color: #5F5F5F; 
                       font-size: 22px;
                       margin: 0px 14px;" href="javascript:void(0)" (click)="email(guest.id)"
-                      matTooltip="Enviar recordatorio"  
+                      matTooltip="{{ 'Community.SendReminder' | translate }}"  
                       matTooltipClass="msgDesc"
                     ><i class="fa fa-envelope"></i></a>
     

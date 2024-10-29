@@ -1,0 +1,37 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <br />
+    <div class="tab-content">
+      <!-- Tab Login -->
+      <div id="login" class="pane tab-pane active">
+        <div class="fadeIn first">
+          <img
+            class="mb-4"
+            src="assets/img/sbc_interno1.png"
+            alt=""
+            width="280"
+            height="72"
+          />
+        </div>
+        <h2 class="fadeIn first" *ngIf="resp == 1" style="color: #000">
+          ¡Felicidades!, tu cuenta ha sido validada exitosamente. <br />
+          Te invitamos a inicar sesión en tu oficina virtual
+        </h2>
+        <h2 class="fadeIn first" *ngIf="resp == 0">
+          Tu correo ya fue validado anteriormente,<br />
+          si olvidaste tu contreseña haz clic aquí.
+        </h2>
+        <h2 class="fadeIn first" *ngIf="resp == 2">
+          La cuenta que intentas validar no exite :(.
+        </h2>
+        <div id="formFooter">
+          <a class="underlineHover" [routerLink]="['/login']">
+            Iniciar Sesión
+          </a>
+        </div>
+      </div>
+      <!-- Fin Tabs Titles -->
+    </div>
+  </div>
+</div>

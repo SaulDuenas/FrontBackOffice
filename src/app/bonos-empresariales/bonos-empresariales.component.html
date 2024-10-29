@@ -1,0 +1,365 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <!-- Encabezado de seccion -->
+    <div class="mt-4 mb-4">
+      <div class="card m-0 p-3">
+          <div class="title d-flex">
+              <i class="material-icons" style="font-size: 35px">account_balance_wallet</i>
+              <span class="ml-1">
+                {{'Bonus.Title' | translate}}
+              </span>
+          </div>
+          <div class="subTitle mt-2">
+              <span class="">
+                {{'Bonus.Msg01' | translate}}
+              </span>
+          </div>
+      </div>
+    </div>
+    <!-- Bonos -->
+    <div class="mb-4">
+      <div class="row">
+        <div class="col-12 col-xl-6">
+          <div class="card m-0 p-4 heightB">
+            <!-- Bonos por cobrar -->
+            <div class="d-flex justify-content-between">
+              <div class="align-self-center subTitle25">{{'Bonus.ToCollect' | translate}}</div>
+              <div>
+                <p class="monto-50px">{{montoBonosPPagar | number:'1.2-2'}} <span class="text-azul-20">USD</span></p>
+              </div>
+            </div>
+            <hr class="mt-2" style="border: 1px solid #0093D6;" />
+            <!-- Bonos pagados -->
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="subTitle25">
+                {{'Bonus.Paid' | translate}}
+              </div>
+              <div>
+                <select class="select-css" (change)="onChange($event.target.value)">
+                  <option value="mensual">{{'Bonus.LastMonth' | translate}}</option>
+                  <option value="anual">{{'Bonus.LastYear' | translate}}</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <p class="monto-saldo-total">{{montoBonosPagadosDinamico | number:'1.2-2'}} <span class="text-azul-16 ml-2"> USD</span> </p>
+            </div>
+            <!-- Grafica -->
+            <div class="chart-wrapper mt-5" style=" width: auto; height: 50%">
+              <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-6 mt-4 mt-xl-0">
+          <!-- Total de bonos pagados -->
+          <div class="card m-0 p-4 heightB">
+            <div class="d-flex justify-content-between">
+              <div class="title">
+                {{'Bonus.TotalCollected' | translate}}
+              </div>
+              <div>
+                <p class="total-usd">{{montosBonosPagados | number:'1.2-2'}} <span class="text-azul-20">USD</span></p>
+              </div>
+            </div>
+            <!-- Grafica -->
+            <div class="p-4" style="width: 100%; height: 90%;">
+              <div style=" width: auto; height: 100%;">
+                <canvas baseChart [data]="doughnutChartData" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"
+                  [plugins]="doughnutChartPlugins" [options]="doughnutChartOptions" [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType" [legend]="doughnutChartLegend" [colors]="doughnutChartChartColors">
+                </canvas>
+              </div>
+            </div>
+            <!-- Datos -->
+<!--             <div class="mt-0 mt-md-4">
+              <div class="row">
+                <div class="col-12 col-md-6 text-afiliados-directo">
+                  <div style="margin-top:10px" class=" label-1 pull-left ml-2 mr-1"></div> 
+                  <div >{{'Bonus.DirectAssociates' | translate}}</div>  
+                </div>
+                <div class="col-12 col-md-6 text-afiliados-directo">
+                  <div style="margin-top:10px" class=" label-2 pull-left ml-2 mr-1"></div> 
+                  <div>{{'Bonus.Dollars' | translate}}</div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-12 col-md-6 text-afiliados-directo"><div style="margin-top:10px" class=" label-3 pull-left ml-2 mr-1"></div> 
+                <div>{{'Bonus.ByAssign' | translate}}</div></div>
+                <div class="col-12 col-md-6 text-afiliados-directo"><div style="margin-top:10px" class=" label-4 pull-left ml-2 mr-1"></div> 
+                <div>{{'Bonus.ByAccumulation' | translate}}</div></div>
+              </div>
+              
+              <div class="row">
+                <div class="col-12 col-md-6 text-afiliados-directo"><div style="margin-top:10px" class=" label-5 pull-left ml-2 mr-1"></div> 
+                <div>{{'Bonus.ByMult' | translate}}</div></div>
+                <div class="col-12 col-md-6 text-afiliados-directo"><div style="margin-top:10px" class=" label-6 pull-left ml-2 mr-1"></div> 
+                <div>{{'Bonus.MonthlyIncome' | translate}}</div></div>
+              </div>
+            </div> -->
+          </div>          
+        </div>
+      </div>
+    </div>
+    <!-- Tabla bonos y comisiones -->
+    <div class="col-12 mb-4">
+      <div class="row">
+        <div class="card m-0 p-4">
+          <div class="d-flex justify-content-between flex-column flex-md-row align-items-md-center">
+            <div class="title">
+              {{'Bonus.Bonuses.Title' | translate}}
+            </div>
+            <!-- Filtros -->
+            <div class="d-flex">
+<!--               <div class=" mr-2 ">
+                <select class="select-mes-ano">
+                  <option>
+                    {{'Bonus.Bonuses.Month' | translate}}
+                  </option>
+                </select>
+              </div>  -->       
+<!--               <div class="">
+                <select class="select-mes-ano">
+                  <option>
+                    {{'Bonus.Bonuses.Day' | translate}}
+                  </option>
+                </select>
+              </div> -->
+ <!--              <button  mat-raised-button class="btn find-button ">
+                {{'Bonus.Bonuses.Filter' | translate}}
+              </button> -->
+            </div>
+          </div>
+          <!-- Tabla -->
+          <div class="mt-4" style="height: 500px;">
+            <mat-tab-group  style="height: 500px;">
+            <mat-tab label="{{'Bonus.Bonuses.Collected' | translate}}"> 
+              <table class="table table-striped"  >
+                <thead>
+                  <tr>
+                    <th>{{'Bonus.Bonuses.Type' | translate}}</th>
+                    <th>{{'Bonus.Bonuses.By' | translate}}</th>
+                    <th>{{'Bonus.Bonuses.CollectionDate' | translate}}</th>
+                    <th>{{'Bonus.Bonuses.Ammount' | translate}}</th>
+                    <th>{{'Bonus.Bonuses.Hash' | translate}}</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr tr *ngFor="let comisiones of arrayComisionesCobradas" >
+                    <td class="">{{comisiones.Tipo}}</td>
+                    <td class="">{{comisiones.Generado}}</td>
+                    <td class="">{{comisiones.Comis_Fec | date:'dd/MM/yy'}}</td>
+                    <td class="">{{comisiones.Comis_USD | number:'1.2-2'}}</td>
+                    <td class="">{{comisiones.Comis_Ref}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-tab>
+
+            <mat-tab label="{{'Bonus.Bonuses.ToCollect' | translate}}">
+              <table   class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>{{'Bonus.Bonuses.Type' | translate}}</th>
+                    <th>{{'Bonus.Bonuses.By' | translate}}</th>
+                    <th>{{'Bonus.Bonuses.GenerationDate' | translate}}</th>
+                    <th>{{'Bonus.Bonuses.CollectionDate' | translate}}</th>
+                    <th>{{'Bonus.Bonuses.Ammount' | translate}}</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr  *ngFor="let comisiones of arrayComisionesPorCobrar">
+                    <td class="">{{comisiones.Tipo}}</td>
+                    <td class="">{{comisiones.Generado}}</td>
+                    <td class="">{{comisiones.Comis_Fec | date:'dd/MM/yy'}}</td>
+                    <td class="">{{comisiones.Pago | date:'dd/MM/yy'}}</td>
+                    <td class="">{{comisiones.Comis_USD | number:'1.2-2'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-tab>
+          </mat-tab-group>             
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Ingreso mensual por acumulado -->
+    <div class="mb-4" *ngIf="mostrarIMA">
+      <div class="card m-0 p-4">
+        <div class="title">
+          {{'Bonus.Income.Title' | translate}}
+        </div>
+        <div class="subTitle-secction3 mt-5">
+          {{'Bonus.Income.Msg01' | translate}}
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 col-xl-6 border-r-sbc">
+            <!-- Proxima meta -->
+            <div class="row titulo-grafica card-title mt-4 mb-3 justify-content-center">
+              {{'Bonus.Income.NextGoal' | translate}}
+            </div>
+            <div class="row EMSenior justify-content-center">
+            {{nextLevel}} →
+            </div>
+            <div class="row texto-description justify-content-center">
+              {{'Bonus.Income.Reward01' | translate}} {{recibe}} {{'Bonus.Income.Reward02' | translate}}
+            </div>
+            <!-- Grafica -->
+            <div class="row justify-content-center" style=" width: auto; height: auto; margin:auto; ">
+              <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue" [options]="options">
+              </rg-gauge-chart>
+            </div>                      
+            <div class="row EMSenior justify-content-center" style="margin-top:-30px">
+                {{saldo | number : '1.2-2'}} USD
+            </div>
+          </div>
+          <!-- Niveles de acumulacion -->
+          <div class="col-12 col-xl-6 mt-5 mt-xl-0">
+            <div class="row">
+              <div class="col-12 col-md-5 niveles-acumulacion">{{'Bonus.Income.AccumulationLvl' | translate}}</div>
+              <div class="col-12 col-md-7 mt-2"><mat-progress-bar mode="determinate"  value={{nivelAcumulacion}}></mat-progress-bar></div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-12 col-md-6">
+                <div class="row text-tableseccion-3 mt-4 ml-1">{{'Bonus.Income.ActualRange' | translate}}</div>
+                <div class="row sub-text-tableseccion-3 ml-1 nivelEM">{{rangoActual}}</div>
+                
+                <div class="row text-tableseccion-3 mt-4 ml-1">{{'Bonus.Income.CurrentAcc' | translate}}</div>
+                <div class="row sub-text-tableseccion-3 ml-1"><span>{{acumuladorangoActual | number:'1.2-2'}}</span> <span class="usd-f-16-gris">USD</span><!-- <span class="usd-f-16-blue">75%</span> --></div>
+                
+                <div class="row text-tableseccion-3 mt-4 ml-1">{{'Bonus.Income.GoalAmmount' | translate}}</div>
+                <div class="row sub-text-tableseccion-3 ml-1"> <span>{{montoParaSiguienteMeta | number:'1.2-2'}}</span> <span class="usd-f-16-gris">USD</span><!-- <span class="usd-f-16-blue">25%</span>  --></div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="row text-tableseccion-3 mt-4 ml-1">{{'Bonus.Income.RatingDate' | translate}}</div>
+                <div class="row sub-text-tableseccion-3 ml-1">{{fecCalificacion | date:"mediumDate" }}</div>
+                
+                <div class="row text-tableseccion-3 mt-4 ml-1">{{'Bonus.Income.ClosingDate' | translate}}</div>
+                <div class="row sub-text-tableseccion-3 ml-1">{{fecCorte | date:"mediumDate" }}</div>
+                
+                <div class="row text-tableseccion-3 mt-4 ml-1">{{'Bonus.Income.CollectionDate' | translate}}</div>
+                <div class="row sub-text-tableseccion-3 ml-1 fechaPago">{{fecPago | date:"mediumDate"}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Detalle de IMA -->
+    <div class="col-12" *ngIf="mostrarIMA">
+      <div class="row">
+        <div class="card mt-0 p-4" style="height:auto ">
+          <div>
+            <div class="title">
+              {{'Bonus.Detail.Title' | translate}}
+            </div>
+            <div class="subTitle-secction3">
+              {{'Bonus.Detail.Msg01' | translate}}
+            </div>
+          </div>
+    
+          <div class="mt-4">
+            <mat-tab-group>
+              <mat-tab label="{{'Bonus.Detail.Qualified' | translate}}">
+                <table  class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>{{'Bonus.Detail.AccumulationLvl' | translate}}</th>
+                      <th>{{'Bonus.Detail.Associates' | translate}}</th>
+                      <th>{{'Bonus.Detail.OriginalAmmount' | translate}}</th>
+                      <th>{{'Bonus.Detail.CalculateAmmount' | translate}}</th>
+                      <th>%</th>
+                      <th>{{'Bonus.Detail.Date' | translate}}</th>
+                    </tr>
+                  </thead>
+    
+                  <tbody>
+                    <tr *ngFor="let n of nivelesCalificados" >
+                      <td [ngClass]="{'td60': n.flag, 'td60_1': n.flag}">{{n.Nivel_Num}}</td>
+                      <td [ngClass]="{'td60': n.flag, 'td60_2': n.flag}">{{n.Nivel_Asoc}}</td>
+                      <td [ngClass]="{'td60': n.flag, 'td60_2A': n.flag}">{{n.Nivel_MontoOrig| number:'1.2-2'}} usd</td>
+                      <td [ngClass]="{'td60': n.flag, 'td60_2A': n.flag}">{{n.Nivel_MontoCalc| number:'1.2-2'}} usd</td>
+                      <td [ngClass]="{'td60': n.flag, 'td60_2A': n.flag}">  {{n.percent}} </td>
+                      <td [ngClass]="{'td60': n.flag, 'td60_3': n.flag}">{{n.Nivel_Fec | date:'dd/MM/yy'}}</td>
+                    </tr>
+ 
+                    <!-- Footer -->
+                    <tr>
+                      <td class=""></td>
+                      <td class=""></td>
+                      <td class="total-detalle-IMA">Total {{montoOriginal | number:'1.2-2'}}</td>
+                      <td class="total-detalle-IMA">Total {{montoCalculo | number:'1.2-2'}}</td>
+                      <td class=""></td>
+                      <td class=""></td>
+                    </tr>
+                    <!-- Footer -->
+                  </tbody>
+                </table>
+              </mat-tab>
+    
+      <!--         <mat-tab label="{{'Bonus.Detail.ToQualify' | translate}}">
+                <table   class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>{{'Bonus.Detail.Name' | translate}}</th>
+                      <th>{{'Bonus.Detail.Surname' | translate}}</th>
+                      <th>{{'Bonus.Detail.Email' | translate}}</th>
+                      <th>{{'Bonus.Detail.Phone' | translate}}</th>
+                      <th>{{'Bonus.Detail.Deadline' | translate}}</th>
+                    </tr>
+                  </thead>
+    
+                  <tbody>
+                    <tr>
+                      <td class="">Vanessa</td>
+                      <td class="">Hernández Montiel</td>
+                      <td class="">este.es.un.correo@gmail.com</td>
+                      <td class="">55 1234 5678</td>
+                      <td class="">Oct 1, 2020</td>
+                    </tr>
+                    <tr>
+                      <td class="">Vanessa</td>
+                      <td class="">Hernández Montiel</td>
+                      <td class="">este.es.un.correo@gmail.com</td>
+                      <td class="">55 1234 5678</td>
+                      <td class="">Oct 13, 2020</td>
+                    </tr>
+                    <tr>
+                      <td class="">Vanessa</td>
+                      <td class="">Hernández Montiel</td>
+                      <td class="">este.es.un.correo@gmail.com</td>
+                      <td class="">55 1234 5678</td>
+                      <td class="">Oct 30, 2020</td>
+                    </tr>
+                    <tr>
+                      <td class="">Vanessa</td>
+                      <td class="">Hernández Montiel</td>
+                      <td class="">este.es.un.correo@gmail.com</td>
+                      <td class="">55 1234 5678</td>
+                      <td class="">Nov 6, 2020</td>
+                    </tr>
+                    
+                    <tr>
+                      <td class=""></td>
+                      <td class=""></td>
+                      <td class="total-detalle-IMA">{{'Bonus.Detail.Total' | translate}} 80,000</td>
+                      <td class="total-detalle-IMA">{{'Bonus.Detail.Total' | translate}} 65,000</td>
+                      <td class=""></td>
+                    </tr>
+                    
+                  </tbody>
+
+                </table>
+              </mat-tab> -->
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loader></app-loader>

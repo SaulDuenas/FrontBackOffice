@@ -1,0 +1,135 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row mt-0">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4
+              class="card-title"
+              style="font-size: 18px; font-weight: 500; color: #fff"
+            >
+              Estado de Cuenta SBC
+            </h4>
+            <p class="card-category">Resumen al día {{ myDate }}</p>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div
+                class="col-md-4"
+                style="
+                  color: #1c3d59;
+                  font-size: 22px;
+                  font-weight: 500;
+                  border-right: 2px solid #04adbf;
+                "
+              >
+                Total de Cuentas Smart: {{ noPlanes }}
+              </div>
+              <div
+                class="col-md-4"
+                style="
+                  color: #1c3d59;
+                  font-size: 22px;
+                  font-weight: 500;
+                  border-right: 2px solid #04adbf;
+                "
+              >
+                Saldo Inicial: {{ saldoInicial | number: "3.2-2" }} USD
+              </div>
+              <div
+                class="col-md-4"
+                style="
+                  color: #1c3d59;
+                  font-size: 22px;
+                  font-weight: 500;
+                  border-right: 2px solid #04adbf;
+                "
+              >
+                Saldo Actual: {{ saldoTotal | number: "3.2-2" }} USD
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="!verTodo">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4
+              class="card-title"
+              style="font-size: 18px; font-weight: 500; color: #fff"
+            >
+              ESTADO DE CUENTA
+            </h4>
+            <p class="card-category">CÁLCULOS AL {{ myDate }}</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text">
+                  <!--<th style="text-align: center;cursor: pointer;color:#04ADBF ;">
+                                      Ver Detalles
+                                  </th>-->
+                  <th style="text-align: center">Tipo de Plan</th>
+                  <th style="text-align: center">Fecha de Inicio</th>
+                  <th style="text-align: center">Ganancia Mensual</th>
+                  <th style="text-align: center">Capital</th>
+
+                  <th style="text-align: center">Monto Actual</th>
+                  <th style="text-align: center"></th>
+
+                  <th style="text-align: center"></th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let t of arrayEstadoCuenta">
+                    <td style="text-align: center">
+                      {{ t.Description }}
+                    </td>
+                    <td style="text-align: center">
+                      {{ t.fechaInicio }}
+                    </td>
+                    <td style="text-align: center">{{ t.RPercent }} %</td>
+                    <td style="text-align: right">
+                      {{ t.capital | number: "3.2-2" }} USD
+                    </td>
+                    <td style="text-align: right">
+                      {{ t.Acumulado | number: "3.2-2" }} USD
+                    </td>
+
+                    <td style="text-align: right">
+                      <span class="material-icons" style="color: #1ab7d1"
+                        >assignment</span
+                      >
+                    </td>
+                    <td style="text-align: left">
+                      <a href="" style="color: #1ab7d1">RETIRAR</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="float-right">
+          <button mat-raised-button class="btn btn-warning btn-round">
+            <i class="material-icons">announcement</i> NOTIFICAR UN PLAN
+            ADICIONAL
+          </button>
+          <button
+            mat-raised-button
+            class="btn btn-success btn-round"
+            routerLink="../selectplan"
+          >
+            <i class="material-icons">add</i> CONTRATAR UN PLAN ADICIONAL
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

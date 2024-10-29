@@ -1,0 +1,309 @@
+<!-- main-content -->
+<div class="main-content">
+  <!-- container-fluid -->
+  <div class="container-fluid">
+    <!-- Inicia contratoInicial -->
+    <div class="col-md-12">
+      <div class="row mt-0">
+        <!-- row mt-0 -->
+        <div class="col-md-12">
+          <!-- Col md 12 -->
+          <div
+            class="card"
+            style="
+              border-top-left-radius: 20px 20px;
+              border-top-right-radius: 20px 20px;
+            "
+          >
+            <!-- Card -->
+            <div
+              style="
+                background-color: #0093d6;
+                border-top-left-radius: 20px 20px;
+                border-top-right-radius: 20px 20px;
+              "
+            >
+              <h4
+                class="card-title ml-3 mt-3 mb-3"
+                style="font-size: 18px; font-weight: 500; color: #fff"
+              >
+                 {{  Regis.PayMember | translate }}
+              </h4>
+            </div>
+
+            <div class="card-body">
+              <!-- Card Body -->
+              <div class="row d-flex justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    class=""
+                    style="
+                      background-color: #27bcee;
+                      border-radius: 10px;
+                      box-shadow: 0px 4px 4px 0px #828282;
+                    "
+                  >
+                    <h6
+                      class="card-category text-center"
+                      style="font-weight: 600; color: #fff; font-size: 50px"
+                    >
+                      BASIC
+                    </h6>
+                    <div
+                      class="card"
+                      style="margin-top: -15px; height: auto; color: #27bcee"
+                    >
+                      <div class="card-body mt-3">
+                        <h3
+                          class="card-title text-center"
+                          style="
+                            color: #27bcee;
+                            font-size: 28px;
+                            font-weight: bold;
+                          "
+                        >
+                          <em style="font-size: 60px">635</em> <em>USD</em>
+                        </h3>
+                        <p
+                          class="card-description text-center"
+                          style="color: #27bcee; font-size: 18px"
+						  [InnerHTML] = "'AcquirePlan.BasicMsg' | translate"
+                        >
+                         
+                        </p>
+                      </div>
+                      <div
+                        class="card-footer justify-content-center"
+                        style="background-color: #fff"
+                      >
+                        <button
+                          class=""
+                          (click)="contratar(635, 15, 2)"
+                          class="btn btn-white btn-round"
+                          style="
+                            background-color: #1961ac;
+                            color: #fff;
+                            margin-top: -20px;
+                          "
+                        >
+                          {{'AcquirePlan.Acquire' | translate}}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    style="
+                      background-color: #1961ac;
+                      border-radius: 10px;
+                      box-shadow: 0px 4px 4px 0px #828282;
+                    "
+                  >
+                    <h6
+                      class="card-category text-center"
+                      style="font-weight: 600; color: #fff; font-size: 50px"
+                    >
+                      PREMIUM
+                    </h6>
+                    <div
+                      class="card"
+                      style="margin-top: -15px; height: auto; color: #1961ac"
+                    >
+                      <div class="card-body mt-3">
+                        <h3
+                          class="card-title text-center"
+                          style="
+                            color: #1961ac;
+                            font-size: 28px;
+                            font-weight: bold;
+                          "
+                        >
+                          <em style="font-size: 60px">825</em> <em>USD</em>
+                        </h3>
+                        <p
+                          class="card-description text-center"
+                          style="color: #1961ac; font-size: 18px"
+                        >
+                          Rendimiento Mensual <br />
+                          Compuesto: 5%
+                        </p>
+                      </div>
+                      <div class="card-footer justify-content-center">
+                        <button
+                          class=""
+                          (click)="contratar(825, 16, 2)"
+                          class="btn btn-white btn-round"
+                          style="
+                            background-color: #1961ac;
+                            color: #fff;
+                            margin-top: -20px;
+                          "
+                        >
+                          Adquirir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    style="
+                      background-color: #27bcee;
+                      border-radius: 10px;
+                      box-shadow: 0px 4px 4px 0px #828282;
+                    "
+                  >
+                    <h6
+                      class="card-category text-center"
+                      style="color: #fff; font-size: 24px"
+                    >
+                      BASIC
+                    </h6>
+                    <h6
+                      class="card-category text-center"
+                      style="
+                        font-weight: 600;
+                        color: #fff;
+                        font-size: 30px;
+                        margin-top: -20px;
+                      "
+                    >
+                      SMART PACK
+                    </h6>
+
+                    <div class="card" style="margin-top: -10px">
+                      <div class="card-body">
+                        <h3
+                          class="text-center"
+                          style="
+                            color: #27bcee;
+                            font-size: 28px;
+                            font-weight: bold;
+                          "
+                        >
+                          <em style="font-size: 60px">635</em> <em>USD</em>
+                        </h3>
+
+                        <p
+                          class="card-description text-center"
+                          style="color: #27bcee; font-size: 18px"
+                        >
+                          Rendimiento Mensual <br />compuesto: 4%
+                        </p>
+                        <h3
+                          class="text-center"
+                          style="
+                            color: #27bcee;
+                            font-size: 14px;
+                            font-weight: bold;
+                          "
+                        >
+                          <em style="font-size: 22px; font-weight: 700"
+                            >+ PLAN ADICIONAL</em
+                          >
+                        </h3>
+                      </div>
+                      <div class="card-footer justify-content-center">
+                        <button
+                          class=""
+                          routerLink="../addplan/basicSP"
+                          class="btn btn-white btn-round"
+                          style="background-color: #1961ac; color: #fff"
+                        >
+                          Adquirir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    style="
+                      background-color: #1961ac;
+                      border-radius: 10px;
+                      box-shadow: 0px 4px 4px 0px #828282;
+                    "
+                  >
+                    <h6
+                      class="card-category text-center"
+                      style="color: #fff; font-size: 24px"
+                    >
+                      PREMIUM
+                    </h6>
+                    <h6
+                      class="card-category text-center"
+                      style="
+                        font-weight: 600;
+                        color: #fff;
+                        font-size: 30px;
+                        margin-top: -20px;
+                      "
+                    >
+                      SMART PACK
+                    </h6>
+
+                    <div class="card" style="margin-top: -10px">
+                      <div class="card-body">
+                        <h3
+                          class="text-center"
+                          style="
+                            color: #1961ac;
+                            font-size: 28px;
+                            font-weight: bold;
+                          "
+                        >
+                          <em style="font-size: 60px">835</em> <em>USD</em>
+                        </h3>
+
+                        <p
+                          class="card-description text-center"
+                          style="color: #1961ac; font-size: 18px"
+                        >
+                          Rendimiento Mensual <br />compuesto: 5%
+                        </p>
+                        <h3
+                          class="text-center"
+                          style="
+                            color: #1961ac;
+                            font-size: 14px;
+                            font-weight: bold;
+                          "
+                        >
+                          <em style="font-size: 22px; font-weight: 700"
+                            >+ PLAN ADICIONAL</em
+                          >
+                        </h3>
+                      </div>
+                      <div class="card-footer justify-content-center">
+                        <button
+                          class=""
+                          routerLink="../addplan/premiumSP"
+                          class="btn btn-white btn-round"
+                          style="background-color: #1961ac; color: #fff"
+                        >
+                          Adquirir
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fin Card Body -->
+          </div>
+          <!-- Fin Card -->
+        </div>
+        <!-- Fin Col md 12 -->
+      </div>
+      <!-- Fin row mt-0 -->
+    </div>
+    <!-- Termina contratoInicial -->
+  </div>
+  <!-- fin container-fluid -->
+</div>

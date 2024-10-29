@@ -1,0 +1,35 @@
+[
+    {
+      "id" : "es",
+      "short_name" : "ESP",
+      "title" : "Español",
+      "path": "../../../assets/img/banderas/mexico.png",
+      "tongues" : [
+                  {
+                    "id":"es",
+                    "name": "Español"
+                  },
+                  {
+                    "id":"en",
+                    "name": "Spanish"
+                  }
+                ]
+    },
+    {
+      "id" : "en",
+      "short_name" : "ENG",
+      "title" : "Ingles",
+      "path": "../../../assets/img/banderas/estados-unidos-de-america.png",
+      "tongues" : [
+                  {
+                    "id":"es",
+                    "name": "Ingles"
+                  },
+                  {
+                    "id":"en",
+                    "name": "English"
+                  }
+                ]
+     
+    }
+]

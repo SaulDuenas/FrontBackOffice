@@ -1,0 +1,218 @@
+<nav class="navbar-login fixed-top shadow">
+  <div class="container-nav">
+    <div class="d-flex justify-content-between align-items-center">
+
+      <div class="pt-2 pb-2">
+        <img class="img logo-width" src="assets/img/sbc2020_small1.png" />
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="javascript:void(0)" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="color: #11458E;">
+          <i class="material-icons">public</i>
+          <span> {{ LangName }} </span>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right mt-4" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang(languajes.id)"
+            routerLinkActive="active" *ngFor="let languajes of Languages">
+            <img style="height: 30px" src="{{ languajes.path }}" alt="" />
+            <span class="ml-3">{{languajes.title}}</span>
+          </a>
+        </div>
+
+        <!--
+                                <div
+                                  class="dropdown-menu dropdown-menu-right"
+                                  aria-labelledby="navbarDropdownMenuLink" style="margin-top: -5px;"
+                                >
+                                  <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('en')">
+                                    <img
+                                      style="height: 30px"
+                                      src="../../../assets/img/banderas/estados-unidos-de-america.png"
+                                      alt=""
+                                    />
+                                    <span class="ml-3">{{ 'Menu.English' | translate }}</span>
+                                  </a>
+                                  <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('es')">
+                                    <img
+                                      style="height: 30px"
+                                      src="../../../assets/img/banderas/mexico.png"
+                                      alt=""
+                                    />
+                                    <span class="ml-3">{{ 'Menu.Spanish' | translate }}</span>
+                                  </a>
+                                  <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('jp')">
+                                    <img
+                                      style="height: 30px"
+                                      src="../../../assets/img/banderas/japon.png"
+                                      alt=""
+                                    />
+                                    <span class="ml-3">{{ 'Menu.Japanese' | translate }}</span>
+                                  </a>
+                                  <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('pt')">
+                                    <img
+                                      style="height: 30px"
+                                      src="../../../assets/img/banderas/portugal.png"
+                                      alt=""
+                                    />
+                                    <span class="ml-3">{{ 'Menu.Portuguese' | translate }}</span>
+                                  </a>
+                                </div>
+                      -->
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="wrapper fadeInDown" *ngIf="sendPassword == true">
+
+  <div id="formContent">
+    <div style="text-align: center">
+      <ul class="nav nav-tabs barra_horizontal_ul">
+        <li class="nav-item barra_horizontal_li">
+          <h2 class="active" data-toggle="tab" href="#login" [innerHTML]="'Login.Title' | translate"> </h2>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="tab-content">
+      <div id="login" class="pane tab-pane active">
+        <!--
+        <div class="fadeIn">
+          <img
+            class="mb-4"
+            src="assets/img/sbc_interno1.png"
+            alt=""
+            width="240"
+            height="72"
+          />
+        </div>
+        -->
+        <h4 class="fadeIn">
+          {{ 'Login.Getaccess' | translate }}
+        </h4>
+        <form class="form-signin" (ngSubmit)="login(forma)" #forma="ngForm">
+          <input type="text" id="login" class="fadeIn" placeholder="{{ 'Login.Email' | translate }}" name="email"
+            ngModel #email="ngModel" required autofocus />
+          <input type="password" id="password" class="fadeIn" placeholder="{{ 'Login.Password' | translate }}"
+            name="password" ngModel #password="ngModel" passwordToggle required />
+
+         <!--  <input type="hidden" id="ReqIp" name="ReqIp" ngModel [(ngModel)]="ReqIp" required />
+ -->
+          <div class="mt-1">
+            <a class="underlineHover" (click)="sendPsw(false)" style="color: red; cursor: pointer">
+              {{ 'Login.ForgotPass' | translate }}
+            </a>
+          </div>
+
+          <div>
+            <input type="submit" class="btn btn-primary btn-lg fadeIn mt-3"
+              style="background-color: #11458e; border-radius: 35px" value="{{ 'Login.Enter' | translate }}" />
+          </div>
+        </form>
+
+        <div id="formFooter"></div>
+      </div>
+      <div id="register" class="pane tab-pane">
+        <h2 class="fadeIn" style="color: #11458e">
+          {{ 'Login.Signup' | translate }}
+        </h2>
+        <form class="form-signin" (ngSubmit)="registerNewProspect(formaReg)" #formaReg="ngForm">
+          <input type="hidden" id="idSuscriber" name="idSuscriber" name="idSuscriber" [(ngModel)]="idSuscriber" />
+
+          <div class="col-11 ml-3">
+            <mat-form-field appearance="fill" class="fadeIn ph-left">
+              <mat-label> {{ 'Login.Country' | translate }}</mat-label>
+              <mat-select [(ngModel)]="Pais" name="Pais" required>
+                <mat-option *ngFor="let pais of arrayPaises" [(value)]="pais.PaisCodigo">
+                  {{ pais.PaisNombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <input type="text" id="codigoInvitacion" class="fadeIn ph-left" name="codigoInvitacion"
+            placeholder="ID de Referido" name="codigoInvitacion" ngModel [(ngModel)]="codigoInvitacion" required />
+
+          <input type="text" id="emailReg" class="fadeIn ph-left" name="emailReg"
+            placeholder="{{ 'Login.Email' | translate }}" name="email" ngModel #email="ngModel" required />
+          <input type="password" id="passwordReg" class="fadeIn ph-left" name="passwordReg"
+            placeholder="{{ 'Login.Password' | translate }}" name="password" ngModel [(ngModel)]="passwordReg"
+            passwordToggle required />
+
+          <input type="hidden" id="idValidator" name="idValidator" name="idValidator" ngModel #idValidator="ngModel" />
+
+          <input type="password" id="repitpassword" class="fadeIn ph-left" name="repitpassword"
+            placeholder="{{ 'Login.RepeatPassword' | translate }}" name="repitpassword" ngModel
+            [(ngModel)]="repitpassword" passwordToggle required />
+
+          <div class="container">
+            <section class="example-section">
+              <div class="row ml-4 mt-3">
+                <mat-checkbox color="primary" class="example-margin" [(ngModel)]="avProvacidad" name="avProvacidad">
+                  <span style="color: #000; font-size: 16px">He leído el </span>
+                  <a style="color: #11458e; font-size: 16px" href="http://google.com">aviso de privacidad</a>
+                </mat-checkbox>
+              </div>
+              <div class="row ml-4">
+                <mat-checkbox color="primary" class="example-margin" [(ngModel)]="termCond" name="termCond">
+                  <span style="color: #000; font-size: 16px">Acepto los</span>
+                  <a style="color: #11458e; font-size: 16px" href="#">Términos y condiciones</a>
+                </mat-checkbox>
+              </div>
+            </section>
+          </div>
+          <input type="submit" class="btn btn-primary btn-lg fadeIn"
+            style="background-color: #11458e; border-radius: 35px" value="Registrarme" />
+        </form>
+        <div id="formFooter"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper fadeInDown" *ngIf="sendPassword == false">
+  <div id="formContent">
+    <div style="text-align: center">
+      <ul class="nav nav-tabs barra_horizontal_ul">
+        <li class="nav-item barra_horizontal_li">
+          <h2 class="active" data-toggle="tab" href="#login">
+            {{ 'Login.RecoverPass' | translate }}
+          </h2>
+        </li>
+      </ul>
+    </div>
+
+    <br />
+    <div class="tab-content">
+      <div id="login" class="pane tab-pane active">
+        <div class="fadeIn">
+          <img class="mb-4" src="assets/img/sbc_interno1.png" alt="" width="240" height="72" />
+        </div>
+        <!--         <h2 class="fadeIn" style="color: #11458e">
+          Bienvenido a tu Smart Office
+        </h2> -->
+        <div class="form-lostPsw">
+          <input type="text" id="reqPswEmail" class="fadeIn" placeholder="{{ 'Login.Email' | translate }}"
+            name="reqPswEmail" [(ngModel)]="reqPswEmail" required autofocus />
+
+          <div class="mt-1">
+            <a class="underlineHover" style="color: red; cursor: pointer" (click)="sendPsw(true)">
+              {{ 'Login.GoBack' | translate }}
+            </a>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary btn-lg fadeIn mt-3"
+              style="background-color: #11458e; border-radius: 35px" (click)="reqPassword()">
+              {{ 'Login.RecoverPassBtn' | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div id="formFooter"></div>
+      </div>
+    </div>
+  </div>
+</div>

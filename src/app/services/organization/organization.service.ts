@@ -18,6 +18,47 @@ export class OrganizationService {
 
   headers = new HttpHeaders().set("Content-Type", "application/json");
 
+
+  getNumerals(id_head,date) {
+    
+    let url = `${this.baseUri}/api/organization/resume/${id_head}/${date}`;
+  
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorMgmt)
+    );
+  }
+
+  getPartnerDetail(id_head,direct=0,promotes=0,assigned=0,investment=0,order='ASC') {
+ 
+   let url = `${this.baseUri}/api/organization/detail/${id_head}/${direct}/${promotes}/${assigned}/${investment}/${order}`;
+  
+   return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorMgmt)
+    );
+  }
+
+
+  getNetwork(id_head) {
+ 
+   let url = `${this.baseUri}/api/organization/network/${id_head}`;
+  // let url = `${this.baseUri}/api/organization/network/107870`;
+   console.log(url);
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorMgmt)
+    );
+  }
+
+
+
   getComunity(id_head) {
     
     let url = `${this.baseUri}/api/organization/${id_head}`;
@@ -33,7 +74,7 @@ export class OrganizationService {
 
   getProspect(idSuscriber) {
     let url = `${this.baseUri}/api/organization/prospects/${idSuscriber}`;
-    console.log(url);
+  //  console.log(url);
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         
@@ -45,7 +86,7 @@ export class OrganizationService {
 
   getGuest(idSuscriber) {
     let url = `${this.baseUri}/api/organization/guest/${idSuscriber}`;
-    console.log(url);
+   // console.log(url);
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         

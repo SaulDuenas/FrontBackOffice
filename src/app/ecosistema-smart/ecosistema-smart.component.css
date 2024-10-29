@@ -1,0 +1,69 @@
+.box {
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.title {
+  /* Estado de Cuenta */
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 30px;
+  /* identical to box height, or 100% */
+  letter-spacing: -0.015em;
+  color: #11458E;
+}
+
+.subTitle {
+  /* Monitorea los rendimientos de tu Membresía y Planes Adicionales. */
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 30px;
+  /* or 120% */
+  letter-spacing: -0.015em;
+  color: #4D4646;
+  margin-left: 2rem;
+}
+
+.subTitleB {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: #11458E;
+}
+
+.textSBC {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  /* or 106% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #5F5F5F;
+}
+
+.btnSBC {
+  background: #11458E;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.heightIcons {
+  height: 200px;
+}

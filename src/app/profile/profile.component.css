@@ -1,0 +1,307 @@
+/* Nuevos ajustes */
+.title {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: #11458e;
+}
+
+.subTitle {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: #4d4646;
+  margin-left: 2rem;
+}
+
+/* Actuales */
+.btn-add {
+  font-size: 20px;
+  line-height: 30px;
+  background-color: #11458E;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin: 30px 0px 31px;
+}
+
+.btn-container {
+  text-align: right;
+}
+
+.btn-save {
+  background: #5FC868;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 25px;
+}
+
+.content {
+  padding-right: 58px;
+  padding-left: 58px;
+  padding-top: 27px;
+  padding-bottom: 49px;
+}
+
+.form-group{
+  padding:10px;
+  position: relative;
+}
+
+.form-group>label{
+  position:absolute;
+  top:-1px;
+  background-color:white;
+  font-size: 12px;
+}
+
+.form-message {
+  font-size: 18px;
+  line-height: 30px;
+  color: #6F6F6F;
+}
+
+.form-section {
+  color: #4092D0;
+  border-bottom: 1.5px solid #4092D0;
+  font-size: 18px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #4092D0;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+
+.select-designate
+.mat-form-field-underline {
+  background-color: red !important;
+} 
+
+.mat-form-field-appearance-standard
+.mat-form-field-underline {
+  background-color: transparent !important;
+}
+
+.mat-form-field-appearance-standard
+.mat-form-field-flex {
+  padding-top: 0px;
+}
+
+.message {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.nav {
+  font-size: 20px;
+  border-bottom: 2px solid #0093D6;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-bottom: 22px;
+}
+
+.nav-link {
+  color: #0093D6;
+  border-radius: 0px;
+  border-color: transparent;
+}
+
+.nav-link:hover {
+  border-color: transparent;
+}
+
+.nav-link.active {
+  background-color: #0093D6;
+  color: #fff;
+  border-color: transparent;
+}
+
+.nav-link.active:hover {
+  border-color: transparent;
+}
+
+.nav-link.active:focus {
+  border-color: transparent;
+}
+
+.password-subtitle {
+  font-size: 18px;
+  line-height: 30px;
+  color: #4092D0;
+}
+
+.percentage {
+  text-align: center;
+}
+
+.percentage p {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 30px;
+  color: #11458E;
+}
+
+.percentage span {
+  padding-left: 40px;
+}
+
+.photo {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.photo img {
+  border-radius: 10px;
+  margin-bottom: 11px;
+}
+
+.photo .button {
+  color: #0093D6;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #0093D6;
+  border-radius: 25px;
+  border-color: transparent;
+  font-size: 15px;
+  margin-top: 11px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.select-designate {
+  background: #FFFFFF;
+  border: 1px solid rgba(196, 196, 196, 0.2);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  padding: 15px 85px 15px 25px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 1.3em top 50%, 0 0;
+  background-size: .7em auto, 100%;
+  cursor:pointer;
+  font-size: 20px;
+  color: #C4C4C4;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  color: #0093D6;
+  margin-bottom: 8px;
+}
+
+.section-line {
+  border: 1px solid #0093D6;
+  background-color: #0093D6;
+  width: 100%;
+  margin-bottom: 17px;
+}
+
+.subtitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.tab-content {
+  color: #6F6F6F;
+}
+
+.table {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  
+  color: #5F5F5F;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background: rgba(196, 196, 196, 0.2);
+}
+
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+  background-color: #ffffff;
+}
+
+.table-striped > thead > tr > th {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 17px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  
+  color: #5F5F5F;
+}
+
+.table-striped > tbody > tr:nth-child(odd) td:first-child{
+  border-radius: 10px 0px 0px 10px;
+}
+.table-striped > tbody > tr:nth-child(odd) td:last-child {
+  border-radius: 0px 10px 10px 0px;
+  padding: 0px;
+}
+
+.table-striped-blue > thead > tr > th {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 17px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #5F5F5F;
+}
+
+.table-striped-blue > tbody > tr:nth-child(odd) > td,
+.table-striped-blue > tbody > tr:nth-child(odd) > th {
+  background: #0093D6;
+  color: #ffffff;
+}
+
+.table-striped-blue > tbody > tr:nth-child(even) > td,
+.table-striped-blue > tbody > tr:nth-child(even) > th {
+  background-color: #ffffff;
+}
+
+.table-striped-blue > tbody > tr:nth-child(odd) td:first-child{
+  border-radius: 10px 0px 0px 10px;
+}
+.table-striped-blue > tbody > tr:nth-child(odd) td:last-child {
+  border-radius: 0px 10px 10px 0px;
+  padding: 0px;
+}

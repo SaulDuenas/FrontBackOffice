@@ -1,41 +1,155 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import * as jwt_decode from "jwt-decode";
 
 declare const $: any;
 declare interface RouteInfo {
-    path: string;
-    title: string;
-    icon: string;
-    class: string;
+  tag: string;
+  path: string;
+  title: string;
+  icon: string;
+  class: string;
+  act: boolean;
 }
-export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
-    { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+export var ROUTES: RouteInfo[] = [
+  {
+    tag: "Menu.Dashboard",
+    path: "/home",
+    title:"Dashboard" , 
+    icon: "dashboard",
+    class: "",
+    act: false,
+  },
+  {
+    tag: "Menu.NewRegister",
+    path: "/homeregister",
+    title: "Registro",
+    icon: "person",
+    class: "",
+    act: false,
+  },
+  {
+    tag: "Menu.MyProfile",
+    path: "/profile",
+    title: "Mi Perfil",
+    icon: "recent_actors",
+    class: "",
+    act: false,
+  },
+
+  {
+    tag: "Menu.AccountStatement",
+    path: "/cuenta",
+    title: "Estado de Cuenta",
+    icon: "account_balance_wallet",
+    class: "",
+    act: false,
+  },
+  {
+    tag: "Menu.AcquirePlan",
+    path: "/selectplan",
+    title: "Adquiere un Plan",
+    icon: "add_task",
+    class: "",
+    act: false,
+  },
+  {
+    tag: "Menu.MyCommunity",
+    path: "/organization",
+    title: "Mi comunidad",
+    icon: "people",
+    class: "",
+    act: false,
+  },
+  {
+    tag: "Menu.BonusComiss",
+    path: "/bonos",
+    title: "Bonos y Comisiones",
+    icon: "monetization_on",
+    class: "",
+    act: false,
+  },
+  {
+    tag: "Menu.KnowOfSBC",
+    path: "/kit/1",
+    title: "Conoce + SBC",
+    icon: "business_center",
+    class: "",
+    act: false,
+  },
+  {
+    tag: "Menu.Entrepreneurship",
+    path: "/ecosistema",
+    title: "Ecosistema Emprendedor",
+    icon: "mediation",
+    class: "",
+    act: false,
+  },
+   {
+    tag: "Menu.CloseSession",
+    path: "/upgrade",
+    title: "Cerrar Sesión",
+    icon: "exit_to_app",
+    class: "active-pro",
+    act: false,
+  }, 
 ];
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: "app-sidebar",
+  templateUrl: "./sidebar.component.html",
+  styleUrls: ["./sidebar.component.css"],
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  userToken;
+  isProspect;
+  ocultar;
 
-  constructor() { }
+  constructor() {
+
+  }
+
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.leerToken();
+    this.menuItems = ROUTES.filter((menuItem) => menuItem);
   }
-  
-  isMobileMenu() {
-      if ($(window).width() > 991) {
-          return false;
+
+  leerToken() {
+    if (localStorage.getItem("token")) {
+      this.userToken = localStorage.getItem("token");
+      var decoded = jwt_decode(this.userToken);
+      this.isProspect = decoded["isProspect"];
+      console.log(this.isProspect);
+      if (this.isProspect == "0") {
+        ROUTES.forEach(function (element) {
+          if (element.title == "Cerrar Sesión" || element.title == "Registro") {
+            element.act = true;
+          } else
+          {
+            element.act = false;
+          }
+
+        });
       }
-      return true;
-  };
+      if (this.isProspect == "1") {
+        ROUTES.forEach(function (element) {
+
+          if (element.title != "Cerrar Sesión" && element.title != "Registro" && element.title != "Close Session" && element.title != "Register")
+          { element.act = true; }
+          else
+          { element.act = false; }
+        });
+      } 
+    } else {
+      this.userToken = "";
+    }
+    return this.userToken;
+  }
+  isMobileMenu() {
+    if ($(window).width() > 991) {
+      return false;
+    }
+    return true;
+  }
 }

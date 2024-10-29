@@ -1,0 +1,305 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card" style="border-radius: 10px 10px 0px 0px">
+          <div
+            class=""
+            style="background-color: #0093d6; border-radius: 10px 10px 0px 0px"
+          >
+            <h4
+              class="card-title ml-3 mt-3 mb-3"
+              style="font-size: 22px; font-weight: 700; color: #fff"
+            >
+              Adquirir un Smart Pack
+            </h4>
+            <!--   <p class="card-category ml-3"style="font-size: 14px; color: #fff;">Detalles</p> -->
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="ml-4 mt-4">
+                <span
+                  style="
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #1a99d5;
+                    float: left;
+                  "
+                  >Smart Pack Seleccionado</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div
+                class="offset-sm-2 offset-md-2 offset-lg-3 offset-xs-3 col-12 col-sm-8 col-md-8 col-lg-6 col-xs-6"
+              >
+                <div [class]="claseTitular">
+                  <h6
+                    class="card-category text-center"
+                    style="
+                      font-weight: 600;
+                      color: #fff;
+                      font-size: 30px;
+                      margin-top: -20px;
+                    "
+                  >
+                    {{ nombrePlan }}
+                  </h6>
+
+                  <div class="card" style="margin-top: -10px">
+                    <div class="card-body">
+                      <h3
+                        class="text-center"
+                        style="font-size: 28px; font-weight: bold"
+                      >
+                        <em style="font-size: 60px" [class]="textSP">{{
+                          montoPlan | number: "3.0"
+                        }}</em>
+                        <em [class]="textSP">USD</em>
+                      </h3>
+
+                      <p
+                        class="card-description text-center"
+                        style="font-size: 18px"
+                        [class]="textSP"
+                      >
+                        Membresía <br />
+                        {{ costoMembresia }} USD con RMC: {{ rendMembresia }}%
+                      </p>
+                      <div
+                        class="container-fluid"
+                        *ngIf="mostrarAdicionales == true"
+                      >
+                        <h1
+                          style="font-size: 20px; font-weight: 800; color: #fff"
+                          align="center"
+                        >
+                          Selecciona el Plan Adicional:
+                        </h1>
+                        <div align="center">
+                          <mat-button-toggle-group
+                            (change)="toggleChange($event)"
+                            class="col-xs-12"
+                            name="fontStyle"
+                            aria-label="Font Style"
+                            align="center"
+                          >
+                            <mat-button-toggle value="211"
+                              >500 <em>usd</em>
+                            </mat-button-toggle>
+                            <mat-button-toggle value="212"
+                              >1k <em>usd</em></mat-button-toggle
+                            >
+                            <mat-button-toggle value="213"
+                              >2k <em>usd</em></mat-button-toggle
+                            >
+                            <mat-button-toggle value="215"
+                              >5k <em>usd</em></mat-button-toggle
+                            >
+                            <mat-button-toggle value="216"
+                              >10k <em>usd</em></mat-button-toggle
+                            >
+                          </mat-button-toggle-group>
+                        </div>
+                      </div>
+                      <p
+                        class="card-description text-center mt-5"
+                        style="font-size: 18px"
+                        [class]="textSP"
+                      >
+                        RCM Plan Adicional <br />
+                        seleccionado {{ rendPlan }}%
+                      </p>
+                    </div>
+                    <div class="card-footer justify-content-center">
+                      <button
+                        (click)="adquirirSmartPack()"
+                        class="btn btn-round"
+                        [class]="botonSP"
+                        style="color: #fff"
+                      >
+                        Adquirir
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              mat-raised-button
+              type="button"
+              class="btn btn-netx pull-left"
+              style="border-radius: 35px; color: #11458e"
+              routerLink="../../newmembership"
+            >
+              <i class="fa fa-angle-double-left mr-2" aria-hidden="true"></i
+              >Volver
+            </button>
+            <!--             <div
+              class="offset-sm-2 offset-md-2 offset-lg-3 offset-xs-3 col-12 col-sm-8 col-md-8 col-lg-6 col-xs-6"
+            >
+              <div class="container-fluid" *ngIf="mostrarAdicionales == true">
+                <h1
+                  style="font-size: 20px; font-weight: 800; color: #1a99d5"
+                  align="center"
+                >
+                  Selecciona el Plan Adicional:
+                </h1>
+                <mat-button-toggle-group
+                  value="1"
+                  (change)="toggleChange($event)"
+                  class="col-xs-12"
+                  name="fontStyle"
+                  aria-label="Font Style"
+                >
+                  <mat-button-toggle value="1"
+                    >500 <em>usd</em>
+                  </mat-button-toggle>
+                  <mat-button-toggle value="2"
+                    >1k<em>usd</em></mat-button-toggle
+                  >
+                  <mat-button-toggle value="3"
+                    >2k<em>usd</em></mat-button-toggle
+                  >
+                  <mat-button-toggle value="4"
+                    >5k<em>usd</em></mat-button-toggle
+                  >
+                  <mat-button-toggle value="5"
+                    >10k<em>usd</em></mat-button-toggle
+                  >
+                </mat-button-toggle-group>
+              </div>
+
+              <hr />
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loader></app-loader>
+
+<!-- 
+               <mat-tab-group mat-align-tabs="start">
+                  <mat-tab label="Pago con Bitcoins">
+                    <div class="col-md-12">
+                      <div class="row mt-5">
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div
+                              style="
+                                font-size: 14px;
+                                font-weight: 800;
+                                color: #1a99d5;
+                              "
+                              class="row ml-4 mt-2"
+                            >
+                              <span>Cantidad a pagar en dolares: </span>
+                            </div>
+                            <input
+                              readonly
+                              class="ml-5 mt-2"
+                              type="text"
+                              value="{{ montoPlan }}"
+                              style="height: 30px"
+                              #amount
+                            />
+                            <button
+                              class="btn btn-primary btn-round ml-5"
+                              (click)="copyToClipboard(amount, 1)"
+                            >
+                              <i class="material-icons">file_copy</i> Copiar
+                            </button>
+
+                            <button
+                              class="btn btn-primary btn-round ml-1"
+                              (click)="guardarPlan(montoPagar)"
+                            >
+                              <i class="fa fa-btc" aria-hidden="true"></i> Pagar
+                              directo
+                            </button>
+                          </div>
+
+                                                   <div class="row mt-2">
+                          <div style="
+                              font-size: 14px;
+                              font-weight: 800;
+                              color: #1a99d5;
+                            " class="row ml-4 mt-2">
+                            <span>Cantidad a pagar en Bitcoins: </span>
+                          </div>
+                          <input class="ml-5 mt-2" style="height: 30px;" type="text" value="0.53072810" />
+                          <button class="btn btn-primary btn-round ml-5">
+                            <i class="material-icons">file_copy</i> Copiar
+                          </button>
+                        </div> 
+
+                          <div class="row mt-2">
+                            <div
+                              style="
+                                font-size: 14px;
+                                font-weight: 800;
+                                color: #1a99d5;
+                              "
+                              class="row ml-4 mt-2"
+                            >
+                              <span
+                                >Remite tu pago a la dirección de abajo para
+                                completar tu orden.
+                              </span>
+                            </div>
+                            <div
+                              style="
+                                font-size: 14px;
+                                font-weight: 800;
+                                color: #1a99d5;
+                              "
+                              class="row ml-4 mt-2"
+                            >
+                              <span
+                                >Nota: Aparecera en pantalla un mensaje de
+                                confirmación indicando que tu pago ha sido
+                                recibido.
+                              </span>
+                            </div>
+                            <div
+                              style="
+                                font-size: 14px;
+                                font-weight: 800;
+                                color: #ed3f39;
+                              "
+                              class="row ml-4 mt-2"
+                            >
+                              <span
+                                >Esto puede demorar unos de minutos. Espera por
+                                favor. No cierres la ventana.</span
+                              >
+                            </div>
+                          </div>
+                          <div class="row mt-5">
+                            <input
+                              readonly
+                              class="ml-4 mt-2"
+                              style="height: 30px; width: 70%"
+                              type="text"
+                              value="15woMq5BdAxnPVye7v9uSYn2qkrupTUL9u"
+                              #wallet
+                            />
+                            <button
+                              class="btn btn-primary btn-round ml-5"
+                              style="background-color: #1ab752"
+                              (click)="copyToClipboard(wallet, 2)"
+                            >
+                              <i class="material-icons">file_copy</i> Copiar
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab label="Transferencia Bancaria"> tab 3 </mat-tab>
+                  <mat-tab label="Pago con tarjeta"> tab 3 </mat-tab>
+                </mat-tab-group>
+ -->

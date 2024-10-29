@@ -1,105 +1,1695 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-8">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
-                  </div>
-                  <div class="card-body">
-                      <form>
-                          <div class="row">
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Company (disabled)" disabled>
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-3">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email">
-                                  </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fist Name" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Last Name" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Adress" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="City" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Country" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Postal Code" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <label>About Me</label>
-                                <mat-form-field class="example-full-width">
-                                   <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
-                                 </mat-form-field>
-                                  <!-- <div class="form-group">
-
-                                      <div class="form-group">
-                                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                      </div>
-                                  </div> -->
-                              </div>
-                          </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
-                          <div class="clearfix"></div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card card-profile">
-                  <div class="card-avatar">
-                      <a href="javascript:void(0)">
-                          <img class="img" src="./assets/img/faces/marc.jpg" />
-                      </a>
-                  </div>
-                  <div class="card-body">
-                      <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                      <h4 class="card-title">Alec Thompson</h4>
-                      <p class="card-description">
-                          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                      </p>
-                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
-                  </div>
-              </div>
-          </div>
+    <div class="row mt-2">
+      <div class="padre" style="border-radius: 0px 4px 4px 0px">
+        <img
+          class="img-fluid"
+          style="height: 32px; width: 32px"
+          src="../../assets/img/breadcrum/baseline_recent_actors_white_48dp.png"
+          alt=""
+        />
       </div>
+      <div class="col-11">
+        <div class="row">
+          <span
+            style="
+              font-weight: 700;
+              font-size: 18px;
+              color: #11458e;
+              margin-top: 10px;
+              margin-left: 15px;
+              width: 100%;
+            "
+          >
+            {{ 'MyProfile.Title' | translate }} </span
+          >
+          <span
+            style="
+              font-weight: 500;
+              font-size: 16px;
+              color: #333333;
+              margin-left: 15px;
+              margin-top: 0px;
+              width: 100%;
+            "
+          >
+             {{ 'MyProfile.Message00' | translate }}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <!--             <h4
+              class="card-title mt-4 ml-4"
+              style="font-size: 22px; font-weight: 600; color: #27bcee"
+            >
+               {{ 'MyProfile.Title' | translate }}
+            </h4>
+                        <h4
+              class="card-title float-right"
+              style="font-size: 22px; font-weight: 600; color: #27bcee"
+            >
+              0% Completado
+            </h4> 
+
+            <p
+              class="card-category ml-4"
+              style="font-size: 14px; font-weight: 500; color: #000"
+            >
+            {{ 'MyProfile.Message01' | translate }}
+             
+            </p>
+            -->
+          </div>
+          <div class="card-body">
+            <div class="container">
+              <mat-tab-group
+                mat-align-tabs="start"
+                [selectedIndex]="selectedIndex"
+                (selectedTabChange)="validaBeneficiarios($event)"
+              >
+                <mat-tab label="Personales">
+                  <ng-template mat-tab-label>
+                    <mat-icon class="material-icons">person</mat-icon>
+                    {{ 'MyProfile.Title02' | translate }}
+
+                  </ng-template>
+                  <div
+                    class="tab-pane active col-md-12"
+                    id="home"
+                    role="tabpanel"
+                    aria-labelledby="home-tab"
+                  >
+                    <form
+                      class="form-signin"
+                      (ngSubmit)="updateProspect(formaReg)"
+                      #formaReg="ngForm"
+                    >
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="col-md-12 text-center">
+                            <div
+                              class="fileinput fileinput-new mt-3"
+                              data-provides="fileinput"
+                            >
+                              <div
+                                class="fileinput-new img-thumbnail"
+                                style="width: auto; height: 150px"
+                              >
+                                <img
+                                  style="border-radius: 5px"
+                                  data-src="holder.js/100%x100%"
+                                  [src]="image"
+                                  alt="..."
+                                />
+                              </div>
+                              <!--"./assets/img/image_placeholder.jpg"-->
+                              <div
+                                class="fileinput-preview fileinput-exists img-thumbnail"
+                                style="max-width: 200px; max-height: 150px"
+                              ></div>
+                              <div>
+                                <span
+                                  class="btn btn-outline-secondary btn-file"
+                                >
+                                  <span class="fileinput-new"
+                                    >{{ 'MyProfile.UploadPhoto' | translate }}</span
+                                  >
+                                  <span class="fileinput-exists">
+                                    {{ 'MyProfile.ChangePhoto' | translate }}
+
+                                  </span>
+                                  <input
+                                    type="file"
+                                    (change)="handleImage($event.target.files)"
+                                    accept=".jpeg,.png,.jpg"
+                                  />
+                                </span>
+
+                                <a
+                                  href="#"
+                                  class="btn btn-outline-secondary fileinput-exists"
+                                  data-dismiss="fileinput"
+                                  >{{ 'MyProfile.RemoveButton' | translate }}</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <h2 class="mt-3" style="font-size: 22px">
+                              {{ 'MyProfile.Personal_Details' | translate }}
+                            </h2>
+                            <hr style="border: 1px solid #0093d6" />
+                            <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Name' | translate }}"
+                                    name="nombre"
+                                    id="nombre"
+                                    type="text"
+                                    [(ngModel)]="nombre"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.LastName' | translate }}"
+                                    type="text"
+                                    name="paterno"
+                                    id="paterno"
+                                    [(ngModel)]="paterno"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Surname' | translate }}"
+                                    type="text"
+                                    name="materno"
+                                    id="materno"
+                                    [(ngModel)]="materno"
+                                  />
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <mat-select
+                                    placeholder="{{ 'MyProfile.Country' | translate }}"
+                                    [(ngModel)]="Pais"
+                                    name="Pais"
+                                  >
+                                    <mat-option
+                                      *ngFor="let pais of arrayPaises"
+                                      [(value)]="pais.PaisCodigo"
+                                    >
+                                      {{ pais.PaisNombre }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <mat-select
+                                    placeholder="{{ 'MyProfile.Code' | translate }}"
+                                    [(ngModel)]="COUNTRY_CODE"
+                                    name="COUNTRY_CODE"
+                                  >
+                                    <mat-option
+                                      *ngFor="let c of countryCodes"
+                                      [(value)]="c.code"
+                                    >
+                                      {{ c.pais }} +{{ c.code }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <!--                               <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="ID Suscriber" disabled />
+                                </mat-form-field>
+                              </div> 
+                              <div class="col-md-1">
+                                <mat-form-field class="">
+                                  <input matInput placeholder="Código" type="text" id="COUNTRY_CODE"
+                                    class="fadeIn third" name="COUNTRY_CODE" [(ngModel)]="COUNTRY_CODE" />
+                                </mat-form-field>
+                              </div>-->
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Phone' | translate }}"
+                                    type="telephone"
+                                    id="telephone"
+                                    class="fadeIn third"
+                                    name="telephone"
+                                    [(ngModel)]="telephone"
+                                    maxlength="10"
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Email' | translate }}"
+                                    type="email"
+                                    id="email"
+                                    class="fadeIn third"
+                                    name="email"
+                                    placeholder="{{ 'MyProfile.Email' | translate }}"
+                                    name="email"
+                                    [(ngModel)]="email"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.BirthData' | translate }}"
+                                    type="date"
+                                    name="fnacimiento"
+                                    id="fnacimiento"
+                                    [(ngModel)]="fnacimiento"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <mat-select
+                                    placeholder="{{ 'MyProfile.Gender' | translate }}"
+                                    [(ngModel)]="genero"
+                                    name="genero"
+                                  >
+                                    <mat-option
+                                      *ngFor="let genero of generos"
+                                      [value]="genero.valor"
+                                    >
+                                      {{ genero.muestraValor }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Tax' | translate }}"
+                                    type="text"
+                                    name="RFC"
+                                    id="RFC"
+                                    [(ngModel)]="RFC"
+                                  />
+                                </mat-form-field>
+                              </div>
+
+                              <!--                               <div class="col-md-12">
+                            
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="Wallet"
+                                    name="WALLET"
+                                    id="WALLET"
+                                    required
+                                    [(ngModel)]="WALLET"
+                                  />
+                                </mat-form-field>
+                              </div> -->
+                            </div>
+
+                            <h2 class="mt-3" style="font-size: 22px">
+                              {{ 'MyProfile.Address' | translate }}
+                            </h2>
+                            <hr style="border: 1px solid #0093d6" />
+
+                            <div class="row">
+                              <!-- <div class="col-md-4">
+                                <mat-form-field>
+                                  <mat-select placeholder="Ciudad" [(ngModel)]="Pais" name="Pais">
+                                    <mat-option *ngFor="let pais of arrayPaises" [(value)]="pais.PaisCodigo">
+                                      {{ pais.PaisNombre }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div> -->
+
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.City' | translate }}"
+                                    type="text"
+                                    name="CITY"
+                                    id="CITY"
+                                    [(ngModel)]="CITY"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Street' | translate }}"
+                                    type="text"
+                                    name="direccion"
+                                    id="direccion"
+                                    [(ngModel)]="direccion"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-1">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Exterior' | translate }}"
+                                    type="text"
+                                    name="NUMBER"
+                                    id="NUMBER"
+                                    [(ngModel)]="NUMBER"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-1">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Interior' | translate }}"
+                                    type="text"
+                                    name="NUMBER_INT"
+                                    id="NUMBER_INT"
+                                    [(ngModel)]="NUMBER_INT"
+                                  />
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.ZipCode' | translate }}"
+                                    type="text"
+                                    name="cp"
+                                    id="cp"
+                                    [(ngModel)]="cp"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Neighborhood' | translate }}"
+                                    type="text"
+                                    name="COLONIA"
+                                    id="COLONIA"
+                                    [(ngModel)]="COLONIA"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.State' | translate }}"
+                                    type="text"
+                                    name="STATE"
+                                    id="STATE"
+                                    [(ngModel)]="STATE"
+                                    required
+                                  />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <h2 class="mt-3" style="font-size: 22px">
+                              {{ 'MyProfile.SocialMedia' | translate }}
+                              <span style="font-size: 14px">{{ 'MyProfile.Optional' | translate }}</span>
+                            </h2>
+                            <hr style="border: 1px solid #0093d6" />
+                            <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Facebook' | translate }}"
+                                    type="text"
+                                    name="Facebook"
+                                    id="Facebook"
+                                    [(ngModel)]="Facebook"
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Twitter' | translate }}"
+                                    type="text"
+                                    name="Twitter"
+                                    id="Twitter"
+                                    [(ngModel)]="Twitter"
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Instagram' | translate }}"
+                                    type="text"
+                                    name="Instagram"
+                                    id="Instagram"
+                                    [(ngModel)]="Instagram"
+                                  />
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Youtube' | translate }}"
+                                    type="text"
+                                    name="Youtube"
+                                    id="Youtube"
+                                    [(ngModel)]="Youtube"
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input
+                                    matInput
+                                    placeholder="{{ 'MyProfile.Linkedin' | translate }}"
+                                    type="text"
+                                    name="Linkedin"
+                                    id="Linkedin"
+                                    [(ngModel)]="Linkedin"
+                                  />
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <mat-select
+                                    placeholder="{{ 'MyProfile.KnowSBC' | translate }}"
+                                    [(ngModel)]="reference"
+                                    name="reference"
+                                  >
+                                    <mat-option
+                                      *ngFor="let op of options"
+                                      [value]="op.name"
+                                    >
+                                      {{ op.name }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <hr />
+                      <div class="row">
+                        <div class="col-md-12">
+                          <button
+                            mat-raised-button
+                            type="submit"
+                            class="btn btn-netx pull-right"
+                            style="border-radius: 35px; color: #11458e"
+                            (click)="nextOne(1)"
+                          >
+                          {{ 'MyProfile.SaveCont' | translate }}
+
+                            <i
+                              class="fa fa-angle-double-right ml-2"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                          <button
+                            mat-raised-button
+                            type="submit"
+                            class="btn btn-info pull-right"
+                            style="
+                              background-color: #11458e;
+                              border-radius: 35px;
+                            "
+                          >
+                            <span>{{ 'MyProfile.Save' | translate }}</span>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Documentos">
+                  <ng-template mat-tab-label>
+                    <mat-icon class="material-icons">library_books</mat-icon>
+                    {{ 'MyProfile.Documents' | translate }}
+
+                  </ng-template>
+
+                  <div class="col-md-12">
+                    <div
+                      class="mt-5 text-center"
+                      style="font-size: 14px; font-weight: 600"
+                    >
+                    {{ 'MyProfile.Message02' | translate }}
+                    <br />
+                      <br />
+
+                      {{ 'MyProfile.Message03' | translate }}
+
+                    </div>
+                    <h2 class="mt-3" style="color: #0093d6; font-size: 22px">
+                      {{ 'MyProfile.ValidateDocuments' | translate }}
+                    </h2>
+                    <hr style="border: 1px solid #0093d6" />
+                    <div class="row ml-1">
+                      <div class="col-md-12">
+                        <label
+                          style="color: #0093d6"
+                          class="tituloIdentificacion"
+                          id="example-radio-group-label"
+                          >{{ 'MyProfile.LegalId' | translate }}
+                          </label
+                        >
+
+                        <mat-radio-group
+                          aria-labelledby="example-radio-group-label"
+                          class="example-radio-group"
+                          color="primary"
+                        >
+                          <mat-radio-button
+                            checked
+                            class="example-radio-button"
+                            value="1"
+                            (change)="passport(1)"
+                          >
+                            <span style="color: #0093d6">{{ 'MyProfile.Ine' | translate }} </span>
+                            <span
+                              style="width: 100px"
+                              class="material-icons"
+                              matTooltipPosition="above"
+                              matTooltip="{{ 'MyProfile.IneToolTip' | translate }}"
+                              matTooltipClass="red-tooltip"
+                            >
+                              contact_support
+                            </span>
+                          </mat-radio-button>
+                          <mat-radio-button
+                            class="example-radio-button"
+                            value="2"
+                            (change)="passport(2)"
+                          >
+                            <span style="color: #0093d6">{{ 'MyProfile.Passport' | translate }} </span>
+                            <span
+                              class="material-icons"
+                              matTooltipPosition="above"
+                              matTooltip="{{ 'MyProfile.PassPortToolTip' | translate }}"
+                              matTooltipClass="red-tooltip"
+                            >
+                              contact_support
+                            </span>
+                          </mat-radio-button>
+                          <mat-radio-button
+                            class="example-radio-button"
+                            value="3"
+                            (change)="passport(3)"
+                          >
+                            <span style="color: #0093d6"
+                              >{{ 'MyProfile.IdLicence' | translate }}
+                              </span
+                            >
+                            <span
+                              class="material-icons"
+                              matTooltipPosition="above"
+                              matTooltipClass="red-tooltip"
+                              matTooltip="{{ 'MyProfile.LicenceToolTip' | translate }}"
+                            >
+                              contact_support
+                            </span>
+                          </mat-radio-button>
+                        </mat-radio-group>
+                        <div>
+                          {{ 'MyProfile.Message04' | translate }}
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="card">
+                          <div class="card-header text-center">
+                            <div
+                              class="card-title"
+                              style="
+                                font-weight: 600;
+                                color: #0093d6;
+                                font-size: 20px;
+                              "
+                            >
+                            {{ 'MyProfile.LegalId' | translate }}
+
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="col-md-12">
+                              <div class="row">
+                                <div
+                                  class="col-sm-12 col-md-6 text-center mt-4"
+                                >
+                                  <div
+                                    class="fileinput fileinput-new"
+                                    data-provides="fileinput"
+                                  >
+                                    <div
+                                      class="fileinput-new"
+                                      style="width: auto; height: auto"
+                                    >
+                                      <img
+                                        data-src="holder.js/100%x100%"
+                                        [src]="anverso"
+                                        class="img-thumbnail"
+                                        alt="..."
+                                      />
+                                    </div>
+                                    <div
+                                      class="fileinput-preview fileinput-exists img-thumbnail"
+                                      style="
+                                        max-width: 200px;
+                                        max-height: 150px;
+                                      "
+                                    ></div>
+                                    <div>
+                                      <span
+                                        class="btn btn-outline-secondary btn-file"
+                                        ><span class="fileinput-new"
+                                          >{{ 'MyProfile.FrontSide' | translate }}
+                                          </span
+                                        ><span class="fileinput-exists"
+                                          >{{ 'MyProfile.Change' | translate }}</span
+                                        >
+                                        <input
+                                          type="file"
+                                          (change)="
+                                            handleImageAnverso(
+                                              $event.target.files
+                                            )
+                                          "
+                                          accept=".jpeg,.png,.jpg"
+                                        />
+                                      </span>
+                                      <a
+                                        href="#"
+                                        class="btn btn-outline-secondary fileinput-exists"
+                                        data-dismiss="fileinput"
+                                        >{{ 'MyProfile.Delete' | translate }}</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div
+                                  class="col-md-6 text-center mt-4"
+                                  *ngIf="ocultarReverso"
+                                >
+                                  <div
+                                    class="fileinput fileinput-new"
+                                    data-provides="fileinput"
+                                  >
+                                    <div
+                                      class="fileinput-new img-thumbnail"
+                                      style="width: auto; height: auto"
+                                    >
+                                      <img
+                                        data-src="holder.js/100%x100%"
+                                        [src]="reverso"
+                                        alt="..."
+                                      />
+                                    </div>
+                                    <div
+                                      class="fileinput-preview fileinput-exists img-thumbnail"
+                                      style="
+                                        max-width: 200px;
+                                        max-height: 150px;
+                                      "
+                                    ></div>
+                                    <div>
+                                      <span
+                                        class="btn btn-outline-secondary btn-file"
+                                        ><span class="fileinput-new"
+                                          >{{ 'MyProfile.BackSide' | translate }}
+                                          </span
+                                        ><span class="fileinput-exists"
+                                          >{{ 'MyProfile.Change' | translate }}</span
+                                        >
+                                        <input
+                                          type="file"
+                                          (change)="
+                                            handleImageReverso(
+                                              $event.target.files
+                                            )
+                                          "
+                                          accept=".jpeg,.png,.jpg"
+                                        />
+                                      </span>
+                                      <a
+                                        href="#"
+                                        class="btn btn-outline-secondary fileinput-exists"
+                                        data-dismiss="fileinput"
+                                        >{{ 'MyProfile.Delete' | translate }}</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card">
+                          <div class="card-header text-center">
+                            <div
+                              class="card-title"
+                              style="
+                                font-weight: 600;
+                                color: #0093d6;
+                                font-size: 20px;
+                              "
+                            >
+                            {{ 'MyProfile.ProofAddress' | translate }}
+
+                              <span
+                                class="material-icons"
+                                matTooltipPosition="above"
+                                [matTooltip]="
+                                  [
+                                    'Recibo teléfonico',
+                                    'Recibo de luz',
+                                    'Recibo de agua',
+                                    'Recibo de gas',
+                                    'Boleta de impuesto predial'
+                                  ] | tooltipList
+                                "
+                                matTooltipClass="tooltip-list"
+                                matTooltipClass="red-tooltip"
+                              >
+                                contact_support
+                              </span>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="col-sm-12 col-md-12">
+                              <div class="row">
+                                <div
+                                  class="col-sm-12 col-md-12 text-center mt-4"
+                                >
+                                  <div
+                                    class="fileinput fileinput-new"
+                                    data-provides="fileinput"
+                                  >
+                                    <div
+                                      class="fileinput-new img-thumbnail"
+                                      style="width: auto; height: auto"
+                                    >
+                                      <img
+                                        data-src="holder.js/100%x100%"
+                                        [src]="domicilio"
+                                        alt="..."
+                                      />
+                                    </div>
+                                    <div
+                                      class="fileinput-preview fileinput-exists img-thumbnail"
+                                      style="
+                                        max-width: 200px;
+                                        max-height: 150px;
+                                      "
+                                    ></div>
+                                    <div>
+                                      <span
+                                        class="btn btn-outline-secondary btn-file"
+                                        ><span class="fileinput-new"
+                                          >{{ 'MyProfile.UploadProof' | translate }} </span
+                                        ><span class="fileinput-exists"
+                                          >{{ 'MyProfile.Change' | translate }}</span
+                                        >
+                                        <input
+                                          type="file"
+                                          (change)="
+                                            handleImageCompDom(
+                                              $event.target.files
+                                            )
+                                          "
+                                          accept=".jpeg,.png,.jpg"
+                                        />
+                                      </span>
+
+                                      <a
+                                        href="#"
+                                        class="btn btn-outline-secondary fileinput-exists"
+                                        data-dismiss="fileinput"
+                                        >{{ 'MyProfile.Delete' | translate }}</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-netx pull-left"
+                          style="border-radius: 35px; color: #11458e"
+                          (click)="goBack()"
+                        >
+                          <i
+                            class="fa fa-angle-double-left mr-2"
+                            aria-hidden="true"
+                          ></i
+                          >{{ 'MyProfile.GoBack' | translate }}
+                        </button>
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-netx pull-right"
+                          style="border-radius: 35px; color: #11458e"
+                          (click)="nextTwo()"
+                        >
+                        {{ 'MyProfile.SaveCont' | translate }}
+
+                          <i
+                            class="fa fa-angle-double-right ml-2"
+                            aria-hidden="true"
+                          ></i>
+                        </button>
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-info pull-right"
+                          style="background-color: #11458e; border-radius: 35px"
+                          (click)="guardarDoctos()"
+                        >
+                          <span>{{ 'MyProfile.Save' | translate }}  </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="clearfix"></div>
+                </mat-tab>
+                <mat-tab label="Beneficiarios">
+                  <ng-template mat-tab-label>
+                    <mat-icon class="material-icons">people</mat-icon>
+                    {{ 'MyProfile.Beneficiares' | translate }}
+
+                  </ng-template>
+
+                  <!-- *************************************** -->
+                  <div class="col-md-12">
+                    <div
+                      class="mt-5 text-center"
+                      style="font-size: 14px; font-weight: 600"
+                    >
+                    {{ 'MyProfile.BeneficiaresMgs01' | translate }}
+
+                      <br />
+                      {{ 'MyProfile.BeneficiaresMgs02' | translate }}
+
+                      <br />
+                      {{ 'MyProfile.BeneficiaresMsg03' | translate }}
+
+                    </div>
+                    <h2 class="mt-3" style="color: #0093d6; font-size: 22px">
+                      {{ 'MyProfile.Beneficiares' | translate }}
+                    </h2>
+                    <hr style="border: 1px solid #0093d6" />
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div
+                          class="card"
+                          style="border-radius: 10px 10px 0px 0px"
+                        >
+                          <div
+                            style="
+                              background-color: #0093d6;
+                              border-radius: 10px 10px 0px 0px;
+                            "
+                          >
+                            <h4
+                              class="card-title ml-3 mt-3 mb-3"
+                              style="
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: #fff;
+                              "
+                            >
+                            {{ 'MyProfile.Beneficiares' | translate }}
+                            </h4>
+                          </div>
+                          <div class="card-body">
+                            <div class="col-md-12">
+                              <form
+                                autocomplete="off"
+                                [formGroup]="forma"
+                                (ngSubmit)="accion()"
+                              >
+                                <div>
+                                  <div class="row">
+                                    <div class="form-group col-12">
+                                      <div class="col">
+                                        <label for="nombre">{{ 'MyProfile.BeneficiareName' | translate }}                                        </label>
+                                        <input
+                                          class="form-control"
+                                          type="text"
+                                          placeholder=""
+                                          formControlName="nombre"
+                                          [class.is-invalid]="nombreNoValido"
+                                        />
+                                        <small
+                                          *ngIf="nombreNoValido"
+                                          class="text-danger"
+                                        >
+                                        {{ 'MyProfile.BeneficiareNameToolTip' | translate }}
+
+                                        </small>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group col-12">
+                                      <div class="col">
+                                        <label for="apellido"
+                                          >{{ 'MyProfile.BeneficiareLastName' | translate }}
+                                          </label
+                                        >
+                                        <input
+                                          class="form-control"
+                                          type="text"
+                                          placeholder=""
+                                          formControlName="apellido"
+                                          [class.is-invalid]="fecNacNoValido"
+                                        />
+                                        <small
+                                          *ngIf="apellidoNoValido"
+                                          class="text-danger"
+                                        >
+                                        {{ 'MyProfile.BeneficiareLastNameToolTip' | translate }}
+
+                                        </small>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="form-group col-12">
+                                      <div class="col">
+                                        <label for="apellido2"
+                                          >{{ 'MyProfile.BeneficiareSurnName' | translate }} </label
+                                        >
+                                        <input
+                                          class="form-control"
+                                          type="text"
+                                          placeholder=""
+                                          formControlName="apellido2"
+                                          [class.is-invalid]="fecNacNoValido"
+                                        />
+                                        <small
+                                          *ngIf="apellidoNoValido"
+                                          class="text-danger"
+                                        >
+                                        {{ 'MyProfile.BeneficiareSurnNameToolTip' | translate }}
+
+                                        </small>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group col-12">
+                                      <div class="col">
+                                        <label for="nombre"
+                                          >{{ 'MyProfile.BeneficiareBirthDate' | translate }}</label
+                                        >
+                                        <input
+                                          class="form-control"
+                                          type="date"
+                                          placeholder=""
+                                          formControlName="fecnac"
+                                          [class.is-invalid]="fecNacNoValido"
+                                        />
+                                        <small
+                                          *ngIf="fecNacNoValido"
+                                          class="text-danger"
+                                        >
+                                        {{ 'MyProfile.BeneficiareDateToolTip' | translate }}
+
+                                        </small>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="form-group col-12">
+                                      <div class="col">
+                                        <label for="nombre"
+                                          >{{ 'MyProfile.BeneficiareEmail' | translate }}</label
+                                        >
+                                        <input
+                                          class="form-control"
+                                          type="email"
+                                          placeholder=""
+                                          formControlName="correo"
+                                          [class.is-invalid]="correoNoValido"
+                                        />
+                                        <small
+                                          *ngIf="correoNoValido"
+                                          class="text-danger"
+                                        >
+                                        {{ 'MyProfile.BeneficiareEmailToolTip' | translate }}
+
+                                        </small>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group col-12">
+                                      <div class="col">
+                                        <label for="nombre"
+                                          >{{ 'MyProfile.BeneficiareHomePhone' | translate }}
+                                          </label
+                                        >
+                                        <input
+                                          class="form-control"
+                                          type="tel"
+                                          placeholder=""
+                                          formControlName="telCasa"
+                                        />
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group col-12">
+                                      <div class="col">
+                                        <label for="nombre"
+                                          >{{ 'MyProfile.BeneficiareMobilePhone' | translate }} </label
+                                        >
+                                        <input
+                                          class="form-control"
+                                          type="tel"
+                                          placeholder=""
+                                          formControlName="telMovil"
+                                          [class.is-invalid]="telMovilNoValido"
+                                        />
+                                        <small
+                                          *ngIf="telMovilNoValido"
+                                          class="text-danger"
+                                        >
+                                        {{ 'MyProfile.BeneficiarePhoneToolTip' | translate }}
+
+                                        </small>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="form-group col-12">
+                                      <div class="col">
+                                        <label for="nombre">{{ 'MyProfile.BeneficiarePercentage' | translate }} </label>
+                                        <input
+                                          class="form-control"
+                                          type="number"
+                                          formControlName="porcentaje"
+                                          [class.is-invalid]="
+                                            telPorcentajeNoValido
+                                          "
+                                        />
+                                        <small
+                                          *ngIf="telPorcentajeNoValido"
+                                          class="text-danger"
+                                          style="font-size: 15px"
+                                          font-weight:700
+                                        >
+                                        {{ 'MyProfile.BeneficiarePercentageTooltip' | translate }}
+
+                                        </small>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <div class="input-group col">
+                                      <button
+                                        *ngIf="showEdit == false"
+                                        type="submit"
+                                        class="btn btn-primary pull-right"
+                                        style="
+                                          background-color: #11458e;
+                                          border-radius: 35px;
+                                        "
+                                      >
+                                      {{ 'MyProfile.BeneficiareRegister' | translate }}
+
+                                      </button>
+
+                                      <button
+                                        *ngIf="showEdit == true"
+                                        type="submit"
+                                        class="btn btn-primary pull-right"
+                                        style="
+                                          background-color: #11458e;
+                                          border-radius: 35px;
+                                        "
+                                      >
+                                      {{ 'MyProfile.BeneficiareUpdate' | translate }}
+                                      </button>
+
+                                      <button
+                                        *ngIf="showEdit == true"
+                                        (click)="cancelupdate()"
+                                        type="submit"
+                                        class="btn btn-netx pull-right"
+                                        style="
+                                          background-color: #11458e;
+                                          border-radius: 35px;
+                                        "
+                                      >
+                                      {{ 'MyProfile.BeneficiareCancel' | translate }}
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-8">
+                        <div class="col-md-12">
+                          <div
+                            class="card"
+                            style="border-radius: 10px 10px 0px 0px"
+                          >
+                            <div
+                              style="
+                                background-color: #0093d6;
+                                border-radius: 10px 10px 0px 0px;
+                              "
+                            >
+                              <h4
+                                class="card-title ml-3 mt-3 mb-3"
+                                style="
+                                  font-size: 18px;
+                                  font-weight: 700;
+                                  color: #fff;
+                                "
+                              >
+                              {{ 'MyProfile.BeneficiareDesigned' | translate }}
+
+                              </h4>
+                              <!--<p class="card-category  ml-3 mt-3" style="font-size: 14px; color: #fff;">Detalles</p>-->
+                            </div>
+
+                            <div class="card-body">
+                              <table class="table" *ngIf="regBen">
+                                <thead>
+                                  <tr style="background-color: #ecf3f7">
+                                    <th class="titleTable" style="width: 30%">
+                                      {{ 'MyProfile.BeneficiareDesignedMsg01' | translate }}
+
+                                      <span
+                                        class="material-icons"
+                                        matTooltipPosition="above"
+                                        matTooltip="{{ 'MyProfile.BeneficiareDesignedMsg02' | translate }}
+                                        "
+                                        matTooltipClass="red-tooltip"
+                                      >
+                                        contact_support
+                                      </span>
+                                    </th>
+
+                                    <th class="titleTable">{{ 'MyProfile.BeneficiareDesignedName' | translate }} </th>
+                                    <th class="titleTable">{{ 'MyProfile.BeneficiareDesignedLastName' | translate }} </th>
+                                    <th
+                                      class="titleTable justify-content-center; width:10%"
+                                    >
+                                      %
+                                      <!-- Total de Porcentaje designado -->
+                                    </th>
+                                    <th colspan="2"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr
+                                    *ngFor="
+                                      let beneficiary of arrayBeneficiaries
+                                    "
+                                  >
+                                    <td
+                                      [class.manager]="
+                                        beneficiary.isManager == 1
+                                      "
+                                      class="contentTable"
+                                      scope="row"
+                                      style="width: 100px"
+                                    >
+                                      <span *ngIf="beneficiary.isManager == 1"
+                                        >{{ 'MyProfile.BeneficiareDesignedMsg02' | translate }}
+                                        </span
+                                      >
+                                      <mat-radio-button
+                                        *ngIf="beneficiary.isManager == 0"
+                                        (change)="
+                                          radioChange(
+                                            $event,
+                                            beneficiary.nombre,
+                                            beneficiary.apaterno
+                                          )
+                                        "
+                                        value="{{ beneficiary.id }}"
+                                        name="own"
+                                      ></mat-radio-button>
+                                    </td>
+
+                                    <td
+                                      class="contentTable"
+                                      [class.manager]="
+                                        beneficiary.isManager == 1
+                                      "
+                                    >
+                                      {{ beneficiary.nombre }}
+                                    </td>
+                                    <td
+                                      class="contentTable"
+                                      [class.manager]="
+                                        beneficiary.isManager == 1
+                                      "
+                                    >
+                                      {{ beneficiary.apaterno }}
+                                    </td>
+                                    <td
+                                      class="contentTable"
+                                      [class.manager]="
+                                        beneficiary.isManager == 1
+                                      "
+                                    >
+                                      {{ beneficiary.porcentaje }}%
+                                    </td>
+                                    <td
+                                      class="contentTable"
+                                      [class.manager]="
+                                        beneficiary.isManager == 1
+                                      "
+                                    >
+                                      <a
+                                        href="javascript:void(0)"
+                                        (click)="
+                                          editarBeneficiario(
+                                            beneficiary.id,
+                                            beneficiary.porcentaje
+                                          )
+                                        "
+                                        ><i class="fa fa-pencil"></i
+                                      ></a>
+                                    </td>
+                                    <td
+                                      class="contentTable"
+                                      [class.manager]="
+                                        beneficiary.isManager == 1
+                                      "
+                                    >
+                                      <a
+                                        *ngIf="beneficiary.isManager == 0"
+                                        href="javascript:void(0)"
+                                        (click)="
+                                          delete(
+                                            beneficiary.id,
+                                            beneficiary.nombre,
+                                            beneficiary.apaterno
+                                          )
+                                        "
+                                        ><i class="fa fa-trash-o"></i
+                                      ></a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+
+                                <tfoot>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+
+                                    <td class="contentTable">
+                                      {{ 'MyProfile.BeneficiarePorcent' | translate }}
+                                   </td>
+                                    <td class="titleTable">
+                                      {{ totalAsignado }}%
+                                    </td>
+                                  </tr>
+                                </tfoot>
+                              </table>
+
+                              <div *ngIf="!regBen">
+                                <span
+                                  style="
+                                    font-size: 22px;
+                                    color: #1ab752;
+                                    font-weight: 700;
+                                  "
+                                  > {{ 'MyProfile.BeneficiareDesignedMsg07' | translate }}
+                                  </span
+                                >
+                              </div>
+                            </div>
+                            <hr />
+                            <div class="card-footer">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="justify-content-end"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-netx pull-left"
+                          style="border-radius: 35px; color: #11458e"
+                          (click)="nextOne()"
+                        >
+                          <i
+                            class="fa fa-angle-double-left mr-2"
+                            aria-hidden="true"
+                          ></i
+                          >{{ 'MyProfile.GoBack' | translate }}
+
+                        </button>
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-pagar pull-left"
+                          style="border-radius: 35px; color: #11458e"
+                          routerLink="../newmembership"
+                        >
+                          <i class="fa fa-usd" aria-hidden="true"></i
+                          ><span class="ml-2">{{ 'MyProfile.PayPlan' | translate }} </span>
+                        </button>
+
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-netx float-right"
+                          style="border-radius: 35px; color: #11458e"
+                          (click)="nextTree()"
+                        >
+                        {{ 'MyProfile.SaveCont' | translate }}
+
+                          <i
+                            class="fa fa-angle-double-right ml-2"
+                            aria-hidden="true"
+                          ></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- *************************************** -->
+                </mat-tab>
+                <mat-tab label="Wallet para recibir">
+                  <ng-template mat-tab-label>
+                    <i
+                      class="fa fa-btc"
+                      aria-hidden="true"
+                      style="font-size: 22px; margin-right: 5px"
+                    ></i>
+                    {{ 'MyProfile.Wallet' | translate }}
+                  </ng-template>
+
+                  <div class="col-md-12">
+                    <div
+                      class="mt-5 text-center"
+                      style="font-size: 14px; font-weight: 600"
+                    >
+                      {{ 'MyProfile.WalletMsg01' | translate }}
+
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-md-2">
+                        <h2
+                          class="mt-3"
+                          style="color: #0093d6; font-size: 22px; float: left"
+                        >
+                        {{ 'MyProfile.BTCWallet' | translate }}
+                        </h2>
+
+                        <!--                           <div class="row">
+                            <div class="offset-md-4 col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input
+                                  matInput
+                                  placeholder="Wallet BTC"
+                                  name="WALLET"
+                                  id="WALLET"
+                                  type="text"
+                                  [(ngModel)]="WALLET"
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div> -->
+                      </div>
+                      <div class="col-md-10">
+                        <mat-form-field
+                          class="example-full-width"
+                          style="float: right; width: 100%"
+                        >
+                          <input
+                            matInput
+                            name="WALLET"
+                            id="WALLET"
+                            type="text"
+                            [(ngModel)]="WALLET"
+                          />
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <hr style="border: 1px solid #0093d6" />
+                    <hr />
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-netx pull-left"
+                          style="border-radius: 35px; color: #11458e"
+                          (click)="nextTwo()"
+                        >
+                          <i
+                            class="fa fa-angle-double-left mr-2"
+                            aria-hidden="true"
+                          ></i
+                          ><span class="ml-2">{{ 'MyProfile.GoBack' | translate }} </span>
+                        </button>
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-pagar pull-left"
+                          style="border-radius: 35px; color: #11458e"
+                          routerLink="../newmembership"
+                        >
+                          <i class="fa fa-usd" aria-hidden="true"></i
+                          ><span class="ml-2">{{ 'MyProfile.PayPlan' | translate }} </span>
+                        </button>
+
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-netx pull-right"
+                          style="border-radius: 35px; color: #11458e"
+                          (click)="nextFour()"
+                        >
+                          <span class="ml-2">{{ 'MyProfile.SaveCont' | translate }}  </span>
+                          <i
+                            class="fa fa-angle-double-right ml-2"
+                            aria-hidden="true"
+                          ></i>
+                        </button>
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-info pull-right"
+                          style="background-color: #11458e; border-radius: 35px"
+                          (click)="guardarWallet()"
+                        >
+                          <span>{{ 'MyProfile.Save' | translate }} </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Cambio de Contraseña">
+                  <ng-template mat-tab-label>
+                    <mat-icon class="material-icons"
+                      >miscellaneous_services</mat-icon
+                    >
+                    {{ 'MyProfile.PasswordChange' | translate }}
+                  </ng-template>
+
+                  <div class="col-md-12">
+                    <div
+                      class="mt-5 text-center"
+                      style="font-size: 14px; font-weight: 600"
+					  [InnerHtml] = "'MyProfile.PasswMessage' | translate"
+                    >
+                                      
+									  </div>
+                   <div class="row mt-3">
+                      <div class="col-md-12">
+                        <div class="col-md-12">
+                          <h2
+                            class="mt-3"
+                            style="color: #0093d6; font-size: 22px"
+                          >
+                          {{ 'MyProfile.ChangeYourPassword' | translate }}
+                          </h2>
+                          <hr style="border: 1px solid #0093d6" />
+                          <div class="row">
+                            <div class="offset-md-4 col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input
+                                  matInput
+                                  placeholder="{{ 'MyProfile.CurrentPassword' | translate }}"
+                                  name="oldPassword"
+                                  id="oldPassword"
+                                  type="password"
+                                  [(ngModel)]="oldPassword"
+                                  required
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="offset-md-4 col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input
+                                  matInput
+                                  placeholder="{{ 'MyProfile.NewPassword' | translate }}"
+                                  name="newPassword"
+                                  id="newPassword"
+                                  type="password"
+                                  [(ngModel)]="newPassword"
+                                  required
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="offset-md-4 col-md-4">
+                              <mat-form-field class="example-full-width">
+                                <input
+                                  matInput
+                                  placeholder="{{ 'MyProfile.ConfirmPassword' | translate }}"
+                                  name="repitPassword"
+                                  id="repitPassword"
+                                  type="password"
+                                  [(ngModel)]="repitPassword"
+                                  required
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-pagar pull-left"
+                          style="border-radius: 35px; color: #11458e"
+                          routerLink="../newmembership"
+                        >
+                          <i class="fa fa-usd" aria-hidden="true"></i>
+                          <span class="ml-2">{{ 'MyProfile.PayPlan' | translate }}</span>
+                        </button>
+
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-netx pull-right"
+                          style="border-radius: 35px; color: #11458e"
+                          (click)="goBack()"
+                        >
+                          <i
+                            class="fa fa-angle-double-left ml-2"
+                            aria-hidden="true"
+                          ></i
+                          ><span class="ml-2">{{ 'MyProfile.SaveBack' | translate }} </span>
+                        </button>
+                        <button
+                          mat-raised-button
+                          type="button"
+                          class="btn btn-info pull-right"
+                          style="background-color: #11458e; border-radius: 35px"
+                          (click)="cambiarContrasena()"
+                        >
+                          <span>{{ 'MyProfile.Save' | translate }} </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+
+            <!--               <hr />
+              <pre>
+                Estado del formulario: {{ forma.valid }}
+                <br>
+                Status: {{ forma.status }}
+              </pre>
+
+              <pre>
+
+                {{ forma.value | json }}
+              
+              </pre> -->
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <!-- my-loader.component.html -->
+
+  <app-loader></app-loader>
 </div>

@@ -2,15 +2,28 @@ import { Component, OnInit} from "@angular/core";
 import { Network, DataSet, Node, Edge, IdType } from "vis-network/standalone";
 import { OrganizationService } from "../services/organization/organization.service";
 import Swal from "sweetalert2";
+import { TranslateEngineService } from "../services/translate/translate-engine.service";
 
-import jwt_decode from 'jwt-decode';
-
+import * as jwt_decode from "jwt-decode";
 import { formatDate } from "@angular/common";
 
 let PartnersList;
 let ProspectList;
 let GuestList;
-let FilterPatner = {direct:false, promotes:false, assigned:false,investment:false};
+let FilterPatner = {direct:false, promotes:false, assigned:false,investment:false,order:"ASC"};
+
+interface IDateList {
+  tag: string;
+  value: string;
+  label: string;
+}
+
+interface IPatnerType {
+  tag: string;
+  value: string;
+  label: string;
+}
+
 
 @Component({
   selector: "app-organization",
@@ -20,27 +33,64 @@ let FilterPatner = {direct:false, promotes:false, assigned:false,investment:fals
 
 export class OrganizationComponent implements OnInit {
   constructor(
-    private organizationService: OrganizationService
+    private organizationService: OrganizationService,
+    private translateservice: TranslateEngineService
   ) {}
 
-  DateList = [   
-                {
-                 "value": "ALL",
-                  "label": "Actual",     
-                },             
-                {
-                  "value": "lastmonth",
-                  "label": "Último mes", 
-                     
-                },
-                {
-                  "value": "lastyear",
-                  "label": "Último año",    
-                },
-              ];
 
-  PatnerType = {all:"Todos", direct:"Afiliado Directo", promotes:"Me promueve", assigned:"Asignado", patner:"Socio",investment:"Con inversión"};
+  DateList: IDateList[] = [   
+    {
+      tag: "Community.LastWeek",
+      value: "ALL",
+      label: "Todos" ,    
+    },     
+    {
+      tag: "Community.LastMonth",
+      value: "LastMonth",
+      label: "Último mes" ,    
+    },  
+    {
+      tag: "Community.LastYear",
+      value: "LastYear",
+      label: "Último año" ,    
+    },          
+  ];
 
+PatnerType: IPatnerType[] = [
+
+  {
+    tag: "Community.All",
+    value: "all",
+    label: "Todos" ,    
+  },      
+  {
+    tag: "Community.DirectAssociate",
+    value: "direct",
+    label: "Afiliados Directo" ,    
+  }, 
+  {
+    tag: "Community.Promotes",
+    value: "promotes",
+    label: "Me promueve" ,    
+  }, 
+  {
+    tag: "Community.Assigned",
+    value: "assigned",
+    label: "Asignado" ,    
+  }, 
+  {
+    tag: "Community.Partner",
+    value: "patner",
+    label: "Socio" ,    
+  }, 
+  {
+    tag: "Community.Investment",
+    value: "investment",
+    label: "Con inversión" ,    
+  }, 
+
+];
+ 
   CommunityNumeral = { Prospect : { counter: "00" ,porcent: "00"}, 
                        Guest : { counter: "00" ,porcent: "00"},
                        Affiliates : { counter: "00" ,porcent: "00"}, 
@@ -63,13 +113,13 @@ export class OrganizationComponent implements OnInit {
       confirmButton: 'btn btn-success btn-round ml-3 txt-btn-sbc',
       cancelButton: 'btn btn-round ml-3 txt-btn-sbc'
       },
-      title: "¿Estas seguro de eliminar el registro?",
-      text: "Este cambio será irreversible",
+      title: this.translateservice.getTranslate('Community.DeleteMsg.Title'),
+      text: this.translateservice.getTranslate('Community.DeleteMsg.Msg'),
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, elimínalo",
+      confirmButtonText: this.translateservice.getTranslate('Community.DeleteMsg.Confirm'),
     }).then((result) => {
       if (result.value) {
         Swal.fire({
@@ -77,7 +127,7 @@ export class OrganizationComponent implements OnInit {
           customClass: {
             confirmButton: 'btn btn-success btn-round ml-3 txt-btn-sbc'
           },
-          title: "El registro fue eliminado con éxito", 
+          title: this.translateservice.getTranslate('Community.DeleteMsg.Success'), 
           icon: "success"
         });
       }
@@ -90,48 +140,68 @@ export class OrganizationComponent implements OnInit {
       customClass: {
         confirmButton: 'btn btn-success btn-round ml-3 txt-btn-sbc'
       },
-      title: "¿Estas seguro de eliminar el registro?", 
+      title: this.translateservice.getTranslate('Community.EmailMsg.Title'), 
       text: "", 
       icon: "info"});
   }
 
   leerToken() {
-
     console.log("leyendo token");
     if (localStorage.getItem("token")) {
       this.userToken = localStorage.getItem("token");
       var decoded = jwt_decode(this.userToken);
       this.id_cliente = decoded["id_cliente"];
+
     } else {
       console.log("No hay token");
       this.userToken = "";
     }
-
-    this.id_cliente = 107169;
 
     return this.userToken;
   }
 
   public ngOnInit(): void {
 
+    this.translateservice.onLangChangeSuscription(this.changeLangHandler);
+    this.changeLangHandler();
+
     this.leerToken();
+
+    this.getNumerals(this.id_cliente);
 
     this.getGuest(this.id_cliente);
     this.getProspects(this.id_cliente);
     this.getOrganization(this.id_cliente);
+    this.GetPartnerDetail(this.id_cliente,0,0,0,0,FilterPatner["order"]);
 
   }
 
   private getOrganization(idSuscriber) {
 
     this.organizationService.getComunity(idSuscriber).subscribe((dataresult) => {
-    
+      console.log("dataresult", dataresult);
       PartnersList = dataresult;
-      this.getPatnerListView(FilterPatner);
       this.setNetWork();
 
-      this.setPartnerNumeral(null,this.getjustdate(new Date()));
-      this.setAfiiateNumeral(null,this.getjustdate(new Date()));
+
+    });
+
+  }
+
+  // 
+
+  private GetPartnerDetail(idSuscriber,direct=0,promotes=0,assigned=0,investment=0,order='ASC')
+  {
+    this.organizationService.getPartnerDetail(idSuscriber,direct,promotes,assigned,investment,order)
+        .subscribe((dataresult) => {
+
+          if (dataresult != null) {
+            this.PartnerListView =dataresult;
+          }
+          else{
+            this.PartnerListView = [];
+          }
+          
 
     });
 
@@ -143,7 +213,8 @@ export class OrganizationComponent implements OnInit {
       ProspectList = result;
      console.log(ProspectList)
       this.PropectLisView=this.getProspectsListView();
-      this.setProspecNumeral(null,this.getjustdate(new Date()));
+  
+  //    this.setProspecNumeral(null,this.getjustdate(new Date()));
 
     });
   }
@@ -152,130 +223,88 @@ export class OrganizationComponent implements OnInit {
     this.organizationService.getGuest(idSuscriber).subscribe((result) => {
       GuestList = result;
       this.GuestListView = this.GetGuestListView();
-      this.setGuestNumeral(null,this.getjustdate(new Date()));
+   
+      //   this.setGuestNumeral(null,this.getjustdate(new Date()));
 
     });
   }
 
+  GuestTotal;
+  PropectTotal;
+  AfiliateTotal;
+  PatnerTotal;
+
+
+  private getNumerals(idSuscriber,date='NULL') {
+
+    this.organizationService.getNumerals(idSuscriber,date).subscribe((result) => {
+        
+      // let reg_date = new Date (new Date());
+      //       let reg_date_format = reg_date != null? formatDate(reg_date.setMinutes((reg_date.getMinutes() + reg_date.getTimezoneOffset())),'yyyy-MM-dd','en'):"";
+        
+        if (date == 'NULL') {
+          this.GuestTotal = result[0]['Guests'];
+          this.PropectTotal =result[0]['Propects'];
+          this.AfiliateTotal =result[0]['Directs'];
+          this.PatnerTotal =result[0]['Partners'];
+        
+          this.setNumeral('Guest', this.GuestTotal , this.GuestTotal ); 
+          this.setNumeral('Prospect', this.PropectTotal , this.PropectTotal ); 
+          this.setNumeral('Affiliates', this.AfiliateTotal , this.AfiliateTotal ); 
+          this.setNumeral('Partner', this.PatnerTotal , this.PatnerTotal ); 
+        }
+        else {
+          this.setNumeral('Guest', result[0]['Guests'] , this.GuestTotal ); 
+          this.setNumeral('Prospect', result[0]['Propects'] , this.PropectTotal ); 
+          this.setNumeral('Affiliates', result[0]['Directs'], this.AfiliateTotal ); 
+          this.setNumeral('Partner', result[0]['Partners'] , this.PatnerTotal ); 
+        }
+   
+    });
+
+
+  }
+
 
   private getjustdate(date) {
-    return new Date (date.getFullYear() +"-"+ (date.getMonth()+1) +"-"+ date.getDate());
+    return (date.getFullYear() +"-"+ (date.getMonth()+1) +"-"+ date.getDate());
   }
 
   private GetMonthPrevious(date) {
     let offset: Date = new Date(date);
     offset.setMonth(offset.getMonth() - 1);
-    return new Date ((offset.getFullYear()) +"-"+ (offset.getMonth()+1) +"-"+ offset.getDate());
+    return ((offset.getFullYear()) +"-"+ (offset.getMonth()+1) +"-"+ offset.getDate());
   }
 
   private GetYearPrevious(date) {
     let offset: Date = new Date(date);
     offset.setFullYear(offset.getFullYear() - 1);
-    return new Date ((offset.getFullYear()) +"-"+ (offset.getMonth()+1) +"-"+ offset.getDate());
+    return  ((offset.getFullYear()) +"-"+ (offset.getMonth()+1) +"-"+ offset.getDate());
   }
 
-  private setPartnerNumeral(minDate,lastDate) {
-
-    let PartnerTotal = 0;
-    let PartnerCount = 0;
-    let itemsProcessed = 0;
-
-    PartnersList.forEach((partner, index, array) => {
-      
-      let reg_date = partner.FechaContrato == null?null:new Date(partner.FechaContrato);
-      if (reg_date != null) reg_date.setMinutes((reg_date.getMinutes() + reg_date.getTimezoneOffset()))
-     
-      if (partner.Level != "0") PartnerTotal ++;
-      
-      if (minDate == null || reg_date == null || (reg_date >= minDate &&  reg_date <= lastDate )) {
-       
-        if (partner.Level != "0") PartnerCount ++;
-      }
-
-      itemsProcessed++;
-      if(itemsProcessed === array.length) {
-        this.setNumeral('Partner',PartnerCount,PartnerTotal);
-      }
-
-    });
-
-  }
-
-  private setAfiiateNumeral(minDate,lastDate) {
-
-    let AffiliateTotal = 0;
-    let AffiliateCount = 0;
-    let itemsProcessed = 0;
-
-    PartnersList.forEach((partner, index, array) => {
-      
-      let reg_date = partner.FechaContrato == null?null:new Date(partner.FechaContrato);
-      if (reg_date != null) reg_date.setMinutes((reg_date.getMinutes() + reg_date.getTimezoneOffset()))
-     
-      if (partner.Level == "1") AffiliateTotal ++;
-   
-      if (minDate == null || reg_date == null || (reg_date >= minDate &&  reg_date <= lastDate )) {
-        if (partner.Level == "1") AffiliateCount ++;
-      }
-
-      itemsProcessed++;
-      if(itemsProcessed === array.length) {
-        this.setNumeral('Affiliates',AffiliateCount,AffiliateTotal);
-      }
-
-    });
-
-  }
-
-  private setProspecNumeral(minDate,lastDate) {
-
-    let ProspectTotal = 0;
-    let ProspectCount = 0;
-    let itemsProcessed = 0;
-
-    ProspectList.forEach((propect, index, array) => {
-        
-      let reg_date = propect.FECNIVEL == null ? null:new Date (propect.FECNIVEL);
-      if (reg_date != null) reg_date.setMinutes((reg_date.getMinutes() + reg_date.getTimezoneOffset()));
-  
-      ProspectTotal++;
-      if (minDate == null || reg_date == null || (reg_date >= minDate &&  reg_date <= lastDate )) ProspectCount++;
-    
-      itemsProcessed++;
-      if(itemsProcessed === array.length) {
-        this.setNumeral('Prospect',ProspectCount,ProspectTotal);
-      }
-    });
-  
-  }
-
-  private setGuestNumeral(minDate,lastDate) {
-
-    let GuestTotal = 0;
-    let GuestCount = 0;
-    let itemsProcessed = 0;
-
-    GuestList.forEach((guest, index, array) => {
-        
-      let reg_date = guest.fecha == null ? null:new Date (guest.fecha);
-      if (reg_date != null) reg_date.setMinutes((reg_date.getMinutes() + reg_date.getTimezoneOffset()));
-  
-      GuestTotal++;
-      if (minDate == null || reg_date == null || (reg_date >= minDate &&  reg_date <= lastDate )) GuestCount++;
-    
-      itemsProcessed++;
-      if(itemsProcessed === array.length) {
-        this.setNumeral('Guest',GuestCount,GuestTotal);
-      }
-    });
-  
-  }
 
   private setNumeral(parameter,counter,total) {
 
     let porcent = Math.round((counter/total)*100);
     this.CommunityNumeral[parameter]['counter'] = counter < 9 ? "0"+counter.toString(): counter.toString();
     this.CommunityNumeral[parameter]['porcent'] = porcent < 9 ? "0"+porcent.toString(): porcent.toString();
+  }
+
+
+  public getTypePartnerLabel(partner) {
+
+   return (partner['EsAsignado'] == 1)? this.PatnerType[3]["label"]:
+                      (partner['Promueve'] == 1)?  this.PatnerType[2]["label"]:
+                      (partner['Level'] == 1)?  this.PatnerType[1]["label"]:
+                      this.PatnerType[5]["label"];
+  
+  } 
+
+
+  public getStrDate(partner) {
+    let reg_date = new Date (partner['date']);
+    let reg_date_format = partner['date'] != null? formatDate(reg_date.setMinutes((reg_date.getMinutes() + reg_date.getTimezoneOffset())),'yyyy-MM-dd','en'):"";
+    return reg_date_format;
   }
 
 
@@ -371,15 +400,17 @@ export class OrganizationComponent implements OnInit {
 
   private setNetWork() {
 
-    let path_image = "../../assets/img/comunidad/network/";
-    let nodes = [];
-    let edges = [];
+    //let path_image = "../../assets/img/comunidad/network/";
+    //let nodes = [];
+    //let edges = [];
 
-    console.log("PartnersList");
-    console.log(PartnersList);
+   // console.log("PartnersList");
+   // console.log(PartnersList);
 
     // define image
-    console.log("Image");
+    
+    /*
+         console.log("Image");
     for (let partner of PartnersList) {
 
       let image="";
@@ -426,7 +457,15 @@ export class OrganizationComponent implements OnInit {
                   );
 
       }
-    };
+    }; 
+    
+    */
+
+ 
+   this.organizationService.getNetwork(this.id_cliente).subscribe((result) => {
+
+    let nodes = result["data"][0]["nodes"];
+    let edges = result["data"][1]["edges"];
 
     var container = document.getElementById("mynetwork");
 
@@ -465,6 +504,12 @@ export class OrganizationComponent implements OnInit {
                   };
 
     var network = new Network(container, dataview, options);
+
+  });
+
+
+
+   
 
   }
 
@@ -512,24 +557,26 @@ export class OrganizationComponent implements OnInit {
   
     let option = event.target.value;
 
-    let ActualDate = this.getjustdate(new Date()); // get actual date without HH:mm:ss
-    let MinDate = new Date();
-       
+   // let ActualDate = this.getjustdate(new Date()); // get actual date without HH:mm:ss
+  //  let MinDate = new Date();
+    let MinDate='';  
+  
+    this.DateList[1]['value']
+
     switch(option) {
-      case "lastmonth":
+      case this.DateList[1]['value']:
         MinDate = this.GetMonthPrevious(new Date()); // get lastmonth date without HH:mm:ss
+        this.getNumerals(this.id_cliente,MinDate);
         break;
-      case "lastyear":
+      case this.DateList[2]['value']:
         MinDate = this.GetYearPrevious(new Date())  // get lastyear date without HH:mm:ss
+        this.getNumerals(this.id_cliente,MinDate);
         break;
       default:    
-        MinDate = null;  
+        //MinDate = 'NULL';  
+        this.getNumerals(this.id_cliente);
     }
- 
-    this.setAfiiateNumeral(MinDate,ActualDate);
-    this.setPartnerNumeral(MinDate,ActualDate);
-    this.setProspecNumeral(MinDate,ActualDate);
-    this.setGuestNumeral(MinDate,ActualDate);
+
   }
 
   public PatnerSelectChangeHandler (parameter) {
@@ -540,46 +587,56 @@ export class OrganizationComponent implements OnInit {
     else {
      
       for (var key in FilterPatner) {
-        FilterPatner[key] = false;
+        if (key != "order") FilterPatner[key] = 0;
       }
 
     }
 
     console.log(FilterPatner);
   
-    this.getPatnerListView(FilterPatner);
+    this.GetPartnerDetail(this.id_cliente
+                          ,(FilterPatner["direct"] == true)?1:0
+                          ,(FilterPatner["promotes"] == true)?1:0
+                          ,(FilterPatner["assigned"] == true)?1:0
+                          ,(FilterPatner["investment"] == true)?1:0
+                          ,FilterPatner["order"]);
+
   }
 
-  public SortedDateSelectChangeHandler(parameter) { 
+  public SortedDateSelectChangeHandler(pOrder) { 
    
-    this.PartnerListView.sort(function(prev, actual) {
+    FilterPatner["order"]=pOrder;
 
-      let date_prev = !prev.date ? null: new Date (prev.date);
-      let date_actual =  !actual.date ? null: new Date (actual.date);
+    this.GetPartnerDetail(this.id_cliente
+                          ,(FilterPatner["direct"] == true)?1:0
+                          ,(FilterPatner["promotes"] == true)?1:0
+                          ,(FilterPatner["assigned"] == true)?1:0
+                          ,(FilterPatner["investment"] == true)?1:0
+                         ,FilterPatner["order"]);
 
-      if (date_prev != null) date_prev.setMinutes((date_prev.getMinutes() + date_prev.getTimezoneOffset()));
-      if (date_actual != null) date_actual.setMinutes((date_actual.getMinutes() + date_actual.getTimezoneOffset()));
+  }
 
-      if (parameter == "asc") {
-     //   return (date_prev < date_actual)?-1:
-     //          (date_prev > date_actual)? 1:
-     //          (prev.id < actual.id)?-1:1;
 
-        return (prev.id < actual.id)?-1:1;
-      }
+  private changeLangHandler = () => {
 
-      if (parameter == "desc") {
-   //     return (date_prev > date_actual)?-1:
-   //            (date_prev < date_actual)? 1:
-   //            (prev.id > actual.id)?-1:1;
+    this.DateList.forEach( item => {
 
-        return (prev.id > actual.id)?-1:1;
-      }
-
-      return 0;
+      this.translateservice.translateCore.get(item.tag).subscribe((res: string) => {
+        
+          item.label = res;
+      });
 
     });
 
+
+    this.PatnerType.forEach( item => {
+
+      this.translateservice.translateCore.get(item.tag).subscribe((res: string) => {
+        
+          item.label = res;
+      });
+
+    });
 
   }
 
