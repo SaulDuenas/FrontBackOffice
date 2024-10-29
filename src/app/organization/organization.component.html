@@ -1,0 +1,512 @@
+<div class="main-content">
+ 
+    <div class="container-fluid">
+      <!-- Encabezado de seccion -->
+      <div class="panel padding-panel-large mt-3" style="padding-top: 28px; padding-bottom: 16px;"> 
+        <div class="container-fluid">
+    
+          <div class="row">
+                
+            <ul style="list-style: none; padding-left: 0px;">
+              <li>
+                <p class="title-panel" style=" font-size: 30px; margin-bottom: 0px;">
+                  
+                  <img src="../../assets/img/comunidad/users.svg" width="40px" height="40px" alt="users" style ="fill: #11458E; padding-right: 12px; padding-bottom: 8px;">
+                  Mi Comunidad
+                </p>
+              </li>
+    
+              <li>
+                <p
+                style="
+                font-family: Lato;
+                  font-style: normal;
+                  font-weight: normal;
+                  font-size: 25px;
+                  line-height: 30px;
+                  letter-spacing: -0.015em;
+                  padding-left:46px;
+                  color: #4D4646;
+                  margin-bottom: 0px;
+                "
+              >
+              Verifica tus datos y consérvalos actualizados.</p
+              >
+              </li>
+            </ul>
+                
+            
+          </div>
+    
+        </div>  
+      </div>
+      <!-- Numeralia -->
+      <div class="panel padding-panel-large mt-3" style="padding-top:21px; padding-bottom: 21px;"> 
+        <div class="container-fluid">
+          <!-- Filtro -->
+          <div class = "row">
+            <div class ="col-12">
+                
+              <div *ngIf ="true" class="d-flex justify-content-end mb-2">
+
+                <select class="select-css" (change)="PeriodSelectChangeHandler($event)">
+                   <option *ngFor="let date of DateList" value="{{date.value}}">{{date.label}}</option>
+                </select>  
+
+              </div>
+            
+            </div> 
+    
+          </div>
+    
+          <div class = "row">
+              <!-- Prospectos -->
+              <div class ="col-12 col-md-6 col-xl-3" style="padding-left: 10px; padding-right: 10px;">
+                
+                <div class = "panel-gray padding-panel-mini">
+                  
+                    <p class="title-panel" style=" font-size: 25px;">
+    
+                      Prospectos
+                    </p>
+                    <div style="display: flex;" >
+                      <div  style="width: 100%; text-align: left;">
+                        <span class="number-panel" >
+                          {{ CommunityNumeral['Prospect']['counter'] }}     
+                        </span>
+                      </div>
+                      <!-- <div class="float-right" style="padding-top: 8px;">
+                        <span class="porcent-green" > {{ CommunityNumeral['Prospect']['porcent'] }}%</span> 
+                      </div> -->
+                    </div>
+    
+                </div>
+                  
+              </div >
+              <!-- Invitados -->
+              <div class ="col-12 col-md-6 col-xl-3" style="padding-left: 10px; padding-right: 10px;">
+                
+                <div class = "panel-gray  padding-panel-mini">
+                  <p class="title-panel" style=" font-size: 25px;">
+    
+                    Invitados
+                  </p>
+    
+                  <div style="display: flex;" >
+                    <div  style="width: 100%; text-align: left;">
+                      <span class="number-panel" >
+                        {{ CommunityNumeral['Guest']['counter'] }} 
+                      </span>
+                    </div>
+                    <div class="float-right" style="padding-top: 8px;">
+                      <span class="porcent-green" > {{ CommunityNumeral['Guest']['porcent'] }}%</span> 
+                    </div>
+                  </div>
+    
+                </div>
+                  
+              </div>
+              <!-- Afiliados directos -->
+              <div class ="col-12 col-md-6 col-xl-3" style="padding-left: 10px; padding-right: 10px;">
+    
+                <div class = "panel-gray  padding-panel-mini">
+                    <p class="title-panel" style=" font-size: 25px;">
+    
+                      Afiliados Directos
+                    </p>
+    
+                  <div style="display: flex;" >
+                    <div  style="width: 100%; text-align: left;">
+                      <span class="number-panel" >
+                       <!-- {{AffiliatesNumView}}  -->      
+                        {{ CommunityNumeral['Affiliates']['counter'] }}
+                      </span>
+                    </div>
+                    <div class="float-right" style="padding-top: 8px;">
+                      <span class="porcent-green" >  {{ CommunityNumeral['Affiliates']['porcent'] }}%</span> 
+                    </div>
+                  </div>
+    
+                </div>
+                  
+              </div>
+              <!-- Socios -->
+              <div class ="col-12 col-md-6 col-xl-3" style="padding-left: 10px; padding-right: 10px;">
+    
+                <div class = "panel-gray  padding-panel-mini">
+                    <p class="title-panel" style=" font-size: 25px;">
+                      Socios
+                    </p>
+    
+                  <div style="display: flex;" >
+                    <div  style="width: 100%; text-align: left;">
+                      <span class="number-panel" >
+                        {{ CommunityNumeral['Partner']['counter'] }}  
+                      </span>
+                    </div>
+                    <div class="float-right" style="padding-top: 8px;">
+                     <!-- <span class="porcent-green" > {{PartnePorcentView}}% </span>   -->  
+                     <span class="porcent-green" > {{ CommunityNumeral['Partner']['porcent'] }}% </span> 
+                    </div>
+                  </div>
+    
+                </div>
+                  
+              </div>
+    
+          </div>
+              
+        </div>
+      </div>
+    
+      <div class="panel padding-panel-large mt-3" style="padding-top: 28px; padding-bottom: 16px;"> 
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Buscar -->
+            <div class="col-12 col-xl-5">
+              <p class="title-panel" style=" font-size: 30px; margin-bottom: 0px;">
+                Mi Comunidad
+              </p>
+    
+    
+              <div *ngIf="false" class="input-group box text-for-controls" style="margin-top:25px;  width: 100%;">
+                <input placeholder="Buscar socio" type="text" class="form-control text-for-controls" style="padding-left: 10px; background-image: none;">
+              
+                  <button class="btn-icon-blue"  type="button"> 
+                        <span class="icon" ><i class="fa fa-search" style="font-size: 20px;" ></i></span>
+                  </button>
+              </div>
+    
+            </div>
+            <!-- Indicadores -->
+            <div class="col-12 col-xl-7">
+              <div class="row" style="display: flex; margin-top: 15px; margin-bottom: 15px;">
+                <!-- Icono afiliado directo -->
+                <div class="col-12 col-md-4 text-for-label pb-2">
+                  <img src="../../assets/img/comunidad/afiliado_directo.png" alt="afiliado directo" >
+                  <span style="margin: 0px 5px;">Afiliado directo</span> 
+                  
+                  <img src="../../assets/img/comunidad/info.png"
+                      matTooltip="Son las personas que tú afiliaste directamente."
+                      matTooltipClass="msgDesc">
+                  
+                </div>
+                <!-- Icono asignado -->
+                <div  class="col-12 col-md-4 text-for-label pb-2">
+                  <img src="../../assets/img/comunidad/asignado.png" alt="asignado" >
+                  <span style="margin: 0px 5px;">Asignado</span>  
+                  
+                  <img src="../../assets/img/comunidad/info.png" 
+                      matTooltip="Son los socios que te asignan en el sistema por la regla 5-1." 
+                      matTooltipClass="msgDesc">
+                
+                </div>
+                <!-- Icono me promueve -->
+                <div  class="col-12 col-md-4 text-for-label pb-2">
+                  <img src="../../assets/img/comunidad/me_promueve.png" alt="Me promueve" >
+                  <span style="margin: 0px 5px;">Me promueve</span>
+                
+                    <img src="../../assets/img/comunidad/info.png" 
+                        matTooltip="Son las personas que afiliaron otros socios de tu comunidad y que te generan bonos por asignación y por multiplicación."  
+                        matTooltipClass="msgDesc">
+                  
+                </div>
+                <!-- Icono ejecutivo master -->
+                <div  class="col-12 col-md-4 text-for-label pb-2">
+                  <img src="../../assets/img/comunidad/ejecutivo_master.png"  >
+                  <span style="margin: 0px 5px;">Ejecutivo Master</span>
+                  
+                    <img src="../../assets/img/comunidad/info.png" 
+                          matTooltip="Son los socios que obtuvieron esta calificación al crecer su comunidad en las primeras 18 semanas." 
+                          matTooltipClass="msgDesc">
+                
+                </div>
+                <!-- Icono con inversion -->
+                <div  class="col-12 col-md-4 text-for-label pb-2">
+                  <img src="../../assets/img/comunidad/con_inversion.png" alt="Con inversión" >
+                  <span style="margin: 0px 5px;">Con inversión</span>
+                
+                    <img src="../../assets/img/comunidad/info.png" 
+                    matTooltip="Son los socios que tienen uno o más Planes Adicionales." 
+                    matTooltipClass="msgDesc">
+              
+                </div>                        
+    
+              </div>
+            </div>
+    
+          </div>
+    
+          <div class="row">
+            <div class="card-body" style="padding-top: 0px;">
+              <div id="mynetwork"></div>
+            </div>
+            </div>
+        
+          </div>
+
+      </div>
+      <!-- Detalle de socios -->
+      <div class="panel padding-panel-large mt-3" style="padding-top: 28px; padding-bottom: 16px;"> 
+      <div class="container-fluid">
+        <!-- Buscar -->
+        <div class="row pb-2 mb-2">
+
+          <div class="col-12 col-md-6">
+            <h4 class="title-panel" style=" font-size: 30px;">
+              Detalle Socios
+            </h4>         
+          </div>
+
+          <div class="col-12 col-md-6 mt-2 mt-md-0">
+            <div class="input-group box text-for-controls" style="width: 100%;">
+              <input type="text" class="form-control text-for-controls pl-2" style="background-image: none;" 
+                     placeholder="Buscar socio" [(ngModel)]="searchText" autocomplete="off" name="search">
+            
+                <button class="btn-icon-blue"  type="button"> 
+                      <span class="icon" ><i class="fa fa-search" style="font-size: 20px;" ></i></span>
+                </button>
+            </div>
+    
+    
+          </div>
+          
+        </div>
+    
+        <div class="row"> 
+          <div class="table-responsive" >
+            <table   class="table table-striped table-sm table-borderless">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombres(s)</th>
+                  <th>Apellido(s)</th>
+                  <th>Correo Electrónico</th>
+                  <th>Teléfono</th>
+                  <th>
+                    <div class="dropdown show">
+                      <a class="dropdown-toggle" style="color: #5F5F5F;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Fecha de registro
+                      </a>
+                    
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-top: 15px;">
+                      <li routerLinkActive="active">
+                        <a class="dropdown-item" style="padding-top: 1px;
+                                                        padding-bottom: 1px;
+                                                        padding-right: 1px;"
+                                                 (click)="SortedDateSelectChangeHandler('asc')">Ascendiente</a>
+                        <a class="dropdown-item" style="padding-top: 1px;
+                                                        padding-bottom: 1px;
+                                                        padding-right: 1px;"
+                                                  (click)="SortedDateSelectChangeHandler('desc')">Descendiente</a>
+                      
+                      </li>
+                        
+                      </div>
+                    </div>
+    
+                  </th>
+                  
+                  <th>
+                    <div class="dropdown show">
+                      <a class="dropdown-toggle" style="color: #5F5F5F;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tipo de socio
+                      </a>
+                    
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-top: 36px; display: inline-table;">
+                      <li routerLinkActive="active">
+                        <a class="dropdown-item" style="padding-top: 1px;
+                                                        padding-bottom: 1px;
+                                                        padding-right: 1px;"
+                                                        (click)="PatnerSelectChangeHandler('all')">{{PatnerType['all']}}</a>
+                        <a class="dropdown-item" style="padding-top: 1px;
+                                                        padding-bottom: 1px;
+                                                        padding-right: 1px;"
+                                                        (click)="PatnerSelectChangeHandler('direct')">{{PatnerType['direct']}}</a>
+                        <a class="dropdown-item" style="padding-top: 1px;
+                                                        padding-bottom: 1px;
+                                                        padding-right: 1px;"
+                                                        (click)="PatnerSelectChangeHandler('promotes')">{{PatnerType['promotes']}}</a>
+    
+                        <a class="dropdown-item" style="padding-top: 1px;
+                                                        padding-bottom: 1px;
+                                                        padding-right: 1px;"
+                                                        (click)="PatnerSelectChangeHandler('assigned')">{{PatnerType['assigned']}}</a>
+                        
+                        <hr style="width:90%; margin: 5px 10px; text-align:center;background-color: #0093D6;">
+    
+                        <a class="dropdown-item" style="padding-top: 1px;
+                                                        padding-bottom: 1px;
+                                                        padding-right: 1px;"
+                                                        (click)="PatnerSelectChangeHandler('investment')">{{PatnerType['investment']}}</a>
+                      
+                      </li>
+                        
+                      </div>
+                    </div>
+    
+                  </th>
+                </tr>
+              </thead>
+    
+              <tbody>
+
+                <tr *ngFor="let parther of PartnerListView | filter:searchText">
+                  <td>{{ parther.id }}</td>
+                  <td>{{ parther.name }}</td>
+                  <td>{{ parther.lastname }}</td>
+                  <td>{{ parther.email }}</td>
+                  <td>{{ parther.phone }}</td>
+                  <td>{{ parther.date }}</td>
+                  <td>{{ parther.partnertype }}</td>
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+        </div>
+    
+      </div>
+      </div> 
+    
+      <div class="panel padding-panel-large mt-3" style="padding-top: 28px; padding-bottom: 16px;"> 
+      <div class="container-fluid">
+    
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-md-12">
+          
+            <h4 class="title-panel" style=" font-size: 30px; margin-bottom: 0px; width: auto;">
+              Prospectos
+              
+                <img src="../../assets/img/comunidad/info_a.png"
+                matTooltip="Son tus invitados que ya se registraron pero aún no han realizado el pago de sus Membresía Smart."  
+                matTooltipClass="msgDesc" >
+            
+            </h4>
+            
+          </div>
+        </div>
+    
+        <div class="row"> 
+          <div class="table-responsive" >
+            <table   class="table table-striped table-sm table-borderless">
+              <thead>
+                <tr>
+                  <th>Nombres(s)</th>
+                  <th>Apellido(s)</th>
+                  <th>Correo Electrónico</th>
+                  <th>Teléfono</th>
+                  <th>Fecha de registro</th>
+                  <th></th>
+                </tr>
+              </thead>
+    
+              <tbody>
+    
+                <tr *ngFor="let prospect of PropectLisView">
+                  <td>{{ prospect.name }}</td>
+                  <td>{{ prospect.lastname }}</td>
+                  <td>{{ prospect.email }}</td>
+                  <td> {{prospect.phone }}</td>
+                  <td>{{ prospect.date }}</td>
+                  <td class="">
+                    <a style="font-size: 25px; 
+                      color: #5F5F5F; 
+                      font-size: 22px;
+                      margin: 0px 14px;" href="javascript:void(0)" (click)="email()"
+                      matTooltip="Enviar recordatorio"  
+                      matTooltipClass="msgDesc"
+                    ><i class="fa fa-envelope"></i></a>
+    
+<!--                     <a style="font-size: 25px; 
+                              color: #5F5F5F; 
+                              font-size: 22px;
+                              margin: 0px 14px;" href="javascript:void(0)" (click)="elimina()"
+                      class="ml-2"
+                      matTooltip="Eliminar contacto"  
+                      matTooltipClass="msgDesc"
+                      ><i class="fa fa-trash-o"></i></a> -->
+                </td>
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+        </div>
+    
+      </div>
+      </div> 
+    
+      <div class="panel padding-panel-large mt-3" style="padding-top: 28px; padding-bottom: 16px;"> 
+      <div class="container-fluid">
+    
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-md-12">
+          
+            <h4 class="title-panel" style=" font-size: 30px; margin-bottom: 0px; width: auto;">
+              Invitados
+              
+                <img src="../../assets/img/comunidad/info_a.png"
+                    matTooltip="Son quienes has invitado a tu comunidad pero todavía no se han registrado con tu link de afiliado."
+                    matTooltipClass="msgDesc"
+                >
+            
+            </h4>
+            
+          </div>
+        </div>
+    
+        <div class="row"> 
+          <div class="table-responsive" >
+            <table class="table table-striped table-sm table-borderless table-fixed">
+              <thead>
+                <tr>
+                  <th>Nombres(s)</th>
+                  <th>Correo Electrónico</th>
+                  <th>Teléfono</th>
+                  <th>Fecha de registro</th>
+                  <th></th>
+                </tr>
+              </thead>
+    
+              <tbody>
+
+                <tr *ngFor="let guest of GuestListView">
+                  <td>{{ guest.name }}</td>
+                  <td>{{ guest.email }}</td>
+                  <td class=""></td>
+                  <td>{{ guest.date }}</td>
+                  <td class="">
+                    <a style="font-size: 25px; 
+                      color: #5F5F5F; 
+                      font-size: 22px;
+                      margin: 0px 14px;" href="javascript:void(0)" (click)="email(guest.id)"
+                      matTooltip="Enviar recordatorio"  
+                      matTooltipClass="msgDesc"
+                    ><i class="fa fa-envelope"></i></a>
+    
+<!--                     <a style="font-size: 25px; 
+                              color: #5F5F5F; 
+                              font-size: 22px;
+                              margin: 0px 14px;" href="javascript:void(0)" (click)="elimina(guest.id)"
+                      class="ml-2"
+                      matTooltip="Eliminar contacto"  
+                      matTooltipClass="msgDesc"
+                      ><i class="fa fa-trash-o"></i></a> -->
+                </td>
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+        </div>
+    
+      </div>
+      </div> 
+   
+    </div>
+
+ </div>
+ <app-loader></app-loader>
+
+

@@ -1,0 +1,82 @@
+@media screen and (min-width: 601px) {
+  .estilo-x {
+    font-size: 32px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .estilo-x {
+    font-size: 15px;
+  }
+}
+.card-profile-nav {
+  background-color: transparent;
+  width: auto;
+  margin-right: 1vw;
+  position: absolute;
+  border-radius: 50%;
+  .card-avatar {
+    box-shadow: 2px 2px 5px #999;
+    margin: 0px auto 0;
+
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .card-avatar {
+    max-width: 50px;
+    max-height: 50x;
+  }
+}
+
+.card-profile {
+  margin-top: 30px;
+  text-align: center;
+
+  .card-avatar {
+    margin: -50px auto 0;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+
+    @include shadow-big();
+
+    & + .card-body {
+      margin-top: 15px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .card-body + .card-footer {
+    margin-top: -15px;
+  }
+
+  .card-footer {
+    .btn.btn-just-icon {
+      font-size: 20px;
+      padding: 12px 12px;
+      line-height: 1em;
+    }
+  }
+
+  &.card-plain {
+    .card-avatar {
+      margin-top: 0;
+    }
+  }
+
+  .card-header:not([class*="card-header-"]) {
+    background: transparent;
+  }
+  .card-avatar {
+    max-width: 130px;
+    max-height: 130px;
+  }
+}

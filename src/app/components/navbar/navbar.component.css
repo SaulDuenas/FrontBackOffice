@@ -1,0 +1,85 @@
+body {
+  font-size: 25px;
+}
+.btn-success {
+  background: #5fc868;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 30px;
+  /* or 167% */
+  line-height: 10px;
+  /* or 167% */
+  text-align: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+}
+
+.card-text {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  /* or 150% */
+  margin-left: 15px;
+  text-align: center;
+  letter-spacing: -0.015em;
+
+  color: #11458e;
+}
+
+.card-id {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  /* or 150% */
+
+  text-align: center;
+  letter-spacing: -0.015em;
+
+  color: red;
+}
+
+.user-card {
+  width: 345px;
+  height: 263px;
+
+  background: #ffffff;
+  mix-blend-mode: normal;
+  box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.close-sesion {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.9em;
+  line-height: 30px;
+  /* or 200% */
+
+  text-align: center;
+  letter-spacing: -0.015em;
+  cursor: pointer;
+  color: #5f5f5f;
+}
+
+.text-nivel {
+  /* EM PLATINUM */
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 30px;
+  /* or 120% */
+  letter-spacing: -0.015em;
+  line-height: 20px;
+  color: #11458e;
+}
